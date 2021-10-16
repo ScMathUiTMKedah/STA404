@@ -2,7 +2,7 @@ name: "STA404"
 title: "STA 404"
 description: |
   Statistics for Business & Social Sciences.
-output_dir: "_site"
+output_dir: "docs"
 navbar:
   right:
     - text: "Home"

@@ -1,0 +1,117 @@
+---
+title: "Project Guidelines"
+description: |
+  COURSE: STATISTICS FOR BUSINESS AND SOCIAL SCIENCES  
+  COURSE CODE: STA404  
+  TASK:	GROUP PROJECT  
+  DURATION:	WEEK 8 – WEEK 12  
+  MARKS: 50 MARKS (10%)  
+
+author: 
+  - name: "Kamarul Ariffin Mansor"
+    url: https://my.linkedin.com/in/kamarul-ariffin-mansor-254b9ba7/
+    affiliation: Universiti Teknologi MARA
+    affiliation_url: https://kedah.uitm.edu.my/v2/index.php
+date: 10-13-2021
+output: 
+  distill::distill_article:
+    self_contained: true
+    toc: true
+    toc_float: true
+    toc_level: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# OBJECTIVES PROJECT  
+
+The main objective of this project is to expose the students to the application of statistics techniques towards on the actual data (secondary/primary data). Besides that, to overview the students to the Final Year Project report nature.  
+ 
+# OUTCOMES PROJECT  
+
+At the end of the project, students should be able:  
+1. Describe the actual data.  
+2. Explain and analyze the appropriate statistical techniques in analyzing the actual data.  
+3. Produce a good class project report. 
+
+# SUGGESTED GUIDELINES FOR PROJECT  
+
+## INDIVIDUAL/GROUP  
+
+-	Students are required to perform a group with 3 – 5 members. (The number of members per group depending on the number of students in the class and the number of class)
+
+## SOURCE OF DATA  
+
+- Students are allowed to use secondary and primary data (final year students are encourage to use their own data). There is no restricted on the number of sample size.  
+
+- You can easily gain secondary data from google or any trusted website such as Statistics Department, Malaysian Institute of Road Safety Research and etc.  
+
+- **NOTE:** students are forbidden to imitate the data from textbooks (A. G. Bluman, Elementary Statistics: A Step by Step Approach, 9th ed., McGraw Hill Higher Education, 2014, ISBN: 9781259251665).  
+
+## COVER PAGE:  
+
+- Cover page should be included UiTM logo, report title, name, student number and group.  
+
+## STANDARD TABLE OF CONTENT  
+
+> Cover Page  
+> Acknowledgement  
+> Executive Summary / Abstract  
+> Table of Contents  
+> List of Tables  
+> List of Figures  
+> List of Abbreviations  
+>
+> 1.0 Introduction  
+  >    1.1 Background of Study (not more than 1 page)  
+  >    1.2	Objectives of Study  
+>
+> 2.0	Methodology  
+  >    2.1	Description of Data  
+  >    2.2	Method of Analysis  
+>
+> 3.0 Findings  
+  >    3.1 Descriptive Analysis  
+  >    3.2 Inferential Analysis  
+>
+> 4.0 Conclusion  
+> 
+> References  
+> Appendix  
+
+### CONTENT OF PROJECT  
+
+1.0	INTRODUCTION  
+
+1.1	Background of Study (not more than 1 page)  
+
+- Background of study should include a review of the area being study/research, current information surrounding the issue, previous studies on the issue (if any), and relevant history on the issue.  
+
+1.2	Objectives of Study  
+
+-	You are required to determine at least TWO OBJECTIVES on the statistical methods. You may use example as attach in this subtopic.  
+
+-	Example:  
+The objectives of study are included:  
+a) To describe the demographic profile of the respondents (descriptive)  
+b) To determine whether there are differences on average number of siblings between gender (1st statistical method).  
+c) To gauge the association between the duration of marriage (year) and the level of education (2nd statistical method)  
+
+2.0	METHODOLOGY  
+
+2.1	Description of Data  
+
+-	This section, expecting the students to write the related population, sample, sampling techniques and data collection method that involved in your study. Describe as well as the variable, type of variable and scale of measurement for the respective variable namely mention in your study (highly recommended to present this information in constructive table).  
+
+2.2	Method of Analysis  
+
+-	This section related to the objective of the study that you have stated in 1.2. For instance, if the objective of the study is “to describe the demographic profile of the respondents”, you may use descriptive statistics including bar graph, pie chart or any graphical presentation that appropriate towards on the demographic variable involve in your study.  
+
+-	To fulfill the first objective that involve the application of statistical method, which is “to determine whether there are differences on average number of siblings between gender” the most appropriate method will be Independent t-test. On the other hands, if the objective of the study is “to gauge the association between the duration of marriage (year) and the level of education” you may use Chi-Square Test of Independence (inferential statistics) because involving correlation between categorical variable.  
+
+-	In conclusion, if you have three objectives of study, you should have three statistical methods encompass of descriptive and inferential statistics.  
+
+
+

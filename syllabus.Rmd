@@ -1,0 +1,34 @@
+---
+title: "Syllabus"
+description: |
+  Some additional details about the website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Course Information  
+```{r}
+library(slickR)
+slickR::slickR(
+    list.files("./images/syllabus/",full.names = TRUE,pattern = 'png'),
+    height = 700,
+    width = '95%')
+```
+
+<aside>
+[Download - Course Information](./files/Syllabus.pdf)
+</aside>
+
+## OBE Documents  
+```{r}
+slickR::slickR(
+    list.files("./images/obe/",full.names = TRUE,pattern = 'png'),
+    height = 500,
+    width = '95%')
+```
+
+<aside>
+[Download - OBE Documents](./files/OBE Document.pdf)
+</aside>

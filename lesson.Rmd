@@ -50,7 +50,7 @@ slickR::slickR(
 ```  
 
 <aside>
-[Download - Scheme of Work](./files/slides/Unit 1 Introduction to Statistics.pdf)
+[Download - Unit 1 Introduction to Statistics](./files/slides/Unit 1 Introduction to Statistics.pdf)
 </aside>
 
 ***  
@@ -73,7 +73,7 @@ slickR::slickR(
 ```  
 
 <aside>
-[Download - Scheme of Work](./files/slides/Unit 3 - Estimations - Confidence Interval Estimation.pdf)
+[Download - Unit 3 - Estimations - Confidence Interval Estimation](./files/slides/Unit 3 - Estimations - Confidence Interval Estimation.pdf)
 </aside>
 
 ***  
@@ -88,7 +88,7 @@ slickR::slickR(
 ```
 
 <aside>
-[Download - Scheme of Work](./files/slides/Unit 3 - Estimations - Sampling Distributions.pdf)
+[Download - Unit 3 - Estimations - Sampling Distributions](./files/slides/Unit 3 - Estimations - Sampling Distributions.pdf)
 </aside>
 
 ***  
@@ -105,7 +105,7 @@ slickR::slickR(
 ```
 
 <aside>
-[Download - Scheme of Work](./files/slides/Chapter 4 HYPOTHESIS TESTING 2.pdf)
+[Download - Chapter 4 HYPOTHESIS TESTING 2](./files/slides/Chapter 4 HYPOTHESIS TESTING 2.pdf)
 </aside>
 
 ***  
@@ -120,7 +120,7 @@ slickR::slickR(
 ```  
 
 <aside>
-[Download - Scheme of Work](./files/slides/Chapter 4 HYPOTHESIS TESTING 3.pdf)
+[Download - Chapter 4 HYPOTHESIS TESTING 3](./files/slides/Chapter 4 HYPOTHESIS TESTING 3.pdf)
 </aside>
 
 ***
@@ -135,7 +135,7 @@ slickR::slickR(
 ```
 
 <aside>
-[Download - Scheme of Work](./files/slides/Chapter 4 ANOVA.pdf)
+[Download - Chapter 4 ANOVA](./files/slides/Chapter 4 ANOVA.pdf)
 </aside>
 
 ***  

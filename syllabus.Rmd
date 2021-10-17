@@ -6,11 +6,12 @@ description: |
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(slickR)
 ```
 
 ## Course Information  
+
 ```{r}
-library(slickR)
 slickR::slickR(
     list.files("./images/syllabus/",full.names = TRUE,pattern = 'png'),
     height = 700,
@@ -22,6 +23,7 @@ slickR::slickR(
 </aside>
 
 ## OBE Documents  
+
 ```{r}
 slickR::slickR(
     list.files("./images/obe/",full.names = TRUE,pattern = 'png'),
@@ -31,4 +33,17 @@ slickR::slickR(
 
 <aside>
 [Download - OBE Documents](./files/OBE Document.pdf)
+</aside>
+
+## Statistical Tables  
+
+```{r}
+slickR::slickR(
+    list.files("./images/stat-table/",full.names = TRUE,pattern = 'jpg'),
+    height = 700,
+    width = '95%')
+```
+
+<aside>
+[Download - Statistical Tables](./files/Full Table STA404.pdf)
 </aside>

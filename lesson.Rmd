@@ -23,7 +23,18 @@ library(slickR)
 
 ## Weekly Scheme of Work  
 
-Under constructions  
+### Session 20214  
+
+```{r}
+slickR::slickR(
+    list.files("./images/sow/",full.names = TRUE,pattern = 'jpg'),
+    height = 700,
+    width = '95%')
+```  
+
+<aside>
+[Download - Scheme of Work](./files/Scheme of Work STA404_TP_Oct 2021-Jan 2022_Terkini.pdf)
+</aside>
 
 ***  
 
@@ -37,6 +48,10 @@ slickR::slickR(
     height = 400,
     width = '95%')
 ```  
+
+<aside>
+[Download - Scheme of Work](./files/slides/Unit 1 Introduction to Statistics.pdf)
+</aside>
 
 ***  
 
@@ -57,6 +72,10 @@ slickR::slickR(
     width = '95%')
 ```  
 
+<aside>
+[Download - Scheme of Work](./files/slides/Unit 3 - Estimations - Confidence Interval Estimation.pdf)
+</aside>
+
 ***  
 
 #### Sampling Distributions  
@@ -67,6 +86,10 @@ slickR::slickR(
     height = 400,
     width = '95%')
 ```
+
+<aside>
+[Download - Scheme of Work](./files/slides/Unit 3 - Estimations - Sampling Distributions.pdf)
+</aside>
 
 ***  
 
@@ -81,6 +104,10 @@ slickR::slickR(
     width = '95%')
 ```
 
+<aside>
+[Download - Scheme of Work](./files/slides/Chapter 4 HYPOTHESIS TESTING 2.pdf)
+</aside>
+
 ***  
 
 #### Difference Between Two Means (Paired Sample)  
@@ -92,15 +119,29 @@ slickR::slickR(
     width = '95%')
 ```  
 
-***  
+<aside>
+[Download - Scheme of Work](./files/slides/Chapter 4 HYPOTHESIS TESTING 3.pdf)
+</aside>
 
-### Chapter 5  
+***
 
 #### One-Way Analysis of Variance (ANOVA)  
 
 ```{r}
 slickR::slickR(
-    list.files("./files/slides/Chapter 5 ANOVA/",full.names = TRUE,pattern = 'jpg'),
+    list.files("./files/slides/Chapter 4 ANOVA/",full.names = TRUE,pattern = 'jpg'),
     height = 400,
     width = '95%')
 ```
+
+<aside>
+[Download - Scheme of Work](./files/slides/Chapter 4 ANOVA.pdf)
+</aside>
+
+***  
+
+### Chapter 5  
+
+Under constructions  
+
+***

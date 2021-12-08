@@ -95,6 +95,21 @@ slickR::slickR(
 
 ### Chapter 4 - Hypothesis Testing  
 
+#### One Sample Test  
+
+```{r}
+slickR::slickR(
+    list.files("./files/slides/Chapter 4 Hypothesis Testing 1/",full.names = TRUE,pattern = 'jpg'),
+    height = 400,
+    width = '95%')
+```
+
+<aside>
+[Download - Chapter 4 HYPOTHESIS TESTING 1](./files/slides/Unit 4 - Hypothesis Testing 1.pdf)
+</aside>
+
+***  
+
 #### Difference Between Two Means  
 
 ```{r}

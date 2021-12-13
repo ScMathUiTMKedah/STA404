@@ -104,6 +104,10 @@ slickR::slickR(
     width = '95%')
 ```
 
+<center>
+![](files/slides/Table1.jpg)
+</center>
+
 <aside>
 [Download - Chapter 4 HYPOTHESIS TESTING 1](./files/slides/Unit 4 - Hypothesis Testing 1.pdf)
 </aside>
@@ -119,6 +123,10 @@ slickR::slickR(
     width = '95%')
 ```
 
+<center>
+![](files/slides/Table2.jpg)
+</center>
+
 <aside>
 [Download - Chapter 4 HYPOTHESIS TESTING 2](./files/slides/Chapter 4 HYPOTHESIS TESTING 2.pdf)
 </aside>
@@ -133,6 +141,10 @@ slickR::slickR(
     height = 400,
     width = '95%')
 ```  
+
+<center>
+![](files/slides/Table3.jpg)
+</center>
 
 <aside>
 [Download - Chapter 4 HYPOTHESIS TESTING 3](./files/slides/Chapter 4 HYPOTHESIS TESTING 3.pdf)

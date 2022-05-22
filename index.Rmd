@@ -1,8 +1,20 @@
 ---
-title: "STA 404"
-description: |
-  Welcome to the Statistics for Business & Social Sciences course website. You can find all informations related to the course on this site. I wish all of you good luck & all the best going through this course. I hope you enjoy it!
 site: distill::distill_website
+image: "images/AllanGBluman.jpg"
+links:
+  - label: '<i class="fab fa-twitter"></i> Twitter'
+    url: "https://twitter.com/kamarul6907"
+  - label: '<i class="fab fa-github"></i> GitHub'
+    url: "https://github.com/ariff118"
+  - label: '<i class="fab fa-linkedin"></i> LinkedIn'
+    url: "https://www.linkedin.com/in/kamarul-ariffin-mansor-254b9ba7/"
+  - label: '<i class="fas fa-envelope"></i> Email'
+    url: "mailto:ariff118@uitm.edu.my"
+twitter:
+  creator: "@kamarul6907"
+  site: "@kamarul6907"
+output:
+  postcards::jolla
 ---
 
 ```{r setup, include=FALSE}
@@ -13,6 +25,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-<center>
-![](images/AllanGBluman.jpg)
-</center>
+<!-- <center>![](images/AllanGBluman.jpg){width="50%"}</center> -->
+
+Hi! [👋]{.wave} Welcome to the Statistics for Business & Social Sciences course website. You can find all information related to the course on this site. I wish all of you good luck & all the best going through this course. I hope you enjoy it!

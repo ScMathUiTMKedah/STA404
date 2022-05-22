@@ -1,18 +1,5 @@
 ---
 title: "Project Guidelines"
-description: |
-  COURSE: STATISTICS FOR BUSINESS AND SOCIAL SCIENCES  
-  COURSE CODE: STA404  
-  TASK:	GROUP PROJECT  
-  DURATION:	WEEK 8 – WEEK 12  
-  MARKS: 50 MARKS (10%)  
-
-author: 
-  - name: "Kamarul Ariffin Mansor"
-    url: https://my.linkedin.com/in/kamarul-ariffin-mansor-254b9ba7/
-    affiliation: Universiti Teknologi MARA
-    affiliation_url: https://kedah.uitm.edu.my/v2/index.php
-date: 10-13-2021
 output: 
   distill::distill_article:
     self_contained: true
@@ -26,18 +13,37 @@ knitr::opts_chunk$set(echo = FALSE)
 library(slickR)
 ```
 
-## Guidelines 
+COURSE: Statistics for Business and Social Sciences  
+COURSE CODE: STA404  
+TASK: Group Project  
+DURATION: Week 8 -- Week 12  
+MARKS: 50 Marks (10%)  
+
+## Guidelines
 
 ```{r}
 slickR::slickR(
     list.files("./images/project/guideline-students/",full.names = TRUE,pattern = 'jpg'),
     height = 700,
     width = '95%')
-```  
+```
 
 <aside>
-[Download - Project Guideline](./files/Guidelines Project STA404_Students_ Copy.pdf)
+
+[Download - Project Guideline](./files/Guidelines%20Project%20STA404_Students_%20Copy.pdf)
+
 </aside>
 
-***  
+------------------------------------------------------------------------
+
+## Project Topic
+[Topic 1 – Adoption of Smartwatches](./files/Project/Topic 1 – Adoption of Smartwatches.rar)  
+[Topic 2 – Fitness Tracking Bands Adoption](./files/Project/Topic 2 – Fitness Tracking Bands Adoption.rar)  
+[Topic 3 – Continuous Use of Facebook](./files/Project/Topic 3 – Continuous Use of Facebook.rar)  
+[Topic 4 – Usage of Food Delivery Apps](./files/Project/Topic 4 – Usage of Food Delivery Apps.rar)  
+[Topic 5 – Wearable Devices Adoption](./files/Project/Topic 5 – Wearable Devices Adoption.rar)  
+[Topic 6 – Green Product Purchase](./files/Project/Topic 6 – Green Product Purchase.rar)  
+
+## Written Project Template  
+- Will made available soon for download.  
 

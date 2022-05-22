@@ -1,12 +1,12 @@
 ---
 title: "Downloads"
-description: |
-  Some additional details about the materials for this course that you can download and view them offline.
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+> Some additional details about the materials for this course that you can download and view them offline.
 
 ## Assessment 1 (Quiz)
 

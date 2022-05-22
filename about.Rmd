@@ -1,7 +1,5 @@
 ---
 title: "About this site"
-description: |
-  Some additional details about the website
 author: 
   - name: "Kamarul Ariffin Mansor"
     url: https://my.linkedin.com/in/kamarul-ariffin-mansor-254b9ba7/

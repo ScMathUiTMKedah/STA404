@@ -1,7 +1,5 @@
 ---
 title: "Syllabus"
-description: |
-  Some additional details about the website
 ---
 
 ```{r setup, include=FALSE}
@@ -18,9 +16,7 @@ slickR::slickR(
     width = '95%')
 ```
 
-<aside>
-[Download - Course Information](./files/Syllabus.pdf)
-</aside>
+---
 
 ## OBE Documents  
 
@@ -31,9 +27,7 @@ slickR::slickR(
     width = '95%')
 ```
 
-<aside>
-[Download - OBE Documents](./files/OBE Document.pdf)
-</aside>
+---
 
 ## Statistical Tables  
 

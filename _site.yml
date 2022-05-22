@@ -4,6 +4,7 @@ description: |
   Statistics for Business & Social Sciences.
 output_dir: "docs"
 navbar:
+  search: true
   right:
     - text: "Home"
       href: index.html
@@ -17,4 +18,7 @@ navbar:
       href: project.html
     - text: "Downloads"
       href: downloads.html
-output: distill::distill_article
+output: 
+  distill::distill_article:
+    theme: tidymodels.css
+    code_folding: false

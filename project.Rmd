@@ -44,6 +44,15 @@ slickR::slickR(
 [Topic 5 – Wearable Devices Adoption](./files/Project/Topic 5 – Wearable Devices Adoption.rar)  
 [Topic 6 – Green Product Purchase](./files/Project/Topic 6 – Green Product Purchase.rar)  
 
+<details><summary>**Sample Project Proposal & Practice Data Analysis**</summary>
+<center>
+<embed src="files/Project/SAMPLE PROJECT PROPOSAL.pdf" type="application/pdf" width="100%" height="1000px" />
+</center>
+</details>
+If you can't view the pdf file, click on the file's link - [Download PDF!](files/Project/SAMPLE PROJECT PROPOSAL.pdf)  
+
+[Download Practice Sample Data](files/Project/DATA.xls)  
+
 ## Written Project Template  
 - Will made available soon for download.  
 

@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 > Some additional details about the materials for this course that you can download and view them offline.
 
-## Assessment 1 (Quiz)
+## Assessment 1 (Quiz)  
 
 <details><summary>**20214 (Oct 2021 - Feb 2022)**</summary>
 <center>
@@ -43,7 +43,14 @@ If you can't view the pdf file, click on the file's link - <a href="files/Assess
 </center>
 </details>
 
-## Assessment 2 (Test)
+## Assessment 2 (Test)  
+
+<details><summary>**Sample**</summary>
+<center>
+<embed src="files/Assessment Repository/Sample Assessment 2.pdf" type="application/pdf" width="100%" height="1000px" />
+</center>
+</details>
+If you can't view the pdf file, click on the file's link - [Download PDF!](files/Assessment Repository/Sample Assessment 2.pdf)  
 
 **20204 (Oct 2020 - Feb 2021)** [Assessment 2](files/Assessment%20Repository/20204%20(OCT%202020%20-%20FEB%202021)/ASSESSMENT%202%20(TEST)/QUESTIONS.pdf) [Answers](files/Assessment%20Repository/20204%20(OCT%202020%20-%20FEB%202021)/ASSESSMENT%202%20(TEST)/ANSWERS.pdf)
 

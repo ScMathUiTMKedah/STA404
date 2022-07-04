@@ -47,10 +47,10 @@ If you can't view the pdf file, click on the file's link - <a href="files/Assess
 
 <details><summary>**Sample**</summary>
 <center>
-<embed src="files/Assessment Repository/Sample Assessment 2.pdf" type="application/pdf" width="100%" height="1000px" />
+<embed src="files/Assessment Repository/Sample Assessment 2 (Test).pdf" type="application/pdf" width="100%" height="1000px" />
 </center>
 </details>
-If you can't view the pdf file, click on the file's link - [Download PDF!](files/Assessment Repository/Sample Assessment 2.pdf)  
+If you can't view the pdf file, click on the file's link - [Download PDF!](files/Assessment Repository/Sample Assessment 2 (Test).pdf)  
 
 **20204 (Oct 2020 - Feb 2021)** [Assessment 2](files/Assessment%20Repository/20204%20(OCT%202020%20-%20FEB%202021)/ASSESSMENT%202%20(TEST)/QUESTIONS.pdf) [Answers](files/Assessment%20Repository/20204%20(OCT%202020%20-%20FEB%202021)/ASSESSMENT%202%20(TEST)/ANSWERS.pdf)
 

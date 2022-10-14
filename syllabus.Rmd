@@ -1,5 +1,11 @@
 ---
 title: "Syllabus"
+output: 
+  distill::distill_article:
+    self_contained: true
+    toc: true
+    toc_float: true
+    toc_level: 4
 ---
 
 ```{r setup, include=FALSE}
@@ -7,25 +13,113 @@ knitr::opts_chunk$set(echo = FALSE)
 library(slickR)
 ```
 
-## Course Information  
+## Course Information\
 
-```{r}
-slickR::slickR(
-    list.files("./images/syllabus/",full.names = TRUE,pattern = 'png'),
-    height = 700,
-    width = '95%')
-```
+At the end of the course, students should be able to:\
 
----
+1. Describe the concepts on given problems related to statistics for business and social sciences. (C2)\
+2. Determine appropriate method to solve given problems related to statistics for business and social sciences. (C5)\
+3. Demonstrate interpersonal skills in a group work related to statistics for business and social sciences. (A3)\
 
-## OBE Documents  
+## Course Description\
 
-```{r}
-slickR::slickR(
-    list.files("./images/obe/",full.names = TRUE,pattern = 'png'),
-    height = 500,
-    width = '95%')
-```
+This course introduces the students to the basic and intermediate methods of data analysis. It emphasis on the use of descriptive and inferential statistics including numerical descriptive, estimation, hypothesis testing, analysis of variance, chi-square test of independence and regression. Students will be exposed to analysis using statistical software, and interpretation of output.\
+
+## Syllabus Content\
+
+1. Introduction to Statistics\
+  - What is Statistics\
+  - Descriptive and Inferential Statistics\
+  - Variable, Types of Variable, Types of Data, and Level of Measurement\
+  - Data Collection Methods\
+  - Sampling Techniques (simple random sampling, stratified, systematic, cluster, convenience, quota, judgmental, and snowball)\
+  
+2. Descriptive Statistics\
+  - Organizing data (bar chart, pie chart, stem and leaf, box whisker plot, frequency distribution table and histogram)\
+  - Numerical Descriptive Measures (ungrouped data)\
+  - Measures of Central Tendency\
+  - Measures of Variation (range, standard deviation, variance, coefficient of variation)\
+  - Measure of Skewness\
+  - Measures of Position\
+  
+3. Estimation\
+  - Sampling Distribution of the Mean\
+  - Interval Estimation for a Mean\
+  - Interval Estimation for the Difference Between Two Means (Independent Samples)\
+  - Interval Estimation for the Dependent Samples\
+
+4. Hypothesis Testing\
+  - Concept of Hypothesis Testing\
+  - Test of Mean Difference:\
+    - Testing for a Mean\
+    - Testing the Difference Between Two Means (Independent Samples)\
+    - Testing the Difference Between Two Means (Dependent Sample)\
+    - Testing for the Difference Among More Than Two Means (One-Way Analysis of Variance)\
+  - Test for Independence\
+
+5. Bivariate Analysis\
+  - Correlation (Scatter Diagram and Linear Correlation Coefficient)\
+  - Simple Linear Regression\
+  - Estimating Linear Regression using Least Square Method\
+  - Coefficient of Determination\
+  
+## Assessment\
+
+### Continuous Assessment: 60.00%\
+
+Group Project - 20% out of 50 on Week 12. Passing Mark(s): 25\
+Topic 1-4\
+CLO: 3\
+
+Quiz - 10% out of 30 on Week 6. Passing Mark(s): 15\
+Topic 1-3\
+CLO: 1\
+
+Test - 30% out of 50 on Week 13. Passing Mark(s): 25\
+Topic 4-5\
+CLO: 2\
+
+### Final Assessment: 40.00%\
+
+Final Examination - 40% out of 60 on End of Semester. Passing Mark(s): 30\
+Final Exam\
+CLO: 2\
+Duration : 120 minutes\
+
+## Recommended Text\
+
+1. Allan G.Bluman, *Elementary Statistics: A Step by Step Approach*, 10th ed., McGraw-Hill Education, 2018, ISBN:
+9781259922015
+
+## References\
+
+1. Kieth A. Carlson & Jennifer R. Winquist, *An Introduction to Statistics: An Active Learning Approach, 2nd ed.*, SAGE Publications Inc., 2017, ISBN: 978148337873\
+
+2. Evan M. Berman & XiaoHu Wang, *Exercising Essential Statistics, 4th ed.*, SAGE Publications Inc., 2017, ISBN: 978-150634895\
+
+3. Neil Weiss, *Introductory Statistics, 10th ed.*, Pearson Education Inc., 2017, ISBN: 9780321989178\
+
+4. Ronald E.Walpole, Raymond H.Myers, Sharon L.Myers & Keying Ye, *Probability and Statistics for Engineers and Scientist, 9th ed.*, Pearson Education Inc., 2017, ISBN: 978933251908\
+
+5. John Murdoch & John Anthony Barnes, *Statistical Tables for Students of Science, Engineering, Psychology, Business, Management, Finance, 4th ed.*, Macmillan Education, 1998, ISBN: 9780333558591\
+
+<!-- ```{r} -->
+<!-- slickR::slickR( -->
+<!--     list.files("./images/syllabus/",full.names = TRUE,pattern = 'png'), -->
+<!--     height = 700, -->
+<!--     width = '95%') -->
+<!-- ``` -->
+
+<!-- --- -->
+
+<!-- ## OBE Documents   -->
+
+<!-- ```{r} -->
+<!-- slickR::slickR( -->
+<!--     list.files("./images/obe/",full.names = TRUE,pattern = 'png'), -->
+<!--     height = 500, -->
+<!--     width = '95%') -->
+<!-- ``` -->
 
 ---
 

@@ -10,3 +10,4 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+<center>![](images/AllanGBluman.jpg)</center>

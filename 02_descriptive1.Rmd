@@ -8,6 +8,29 @@ output:
     toc_level: 4
 ---
 
+<style>
+html {
+  scroll-behavior: smooth;
+}
+d-article {
+    contain: none;
+  }
+#TOC {
+  position: fixed;
+  z-index: 50;
+  background: #ebebeb;     /* or   background: white; */
+  padding: 10px;           /* optional */
+  border-radius: 5px;      /* optional */
+  }
+
+/* Hide the ToC when resized to mobile or tablet:  480px, 768px, 900px */
+@media screen and (max-width: 900px) {
+#TOC {
+    position: relative;
+  }
+}
+</style>
+
 # Descriptive Statistics
 
 ```{r include=FALSE}
@@ -321,7 +344,7 @@ This will create a pie chart with three sectors, labeled with the corresponding 
 chart5
 ```
 
-### Multiple Pie Chart Example
+### Multiple Pie Chart\
 
 Pie charts can also be used to compare multiple sets of data. For example, let's consider a survey in which people were asked about their preferred mode of transportation to work. The responses were collected for two different cities. The results are as follows:\
 
@@ -338,7 +361,6 @@ cityB <- c(40, 25, 20, 10, 5)
 modes <- c("Drove", "Walked", "Public Transit", "Cycled", "Other")
 
 # Create the pie charts for each city
-par(mfrow=c(1,2))
 chart6 <- pie(cityA, labels = modes, col = rainbow(length(cityA)), 
               main = "City A")
 chart7 <- pie(cityB, labels = modes, col = rainbow(length(cityB)), 
@@ -349,11 +371,11 @@ This will create a multiple pie chart with two pie charts side by side, represen
 
 ```{r echo=FALSE}
 par(mfrow=c(1,2))
-chart6
-chart7
+pie(cityA, labels = modes, col = rainbow(length(cityA)), main = "City A")
+pie(cityB, labels = modes, col = rainbow(length(cityB)), main = "City B")
 ```
 
-### Manually Construct a Pie Chart Example
+### How to create a Pie Chart?
 
 Let's consider the following example of a frequency distribution:\
 

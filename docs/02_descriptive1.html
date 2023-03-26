@@ -2236,8 +2236,9 @@ LECTURE NOTES
 <li><a href="#pie-chart" id="toc-pie-chart">Pie Chart</a>
 <ul>
 <li><a href="#single-pie-chart" id="toc-single-pie-chart">Single Pie Chart</a></li>
-<li><a href="#multiple-pie-chart-example" id="toc-multiple-pie-chart-example">Multiple Pie Chart Example</a></li>
-<li><a href="#manually-construct-a-pie-chart-example" id="toc-manually-construct-a-pie-chart-example">Manually Construct a Pie Chart Example</a></li>
+<li><a href="#multiple-pie-chart" id="toc-multiple-pie-chart">Multiple Pie Chart<br />
+</a></li>
+<li><a href="#how-to-create-a-pie-chart" id="toc-how-to-create-a-pie-chart">How to create a Pie Chart?</a></li>
 </ul></li>
 <li><a href="#stem-and-leaf" id="toc-stem-and-leaf">Stem and Leaf</a></li>
 <li><a href="#box-and-whiskers-plot" id="toc-box-and-whiskers-plot">Box-and-Whiskers Plot</a></li>
@@ -2247,6 +2248,28 @@ LECTURE NOTES
 </ul>
 </nav>
 </div>
+<style>
+html {
+  scroll-behavior: smooth;
+}
+d-article {
+    contain: none;
+  }
+#TOC {
+  position: fixed;
+  z-index: 50;
+  background: #ebebeb;     /* or   background: white; */
+  padding: 10px;           /* optional */
+  border-radius: 5px;      /* optional */
+  }
+
+/* Hide the ToC when resized to mobile or tablet:  480px, 768px, 900px */
+@media screen and (max-width: 900px) {
+#TOC {
+    position: relative;
+  }
+}
+</style>
 <h1 id="descriptive-statistics">Descriptive Statistics</h1>
 <p>A subset of statistics called descriptive statistics is concerned with gathering, analyzing, and presenting data in a concise or descriptive way. Its major objective is to outline or summarize a dataset key characteristics, including central tendency, variability, and form.<br />
 </p>
@@ -2506,7 +2529,8 @@ Click on “OK” to create the chart.<br />
 <div class="layout-chunk" data-layout="l-body">
 <pre><code>NULL</code></pre>
 </div>
-<h3 id="multiple-pie-chart-example">Multiple Pie Chart Example</h3>
+<h3 id="multiple-pie-chart">Multiple Pie Chart<br />
+</h3>
 <p>Pie charts can also be used to compare multiple sets of data. For example, let’s consider a survey in which people were asked about their preferred mode of transportation to work. The responses were collected for two different cities. The results are as follows:<br />
 </p>
 <p>City A: 50% drove, 20% walked, 15% took public transportation, 10% cycled, and 5% used other modes of transportation.<br />
@@ -2523,21 +2547,22 @@ We can create a pie chart to visually compare the responses from both cities as 
 <span><span class='va'>modes</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Drove"</span>, <span class='st'>"Walked"</span>, <span class='st'>"Public Transit"</span>, <span class='st'>"Cycled"</span>, <span class='st'>"Other"</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='co'># Create the pie charts for each city</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfrow<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span></span>
 <span><span class='va'>chart6</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span><span class='op'>(</span><span class='va'>cityA</span>, labels <span class='op'>=</span> <span class='va'>modes</span>, col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>cityA</span><span class='op'>)</span><span class='op'>)</span>, </span>
-<span>              main <span class='op'>=</span> <span class='st'>"City A"</span><span class='op'>)</span></span>
-<span><span class='va'>chart7</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span><span class='op'>(</span><span class='va'>cityB</span>, labels <span class='op'>=</span> <span class='va'>modes</span>, col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>cityB</span><span class='op'>)</span><span class='op'>)</span>, </span>
+<span>              main <span class='op'>=</span> <span class='st'>"City A"</span><span class='op'>)</span></span></code></pre>
+</div>
+<img src="02_descriptive1_files/figure-html5/unnamed-chunk-14-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>chart7</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span><span class='op'>(</span><span class='va'>cityB</span>, labels <span class='op'>=</span> <span class='va'>modes</span>, col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>cityB</span><span class='op'>)</span><span class='op'>)</span>, </span>
 <span>              main <span class='op'>=</span> <span class='st'>"City B"</span><span class='op'>)</span></span></code></pre>
 </div>
-<p><img src="02_descriptive1_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+<p><img src="02_descriptive1_files/figure-html5/unnamed-chunk-14-2.png" width="624" /></p>
 </div>
 <p>This will create a multiple pie chart with two pie charts side by side, representing the responses from each city. The sectors are labeled with the corresponding mode of transportation and are colored using the <code>rainbow()</code> function to differentiate them.<br />
 </p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>NULL</code></pre>
-<pre><code>NULL</code></pre>
+<p><img src="02_descriptive1_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
-<h3 id="manually-construct-a-pie-chart-example">Manually Construct a Pie Chart Example</h3>
+<h3 id="how-to-create-a-pie-chart">How to create a Pie Chart?</h3>
 <p>Let’s consider the following example of a frequency distribution:<br />
 </p>
 <table>
@@ -2789,7 +2814,7 @@ Write the stems in a vertical column:<br />
 <!-- All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter. -->
 <!-- ### An unnumbered section {-} -->
 <!-- Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section. -->
-<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

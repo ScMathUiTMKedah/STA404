@@ -8,6 +8,29 @@ output:
     toc_level: 4
 ---
 
+<style>
+html {
+  scroll-behavior: smooth;
+}
+d-article {
+    contain: none;
+  }
+#TOC {
+  position: fixed;
+  z-index: 50;
+  background: #ebebeb;     /* or   background: white; */
+  padding: 10px;           /* optional */
+  border-radius: 5px;      /* optional */
+  }
+
+/* Hide the ToC when resized to mobile or tablet:  480px, 768px, 900px */
+@media screen and (max-width: 900px) {
+#TOC {
+    position: relative;
+  }
+}
+</style>
+
 # Introduction to Statistics  
 
 By the end of this topic, you should be able to:  
@@ -306,9 +329,9 @@ iv.	*Ratio* – consist of all the characteristics discussed above plus another 
 
 ## Sampling Techniques  
 
-### Random Sampling (Probability Sampling)  
+### Random Sampling  
 
-> Every elements in the population has equal chance to be selected as sample.  
+> Also known as **Probability Sampling** Every elements in the population has equal chance to be selected as sample.  
 
 #### a.	Simple Random Sampling (SRS)  
 
@@ -438,9 +461,9 @@ They randomly selected
 3. 25 students from each selected school.  
 
 
-### Non-random Sampling (Non-probability Sampling)  
+### Non-random Sampling  
 
-> Not all elements in the population has equal chance to be selected as sample.  
+> Also known as **Non-Probability Sampling** such that not all elements in the population has equal chance to be selected as sample.  
 
 #### a. Quota Sampling  
 

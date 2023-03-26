@@ -2236,8 +2236,8 @@ LECTURE NOTES
 <li><a href="#sampling-and-census" id="toc-sampling-and-census">Sampling and Census</a></li>
 <li><a href="#sampling-techniques" id="toc-sampling-techniques">Sampling Techniques</a>
 <ul>
-<li><a href="#random-sampling-probability-sampling" id="toc-random-sampling-probability-sampling">Random Sampling (Probability Sampling)</a></li>
-<li><a href="#non-random-sampling-non-probability-sampling" id="toc-non-random-sampling-non-probability-sampling">Non-random Sampling (Non-probability Sampling)</a></li>
+<li><a href="#random-sampling" id="toc-random-sampling">Random Sampling</a></li>
+<li><a href="#non-random-sampling" id="toc-non-random-sampling">Non-random Sampling</a></li>
 </ul></li>
 <li><a href="#data-collection-method" id="toc-data-collection-method">Data Collection Method</a>
 <ul>
@@ -2253,6 +2253,28 @@ LECTURE NOTES
 </ul>
 </nav>
 </div>
+<style>
+html {
+  scroll-behavior: smooth;
+}
+d-article {
+    contain: none;
+  }
+#TOC {
+  position: fixed;
+  z-index: 50;
+  background: #ebebeb;     /* or   background: white; */
+  padding: 10px;           /* optional */
+  border-radius: 5px;      /* optional */
+  }
+
+/* Hide the ToC when resized to mobile or tablet:  480px, 768px, 900px */
+@media screen and (max-width: 900px) {
+#TOC {
+    position: relative;
+  }
+}
+</style>
 <h1 id="introduction-to-statistics">Introduction to Statistics</h1>
 <p>By the end of this topic, you should be able to:</p>
 <div style="display:flex; ">
@@ -2686,9 +2708,9 @@ Variable – height of students</p>
 </tbody>
 </table>
 <h2 id="sampling-techniques">Sampling Techniques</h2>
-<h3 id="random-sampling-probability-sampling">Random Sampling (Probability Sampling)</h3>
+<h3 id="random-sampling">Random Sampling</h3>
 <blockquote>
-<p>Every elements in the population has equal chance to be selected as sample.</p>
+<p>Also known as <strong>Probability Sampling</strong> Every elements in the population has equal chance to be selected as sample.</p>
 </blockquote>
 <h4 id="a.-simple-random-sampling-srs">a. Simple Random Sampling (SRS)</h4>
 <blockquote>
@@ -2911,9 +2933,9 @@ They randomly selected</p>
 </li>
 <li>25 students from each selected school.</li>
 </ol>
-<h3 id="non-random-sampling-non-probability-sampling">Non-random Sampling (Non-probability Sampling)</h3>
+<h3 id="non-random-sampling">Non-random Sampling</h3>
 <blockquote>
-<p>Not all elements in the population has equal chance to be selected as sample.</p>
+<p>Also known as <strong>Non-Probability Sampling</strong> such that not all elements in the population has equal chance to be selected as sample.</p>
 </blockquote>
 <h4 id="a.-quota-sampling">a. Quota Sampling</h4>
 <blockquote>

@@ -14,6 +14,12 @@ navbar:
       href: syllabus.html
     - text: "Lesson Plan"
       href: lesson.html
+    - text: "LECTURE NOTES"
+      menu:
+        - text: "Chapter 1 - Introduction"
+          href: 01_introduction.html
+        - text: "Chapter 2 - Descriptive Statistics Part I"
+          href: 02_descriptive1.html
     - text: "Project"
       href: project.html
     - text: "Downloads"

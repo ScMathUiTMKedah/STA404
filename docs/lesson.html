@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -525,6 +526,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -766,10 +768,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     position: relative;
     margin-bottom: 2.5em;
     margin-top: 1.5em;
-  }
-
-  .figure img {
-    width: 100%;
   }
 
   .figure .caption {
@@ -1601,15 +1599,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -1621,6 +1625,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1720,6 +1749,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1742,7 +1773,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2123,7 +2154,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2158,6 +2189,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="about.html">About</a>
 <a href="syllabus.html">Syllabus</a>
 <a href="lesson.html">Lesson Plan</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+LECTURE NOTES
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="01_introduction.html">Chapter 1 - Introduction</a>
+<a href="02_descriptive1.html">Chapter 2 - Descriptive Statistics Part I</a>
+</div>
+</div>
 <a href="project.html">Project</a>
 <a href="downloads.html">Downloads</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2181,24 +2223,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#weekly-scheme-of-work">Weekly Scheme of Work</a></li>
-<li><a href="#presentations-slides">Presentations Slides</a>
+<li><a href="#weekly-scheme-of-work" id="toc-weekly-scheme-of-work">Weekly Scheme of Work</a></li>
+<li><a href="#presentations-slides" id="toc-presentations-slides">Presentations Slides</a>
 <ul>
-<li><a href="#chapter-1---introduction-to-statistics">Chapter 1 -
-Introduction to Statistics </a></li>
-<li><a href="#chapter-2">Chapter 2</a></li>
-<li><a href="#chapter-3---estimations">Chapter 3 - Estimations</a></li>
-<li><a href="#chapter-4---hypothesis-testing">Chapter 4 - Hypothesis
-Testing</a></li>
-<li><a href="#chapter-5">Chapter 5</a></li>
+<li><a href="#chapter-1---introduction-to-statistics" id="toc-chapter-1---introduction-to-statistics">Chapter 1 - Introduction to Statistics </a></li>
+<li><a href="#chapter-2" id="toc-chapter-2">Chapter 2</a></li>
+<li><a href="#chapter-3---estimations" id="toc-chapter-3---estimations">Chapter 3 - Estimations</a></li>
+<li><a href="#chapter-4---hypothesis-testing" id="toc-chapter-4---hypothesis-testing">Chapter 4 - Hypothesis Testing</a></li>
+<li><a href="#chapter-5" id="toc-chapter-5">Chapter 5</a></li>
 </ul></li>
 </ul>
 </nav>
 </div>
 <h2 id="weekly-scheme-of-work">Weekly Scheme of Work</h2>
 <embed src="files//Scheme of Work 20224.pdf" type="application/pdf" width="100%" height="500px" />
-<p>If you can’t view the pdf file, click on the file’s link -
-<a href="files//Scheme of Work 20224.pdf"> Download PDF!</a></p>
+<p>If you can’t view the pdf file, click on the file’s link - <a href="files//Scheme of Work 20224.pdf"> Download PDF!</a></p>
 <!-- ### Session 20214   -->
 <!-- ```{r} -->
 <!-- slickR::slickR( -->
@@ -2211,8 +2250,7 @@ Testing</a></li>
 <!-- </aside> -->
 <hr />
 <h2 id="presentations-slides">Presentations Slides</h2>
-<h3 id="chapter-1---introduction-to-statistics">Chapter 1 - Introduction
-to Statistics </h3>
+<h3 id="chapter-1---introduction-to-statistics">Chapter 1 - Introduction to Statistics </h3>
 <details>
 <summary>
 Show Slide Contents
@@ -2220,9 +2258,7 @@ Show Slide Contents
 <center>
 <embed src="files/slides/Unit 1 Introduction to Statistics.pdf" type="application/pdf" width="100%" height="500px" />
 <p>
-If you can’t view the pdf file, click on the file’s link -
-<a href="files/slides/Unit 1 Introduction to Statistics.pdf"> Download
-PDF!</a>
+If you can’t view the pdf file, click on the file’s link - <a href="files/slides/Unit 1 Introduction to Statistics.pdf"> Download PDF!</a>
 </p>
 </center>
 </details>
@@ -2240,8 +2276,7 @@ PDF!</a>
 <p>Under constructions</p>
 <hr />
 <h3 id="chapter-3---estimations">Chapter 3 - Estimations</h3>
-<h4 id="confidence-interval-estimation">Confidence Interval
-Estimation</h4>
+<h4 id="confidence-interval-estimation">Confidence Interval Estimation</h4>
 <details>
 <summary>
 Show Slide Contents
@@ -2249,9 +2284,7 @@ Show Slide Contents
 <center>
 <embed src="files/slides/Unit 3 - Estimations - Confidence Interval Estimation.pdf" type="application/pdf" width="100%" height="500px" />
 <p>
-If you can’t view the pdf file, click on the file’s link -
-<a href="files/slides/Unit 3 - Estimations - Confidence Interval Estimation.pdf">
-Download PDF!</a>
+If you can’t view the pdf file, click on the file’s link - <a href="files/slides/Unit 3 - Estimations - Confidence Interval Estimation.pdf"> Download PDF!</a>
 </p>
 </center>
 </details>
@@ -2273,9 +2306,7 @@ Show Slide Contents
 <center>
 <embed src="files/slides/Unit 3 - Estimations - Sampling Distributions.pdf" type="application/pdf" width="100%" height="500px" />
 <p>
-If you can’t view the pdf file, click on the file’s link -
-<a href="files/slides/Unit 3 - Estimations - Sampling Distributions.pdf">
-Download PDF!</a>
+If you can’t view the pdf file, click on the file’s link - <a href="files/slides/Unit 3 - Estimations - Sampling Distributions.pdf"> Download PDF!</a>
 </p>
 </center>
 </details>
@@ -2289,8 +2320,7 @@ Download PDF!</a>
 <!-- [Download - Unit 3 - Estimations - Sampling Distributions](./files/slides/Unit 3 - Estimations - Sampling Distributions.pdf) -->
 <!-- </aside> -->
 <hr />
-<h3 id="chapter-4---hypothesis-testing">Chapter 4 - Hypothesis
-Testing</h3>
+<h3 id="chapter-4---hypothesis-testing">Chapter 4 - Hypothesis Testing</h3>
 <h4 id="one-sample-test">One Sample Test</h4>
 <details>
 <summary>
@@ -2299,9 +2329,7 @@ Show Slide Contents
 <center>
 <embed src="files/slides/Unit 4 - Hypothesis Testing 1.pdf" type="application/pdf" width="100%" height="500px" />
 <p>
-If you can’t view the pdf file, click on the file’s link -
-<a href="files/slides/Unit 4 - Hypothesis Testing 1.pdf"> Download
-PDF!</a>
+If you can’t view the pdf file, click on the file’s link - <a href="files/slides/Unit 4 - Hypothesis Testing 1.pdf"> Download PDF!</a>
 </p>
 </center>
 </details>
@@ -2326,9 +2354,7 @@ Show Slide Contents
 <center>
 <embed src="files/slides/Chapter 4 HYPOTHESIS TESTING 2.pdf" type="application/pdf" width="100%" height="500px" />
 <p>
-If you can’t view the pdf file, click on the file’s link -
-<a href="files/slides/Chapter 4 HYPOTHESIS TESTING 2.pdf"> Download
-PDF!</a>
+If you can’t view the pdf file, click on the file’s link - <a href="files/slides/Chapter 4 HYPOTHESIS TESTING 2.pdf"> Download PDF!</a>
 </p>
 </center>
 </details>
@@ -2345,8 +2371,7 @@ PDF!</a>
 <!-- [Download - Chapter 4 HYPOTHESIS TESTING 2](./files/slides/Chapter 4 HYPOTHESIS TESTING 2.pdf) -->
 <!-- </aside> -->
 <hr />
-<h4 id="difference-between-two-means-paired-samples">Difference Between
-Two Means (Paired Samples)</h4>
+<h4 id="difference-between-two-means-paired-samples">Difference Between Two Means (Paired Samples)</h4>
 <details>
 <summary>
 Show Slide Contents
@@ -2354,9 +2379,7 @@ Show Slide Contents
 <center>
 <embed src="files/slides/Chapter 4 HYPOTHESIS TESTING 3.pdf" type="application/pdf" width="100%" height="500px" />
 <p>
-If you can’t view the pdf file, click on the file’s link -
-<a href="files/slides/Chapter 4 HYPOTHESIS TESTING 3.pdf"> Download
-PDF!</a>
+If you can’t view the pdf file, click on the file’s link - <a href="files/slides/Chapter 4 HYPOTHESIS TESTING 3.pdf"> Download PDF!</a>
 </p>
 </center>
 </details>
@@ -2373,8 +2396,7 @@ PDF!</a>
 <!-- [Download - Chapter 4 HYPOTHESIS TESTING 3](./files/slides/Chapter 4 HYPOTHESIS TESTING 3.pdf) -->
 <!-- </aside> -->
 <hr />
-<h4 id="one-way-analysis-of-variance-anova">One-Way Analysis of Variance
-(ANOVA)</h4>
+<h4 id="one-way-analysis-of-variance-anova">One-Way Analysis of Variance (ANOVA)</h4>
 <details>
 <summary>
 Show Slide Contents
@@ -2382,8 +2404,7 @@ Show Slide Contents
 <center>
 <embed src="files/slides/Chapter 4 ANOVA.pdf" type="application/pdf" width="100%" height="500px" />
 <p>
-If you can’t view the pdf file, click on the file’s link -
-<a href="files/slides/Chapter 4 ANOVA.pdf"> Download PDF!</a>
+If you can’t view the pdf file, click on the file’s link - <a href="files/slides/Chapter 4 ANOVA.pdf"> Download PDF!</a>
 </p>
 </center>
 </details>
@@ -2400,8 +2421,7 @@ If you can’t view the pdf file, click on the file’s link -
 <h3 id="chapter-5">Chapter 5</h3>
 <p>Under constructions</p>
 <hr />
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

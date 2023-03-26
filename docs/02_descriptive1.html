@@ -1,0 +1,2828 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { color: #00769e; background-color: #f1f3f5; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #00769e; } /* Normal */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #657422; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #00769e; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #00769e; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #00769e; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>STA 404: Descriptive Statistics Part I</title>
+
+
+
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="STA 404: Descriptive Statistics Part I"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:site_name" content="STA 404"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="STA 404: Descriptive Statistics Part I"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output"]}},"value":[{"type":"character","attributes":{},"value":["Descriptive Statistics Part I"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","toc_level"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[4]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  <!--radix_placeholder_navigation_in_header-->
+  <meta name="distill:offset" content=""/>
+
+  <script type="application/javascript">
+
+    window.headroom_prevent_pin = false;
+
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+
+      // initialize headroom for banner
+      var header = $('header').get(0);
+      var headerHeight = header.offsetHeight;
+      var headroom = new Headroom(header, {
+        tolerance: 5,
+        onPin : function() {
+          if (window.headroom_prevent_pin) {
+            window.headroom_prevent_pin = false;
+            headroom.unpin();
+          }
+        }
+      });
+      headroom.init();
+      if(window.location.hash)
+        headroom.unpin();
+      $(header).addClass('headroom--transition');
+
+      // offset scroll location for banner on hash change
+      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+      window.addEventListener("hashchange", function(event) {
+        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+      });
+
+      // responsive menu
+      $('.distill-site-header').each(function(i, val) {
+        var topnav = $(this);
+        var toggle = topnav.find('.nav-toggle');
+        toggle.on('click', function() {
+          topnav.toggleClass('responsive');
+        });
+      });
+
+      // nav dropdowns
+      $('.nav-dropbtn').click(function(e) {
+        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+        $(this).parent().siblings('.nav-dropdown')
+           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $("body").click(function(e){
+        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $(".nav-dropdown").click(function(e){
+        e.stopPropagation();
+      });
+    });
+  </script>
+
+  <style type="text/css">
+
+  /* Theme (user-documented overrideables for nav appearance) */
+
+  .distill-site-nav {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #0F2E3D;
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  .distill-site-nav a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .distill-site-nav a:hover {
+    color: white;
+  }
+
+  @media print {
+    .distill-site-nav {
+      display: none;
+    }
+  }
+
+  .distill-site-header {
+
+  }
+
+  .distill-site-footer {
+
+  }
+
+
+  /* Site Header */
+
+  .distill-site-header {
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 3;
+  }
+
+  .distill-site-header .nav-left {
+    display: inline-block;
+    margin-left: 8px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header .nav-left {
+      margin-left: 0;
+    }
+  }
+
+
+  .distill-site-header .nav-right {
+    float: right;
+    margin-right: 8px;
+  }
+
+  .distill-site-header a,
+  .distill-site-header .title {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 10px 14px 10px;
+  }
+
+  .distill-site-header .title {
+    font-size: 18px;
+    min-width: 150px;
+  }
+
+  .distill-site-header .logo {
+    padding: 0;
+  }
+
+  .distill-site-header .logo img {
+    display: none;
+    max-height: 20px;
+    width: auto;
+    margin-bottom: -4px;
+  }
+
+  .distill-site-header .nav-image img {
+    max-height: 18px;
+    width: auto;
+    display: inline-block;
+    margin-bottom: -3px;
+  }
+
+
+
+  @media screen and (min-width: 1000px) {
+    .distill-site-header .logo img {
+      display: inline-block;
+    }
+    .distill-site-header .nav-left {
+      margin-left: 20px;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 20px;
+    }
+    .distill-site-header .title {
+      padding-left: 12px;
+    }
+  }
+
+
+  .distill-site-header .nav-toggle {
+    display: none;
+  }
+
+  .nav-dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
+  .nav-dropdown .nav-dropbtn {
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 16px 10px;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    margin-top: 1px;
+    z-index: 2;
+  }
+
+  .nav-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    margin-top: 2px;
+    white-space: nowrap;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .nav-dropdown-content hr {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-dropdown-active {
+    display: block;
+  }
+
+  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+    color: black;
+    padding: 6px 24px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .nav-dropdown-content .nav-dropdown-header {
+    display: block;
+    padding: 5px 24px;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #999999;
+    white-space: nowrap;
+  }
+
+  .nav-dropdown:hover .nav-dropbtn {
+    color: white;
+  }
+
+  .nav-dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .nav-right .nav-dropdown-content {
+    margin-left: -45%;
+    right: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+    .distill-site-header a.nav-toggle {
+      float: right;
+      display: block;
+    }
+    .distill-site-header .title {
+      margin-left: 0;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 0;
+    }
+    .distill-site-header {
+      overflow: hidden;
+    }
+    .nav-right .nav-dropdown-content {
+      margin-left: 0;
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header.responsive {position: relative; min-height: 500px; }
+    .distill-site-header.responsive a.nav-toggle {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .distill-site-header.responsive a,
+    .distill-site-header.responsive .nav-dropdown {
+      display: block;
+      text-align: left;
+    }
+    .distill-site-header.responsive .nav-left,
+    .distill-site-header.responsive .nav-right {
+      width: 100%;
+    }
+    .distill-site-header.responsive .nav-dropdown {float: none;}
+    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  /* Site Footer */
+
+  .distill-site-footer {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 3;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  /* Headroom */
+
+  d-title {
+    padding-top: 6rem;
+  }
+
+  @media print {
+    d-title {
+      padding-top: 4rem;
+    }
+  }
+
+  .headroom {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .headroom--transition {
+    transition: all .4s ease-in-out;
+  }
+
+  .headroom--unpinned {
+    top: -100px;
+  }
+
+  .headroom--pinned {
+    top: 0;
+  }
+
+  /* adjust viewport for navbar height */
+  /* helps vertically center bootstrap (non-distill) content */
+  .min-vh-100 {
+    min-height: calc(100vh - 100px) !important;
+  }
+
+  </style>
+
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+    font-size: 100%;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <style type="text/css">
+  /* base variables */
+
+  /* Edit the CSS properties in this file to create a custom
+     Distill theme. Only edit values in the right column
+     for each row; values shown are the CSS defaults.
+     To return any property to the default,
+     you may set its value to: unset
+     All rows must end with a semi-colon.                      */
+
+  /* Optional: embed custom fonts here with `@import`          */
+  /* This must remain at the top of this file.                 */
+
+
+
+  html {
+    /*-- Main font sizes --*/
+    --title-size:      50px;
+    --body-size:       1.06rem;
+    --code-size:       14px;
+    --aside-size:      12px;
+    --fig-cap-size:    13px;
+    /*-- Main font colors --*/
+    --title-color:     #000000;
+    --header-color:    rgba(0, 0, 0, 0.8);
+    --body-color:      rgba(0, 0, 0, 0.8);
+    --aside-color:     rgba(0, 0, 0, 0.6);
+    --fig-cap-color:   rgba(0, 0, 0, 0.6);
+    /*-- Specify custom fonts ~~~ must be imported above   --*/
+    --heading-font:    sans-serif;
+    --mono-font:       monospace;
+    --body-font:       sans-serif;
+    --navbar-font:     sans-serif;  /* websites + blogs only */
+  }
+
+  /*-- ARTICLE METADATA --*/
+  d-byline {
+    --heading-size:    0.6rem;
+    --heading-color:   rgba(0, 0, 0, 0.5);
+    --body-size:       0.8rem;
+    --body-color:      rgba(0, 0, 0, 0.8);
+  }
+
+  /*-- ARTICLE TABLE OF CONTENTS --*/
+  .d-contents {
+    --heading-size:    18px;
+    --contents-size:   13px;
+  }
+
+  /*-- ARTICLE APPENDIX --*/
+  d-appendix {
+    --heading-size:    15px;
+    --heading-color:   rgba(0, 0, 0, 0.65);
+    --text-size:       0.8em;
+    --text-color:      rgba(0, 0, 0, 0.5);
+  }
+
+  /*-- WEBSITE HEADER + FOOTER --*/
+  /* These properties only apply to Distill sites and blogs  */
+
+  .distill-site-header {
+    --title-size:       18px;
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       #0F2E3D;
+  }
+
+  .distill-site-footer {
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       #0F2E3D;
+  }
+
+  /*-- Additional custom styles --*/
+  /* Add any additional CSS rules below                      */
+  </style>
+  <style type="text/css">/* base variables */
+    
+  /* Edit the CSS properties in this file to create a custom
+  Distill theme. Only edit values in the right column
+  for each row; values shown are the CSS defaults.
+  To return any property to the default,
+  you may set its value to: unset
+  All rows must end with a semi-colon.                      */
+    
+  /* Optional: embed custom fonts here with `@import`          */
+  /* This must remain at the top of this file.                 */
+  @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:300, 300i&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
+
+  html {
+  /*-- Main font sizes --*/
+    --title-size:      50px;
+    --body-size:       1.06rem;
+    --code-size:       14px;
+    --aside-size:      12px;
+    --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+    --title-color:     #ca225e;
+    --header-color:    #ca225e;                    /* edited */
+    --body-color:      #404040;                    /* edited */
+    --aside-color:     rgba(0, 0, 0, 0.6);
+    --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+    --heading-font:    "Noto Serif JP", sans-serif; /* edited */
+    --mono-font:       "IBM Plex Mono", monospace;  /* edited */
+    --body-font:       "Lato", sans-serif;          /* edited */
+    --navbar-font:     "Lato", sans-serif;          /* edited */
+  }
+
+  /*-- ARTICLE METADATA --*/
+  d-byline {
+    --heading-size:    0.9rem;                      /* edited */
+    --heading-color:   rgba(0, 0, 0, 0.5);
+    --body-size:       0.95rem;                     /* edited */
+    --body-color:      rgba(0, 0, 0, 0.8);
+  }
+
+  /*-- ARTICLE TABLE OF CONTENTS --*/
+  .d-contents {
+    --heading-size:    18px;
+    --contents-size:   13px;
+  }
+
+  /*-- ARTICLE APPENDIX --*/
+  d-appendix {
+    --heading-size:    15px;
+    --heading-color:   rgba(0, 0, 0, 0.65);      
+    --text-size:       0.9rem;                    /* edited */
+    --text-color:      #1a162d;                   /* edited */
+  }
+
+  /*-- WEBSITE HEADER + FOOTER --*/
+  /* These properties only apply to Distill sites and blogs  */
+    
+  .distill-site-header {
+    --title-size:       18px;
+    --text-color:       #1f1f1f;                   /* edited */
+    --text-size:        15px;
+    --hover-color:      #787878;                   /* edited */
+    --bkgd-color:       #fff;                      /* edited */
+  }
+
+  .distill-site-footer {
+    --text-color:       #7e7b88;                   /* edited */
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       #ca225e3d;                 /* edited */
+  }
+
+  /*-- Additional custom styles --*/
+    
+  ul > li::marker {
+    color: #ca225e;
+  }
+
+  .distill-site-header { 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 2px;
+    font-weight: 300;
+  }
+
+  .distill-site-header .logo img{
+    max-height: 40px; /* Makes logo bigger, default was 20px */
+  }
+
+  .distill-site-header {
+    padding-top: 1rem;
+  }
+
+  d-title h1,
+  d-article h2,
+  .posts-list .description h2,
+  .posts-list > h1 {
+    font-weight: 300;
+  }
+
+  d-appendix {
+    background-color: #fdf7f9;
+    border-top: none;
+  }</style>
+  <style type="text/css">
+  /* base style */
+
+  /* FONT FAMILIES */
+
+  :root {
+    --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  body,
+  .posts-list .post-preview p,
+  .posts-list .description p {
+    font-family: var(--body-font), var(--body-default);
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .posts-list .post-preview h2,
+  .posts-list .description h2 {
+    font-family: var(--heading-font), var(--heading-default);
+  }
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: var(--mono-font), var(--mono-default);
+  }
+
+
+  /*-- TITLE --*/
+  d-title h1,
+  .posts-list > h1 {
+    color: var(--title-color, black);
+  }
+
+  d-title h1 {
+    font-size: var(--title-size, 50px);
+  }
+
+  /*-- HEADERS --*/
+  d-article h1,
+  d-article h2,
+  d-article h3,
+  d-article h4,
+  d-article h5,
+  d-article h6 {
+    color: var(--header-color, rgba(0, 0, 0, 0.8));
+  }
+
+  /*-- BODY --*/
+  d-article > p,  /* only text inside of <p> tags */
+  d-article > ul, /* lists */
+  d-article > ol {
+    color: var(--body-color, rgba(0, 0, 0, 0.8));
+    font-size: var(--body-size, 1.06rem);
+  }
+
+
+  /*-- CODE --*/
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-size: var(--code-size, 14px);
+  }
+
+  /*-- ASIDE --*/
+  d-article aside {
+    font-size: var(--aside-size, 12px);
+    color: var(--aside-color, rgba(0, 0, 0, 0.6));
+  }
+
+  /*-- FIGURE CAPTIONS --*/
+  figure .caption,
+  figure figcaption,
+  .figure .caption {
+    font-size: var(--fig-cap-size, 13px);
+    color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
+  }
+
+  /*-- METADATA --*/
+  d-byline h3 {
+    font-size: var(--heading-size, 0.6rem);
+    color: var(--heading-color, rgba(0, 0, 0, 0.5));
+  }
+
+  d-byline {
+    font-size: var(--body-size, 0.8rem);
+    color: var(--body-color, rgba(0, 0, 0, 0.8));
+  }
+
+  d-byline a,
+  d-article d-byline a {
+    color: var(--body-color, rgba(0, 0, 0, 0.8));
+  }
+
+  /*-- TABLE OF CONTENTS --*/
+  .d-contents nav h3 {
+    font-size: var(--heading-size, 18px);
+  }
+
+  .d-contents nav a {
+    font-size: var(--contents-size, 13px);
+  }
+
+  /*-- APPENDIX --*/
+  d-appendix h3 {
+    font-size: var(--heading-size, 15px);
+    color: var(--heading-color, rgba(0, 0, 0, 0.65));
+  }
+
+  d-appendix {
+    font-size: var(--text-size, 0.8em);
+    color: var(--text-color, rgba(0, 0, 0, 0.5));
+  }
+
+  d-appendix d-footnote-list a.footnote-backlink {
+    color: var(--text-color, rgba(0, 0, 0, 0.5));
+  }
+
+  /*-- WEBSITE HEADER + FOOTER --*/
+  .distill-site-header .title {
+    font-size: var(--title-size, 18px);
+    font-family: var(--navbar-font), var(--heading-default);
+  }
+
+  .distill-site-header a,
+  .nav-dropdown .nav-dropbtn {
+    font-family: var(--navbar-font), var(--heading-default);
+  }
+
+  .nav-dropdown .nav-dropbtn {
+    color: var(--text-color, rgba(255, 255, 255, 0.8));
+    font-size: var(--text-size, 15px);
+  }
+
+  .distill-site-header a:hover,
+  .nav-dropdown:hover .nav-dropbtn {
+    color: var(--hover-color, white);
+  }
+
+  .distill-site-header {
+    font-size: var(--text-size, 15px);
+    color: var(--text-color, rgba(255, 255, 255, 0.8));
+    background-color: var(--bkgd-color, #0F2E3D);
+  }
+
+  .distill-site-footer {
+    font-size: var(--text-size, 15px);
+    color: var(--text-color, rgba(255, 255, 255, 0.8));
+    background-color: var(--bkgd-color, #0F2E3D);
+  }
+
+  .distill-site-footer a:hover {
+    color: var(--hover-color, white);
+  }</style>
+  <!--/radix_placeholder_distill-->
+  <script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Descriptive Statistics Part I","authors":[]}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a href="index.html" class="title">STA 404</a>
+</div>
+<div class="nav-right">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="syllabus.html">Syllabus</a>
+<a href="lesson.html">Lesson Plan</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+LECTURE NOTES
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="01_introduction.html">Chapter 1 - Introduction</a>
+<a href="02_descriptive1.html">Chapter 2 - Descriptive Statistics Part I</a>
+</div>
+</div>
+<a href="project.html">Project</a>
+<a href="downloads.html">Downloads</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Descriptive Statistics Part I</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+
+</div>
+
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#descriptive-statistics" id="toc-descriptive-statistics">Descriptive Statistics</a>
+<ul>
+<li><a href="#bar-charts" id="toc-bar-charts">Bar Charts</a>
+<ul>
+<li><a href="#vertical-bar-chart" id="toc-vertical-bar-chart">Vertical Bar Chart</a></li>
+<li><a href="#horizontal-bar-chart" id="toc-horizontal-bar-chart">Horizontal Bar Chart</a></li>
+<li><a href="#component-bar-chart" id="toc-component-bar-chart">Component Bar Chart</a></li>
+<li><a href="#group-bar-chart" id="toc-group-bar-chart">Group Bar Chart</a></li>
+<li><a href="#creating-bar-chart-in-spss" id="toc-creating-bar-chart-in-spss">Creating Bar Chart In SPSS</a></li>
+</ul></li>
+<li><a href="#pie-chart" id="toc-pie-chart">Pie Chart</a>
+<ul>
+<li><a href="#single-pie-chart" id="toc-single-pie-chart">Single Pie Chart</a></li>
+<li><a href="#multiple-pie-chart-example" id="toc-multiple-pie-chart-example">Multiple Pie Chart Example</a></li>
+<li><a href="#manually-construct-a-pie-chart-example" id="toc-manually-construct-a-pie-chart-example">Manually Construct a Pie Chart Example</a></li>
+</ul></li>
+<li><a href="#stem-and-leaf" id="toc-stem-and-leaf">Stem and Leaf</a></li>
+<li><a href="#box-and-whiskers-plot" id="toc-box-and-whiskers-plot">Box-and-Whiskers Plot</a></li>
+<li><a href="#references" id="toc-references">References:<br />
+</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<h1 id="descriptive-statistics">Descriptive Statistics</h1>
+<p>A subset of statistics called descriptive statistics is concerned with gathering, analyzing, and presenting data in a concise or descriptive way. Its major objective is to outline or summarize a dataset key characteristics, including central tendency, variability, and form.<br />
+</p>
+<p>In other words, by summarizing the main features of a big amount of data, descriptive statistics help us make sense of it. It enables us to spot trends, patterns, and connections between variables, as well as to explain these discoveries effectively.<br />
+</p>
+<p>Analyzing a class of students’ grades serves as a practical illustration of descriptive statistics. In order to depict the central tendency of the data and the diversity of the grades, respectively, we might compute the average grade and standard deviation. To see the range of grades and spot any outlier, we could also make a histogram or a box plot. We can learn more about how the class is doing generally and pinpoint areas where some students may be struggling or doing particularly well by using descriptive statistics.<br />
+</p>
+<h2 id="bar-charts">Bar Charts</h2>
+<p>A bar chart, also known as a bar graph, is a type of chart that displays categorical data using rectangular bars. The height or length of each bar corresponds to the value of the category being represented. Bar charts are used to compare different categories and to display changes over time.<br />
+</p>
+<p>There are several types of bar charts, including:<br />
+</p>
+<ol type="1">
+<li><p>Vertical Bar Chart: In a vertical bar chart, the categories are plotted along the x-axis, and the values are plotted along the y-axis. Each bar represents a different category, and its height corresponds to the value being represented.<br />
+</p></li>
+<li><p>Horizontal Bar Chart: In a horizontal bar chart, the categories are plotted along the y-axis, and the values are plotted along the x-axis. Each bar represents a different category, and its length corresponds to the value being represented.<br />
+</p></li>
+<li><p>Stacked Bar Chart (a.k.a. Component Bar Chart): In a stacked bar chart, the bars are divided into segments to represent different sub-categories. Each segment corresponds to a value, and the height or length of each segment represents the value being represented. Stacked bar charts are useful for comparing the relative sizes of different sub-categories within each category.<br />
+</p></li>
+<li><p>Grouped Bar Chart (a.k.a. Cluster or Multiple Bar Chart): In a grouped bar chart, the bars are grouped together to compare the values of different categories side-by-side. Each group of bars represents a different category, and the height or length of each bar within the group represents the value being represented.<br />
+</p></li>
+</ol>
+<p>Overall, bar charts are a useful tool for visualizing and comparing categorical data, and they can be customized to display different types of information depending on the needs of the user.<br />
+</p>
+<h3 id="vertical-bar-chart">Vertical Bar Chart</h3>
+<p>Here’s an example of a vertical bar chart using the “mtcars” dataset in R. This dataset contains information on various car models, including their miles per gallon (mpg) and number of cylinders.<br />
+</p>
+<p>To create a vertical bar chart of the average mpg for each number of cylinders, we can use the following code:<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Load the mtcars dataset</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Calculate the average mpg for each number of cylinders</span></span>
+<span><span class='va'>mpg_by_cyl</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/aggregate.html'>aggregate</a></span><span class='op'>(</span><span class='va'>mpg</span> <span class='op'>~</span> <span class='va'>cyl</span>, <span class='va'>mtcars</span>, <span class='va'>mean</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Create a vertical bar chart using the ggplot2 package</span></span>
+<span></span>
+<span><span class='va'>chart1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>mpg_by_cyl</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>cyl</span>, y <span class='op'>=</span> <span class='va'>mpg</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, fill <span class='op'>=</span> <span class='st'>"steelblue"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/hrbrthemes/man/theme_ipsum.html'>theme_ipsum</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    panel.grid.minor.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    legend.position<span class='op'>=</span><span class='st'>"none"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Number of Cylinders"</span>, </span>
+<span>       y <span class='op'>=</span> <span class='st'>"Average MPG"</span>, </span>
+<span>       title <span class='op'>=</span> <span class='st'>"Average MPG by Number of Cylinders"</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<p>This will produce a vertical bar chart that looks like this:<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="02_descriptive1_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+</div>
+<!-- Vertical Bar Chart -->
+<p>In this chart, each bar represents a different number of cylinders, and its height corresponds to the average mpg for that number of cylinders. The x-axis shows the number of cylinders, and the y-axis shows the average mpg. We can see from the chart that cars with fewer cylinders tend to have higher mpg, while cars with more cylinders tend to have lower mpg.<br />
+</p>
+<h3 id="horizontal-bar-chart">Horizontal Bar Chart</h3>
+<p>Sure, here’s an example of a horizontal bar chart using the “diamonds” dataset in R. This dataset contains information on various diamonds, including their carat weight, cut, and price.<br />
+</p>
+<p>To create a horizontal bar chart of the average price for each cut of diamond, we can use the following code:<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Load the diamonds dataset</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>diamonds</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Calculate the average price for each cut of diamond</span></span>
+<span><span class='va'>price_by_cut</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/aggregate.html'>aggregate</a></span><span class='op'>(</span><span class='va'>price</span> <span class='op'>~</span> <span class='va'>cut</span>, <span class='va'>diamonds</span>, <span class='va'>mean</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Create a horizontal bar chart using the ggplot2 package</span></span>
+<span></span>
+<span><span class='va'>chart2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>price_by_cut</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>price</span>, y <span class='op'>=</span> <span class='va'>cut</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, fill <span class='op'>=</span> <span class='st'>"steelblue"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/hrbrthemes/man/theme_ipsum.html'>theme_ipsum</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    panel.grid.minor.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    legend.position<span class='op'>=</span><span class='st'>"none"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Average Price"</span>, y <span class='op'>=</span> <span class='st'>"Diamond Cut"</span>, </span>
+<span>       title <span class='op'>=</span> <span class='st'>"Average Price by Diamond Cut"</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<p>This will produce a horizontal bar chart that looks like this:<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="02_descriptive1_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+</div>
+<!-- Horizontal Bar Chart -->
+<p>In this chart, each bar represents a different cut of diamond, and its length corresponds to the average price for that cut. The y-axis shows the diamond cut, and the x-axis shows the average price. We can see from the chart that the highest average prices are for diamonds with a “Fair” or “Very Good” cut, while the lowest average prices are for diamonds with a “Good” or “Ideal” cut. The <code>coord_flip()</code> function is used to flip the axes and make the chart horizontal.<br />
+</p>
+<p>Here is another example showing the quantity of weapons exported by the top 20 largest exporters in 2017.<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="02_descriptive1_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<h3 id="component-bar-chart">Component Bar Chart</h3>
+<p>Here’s an example of a component bar chart using the “mpg” dataset in R. This dataset contains information on various car models, including their miles per gallon (mpg), number of cylinders, and number of gears.<br />
+</p>
+<p>To create a component bar chart of the average mpg for each combination of cylinders and gears, we can use the following code:<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Load the mtcars dataset</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Calculate the average miles per gallon (mpg) for each number of cylinders</span></span>
+<span><span class='va'>avg_mpg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/aggregate.html'>aggregate</a></span><span class='op'>(</span><span class='va'>mpg</span> <span class='op'>~</span> <span class='va'>cyl</span>, <span class='va'>mtcars</span>, <span class='va'>mean</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Calculate the average horsepower for each number of cylinders</span></span>
+<span><span class='va'>avg_hp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/aggregate.html'>aggregate</a></span><span class='op'>(</span><span class='va'>hp</span> <span class='op'>~</span> <span class='va'>cyl</span>, <span class='va'>mtcars</span>, <span class='va'>mean</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Combine the two datasets into one using the "merge" function</span></span>
+<span><span class='va'>merged_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>avg_mpg</span>, <span class='va'>avg_hp</span>, by <span class='op'>=</span> <span class='st'>"cyl"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Melt the data into a format suitable for creating a component bar chart</span></span>
+<span><span class='va'>melted_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/reshape2/man/melt.html'>melt</a></span><span class='op'>(</span><span class='va'>merged_data</span>, id.vars <span class='op'>=</span> <span class='st'>"cyl"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Create a component bar chart using the ggplot2 package</span></span>
+<span><span class='va'>chart3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>melted_data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span>, </span>
+<span>                                  y <span class='op'>=</span> <span class='va'>value</span>, </span>
+<span>                                  fill <span class='op'>=</span> <span class='va'>variable</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, position <span class='op'>=</span> <span class='st'>"stack"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/hrbrthemes/man/theme_ipsum.html'>theme_ipsum</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    panel.grid.minor.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    legend.position<span class='op'>=</span><span class='st'>"none"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Number of Cylinders"</span>, </span>
+<span>       y <span class='op'>=</span> <span class='st'>"Average Value"</span>, </span>
+<span>       title <span class='op'>=</span> <span class='st'>"Average MPG and Horsepower"</span>,</span>
+<span>       subtitle <span class='op'>=</span> <span class='st'>"by Number of Cylinders"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"steelblue"</span>, <span class='st'>"darkred"</span><span class='op'>)</span>, </span>
+<span>                    name <span class='op'>=</span> <span class='st'>"Variable"</span>, </span>
+<span>                    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"MPG"</span>, <span class='st'>"Horsepower"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<p>This will produce a component bar chart that looks like this:<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="02_descriptive1_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+</div>
+<!-- Component Bar Chart -->
+<p>In this chart, each bar represents a different number of cylinders (4, 6, or 8), and is divided into two segments to represent the average mpg and horsepower for that number of cylinders. The x-axis shows the number of cylinders, and the y-axis shows the average value. The colors of the bars represent the variable being displayed, with blue representing mpg and red representing horsepower. We can see from the chart that, on average, cars with more cylinders tend to have lower mpg but higher horsepower than cars with fewer cylinders.<br />
+</p>
+<h3 id="group-bar-chart">Group Bar Chart</h3>
+<p>Here’s an example of a grouped bar chart using the “ToothGrowth” dataset in R. This dataset contains information on the length of tooth growth in guinea pigs under different vitamin C dosage and delivery methods.<br />
+</p>
+<p>To create a grouped bar chart of the average tooth length for each combination of dosage and delivery method, we can use the following code:<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Load the ToothGrowth dataset</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>ToothGrowth</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Calculate the average tooth length for each combination of </span></span>
+<span><span class='co'># dosage and delivery method</span></span>
+<span><span class='va'>tooth_length</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/aggregate.html'>aggregate</a></span><span class='op'>(</span><span class='va'>len</span> <span class='op'>~</span> <span class='va'>dose</span> <span class='op'>+</span> <span class='va'>supp</span>, <span class='va'>ToothGrowth</span>, <span class='va'>mean</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Create a grouped bar chart using the ggplot2 package</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span><span class='va'>chart4</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>tooth_length</span>, </span>
+<span>                 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>dose</span><span class='op'>)</span>, </span>
+<span>                     y <span class='op'>=</span> <span class='va'>len</span>, fill <span class='op'>=</span> <span class='va'>supp</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, position <span class='op'>=</span> <span class='st'>"dodge"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/hrbrthemes/man/theme_ipsum.html'>theme_ipsum</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    panel.grid.minor.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    legend.position<span class='op'>=</span><span class='st'>"none"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Vitamin C Dosage (mg)"</span>, </span>
+<span>       y <span class='op'>=</span> <span class='st'>"Average Tooth Length"</span>, </span>
+<span>       title <span class='op'>=</span> <span class='st'>"Average Tooth Length"</span>,</span>
+<span>       subtitle <span class='op'>=</span> <span class='st'>"by Vitamin C Dosage and Delivery Method"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"darkgreen"</span>, <span class='st'>"steelblue"</span><span class='op'>)</span>, </span>
+<span>                    name <span class='op'>=</span> <span class='st'>"Delivery Method"</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<p>This will produce a grouped bar chart that looks like this:<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="02_descriptive1_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+</div>
+<!-- Grouped Bar Chart -->
+<p>In this chart, there are two bars for each dosage value, one for each delivery method. The height of each bar corresponds to the average tooth length for that combination of dosage and delivery method. The x-axis shows the vitamin C dosage in milligrams, and the y-axis shows the average tooth length. The legend shows the two delivery methods and the corresponding colors used for each method. We can see from the chart that the “Orange Juice” delivery method tends to result in longer tooth growth, particularly at higher dosages.<br />
+</p>
+<h3 id="creating-bar-chart-in-spss">Creating Bar Chart In SPSS</h3>
+<p>Here is an example of how to create a vertical bar chart, a horizontal bar chart, a stack bar chart, and a multiple bar chart using SPSS software. For this example, we will use the “Employee Data.sav” sample dataset that comes with SPSS.<br />
+</p>
+<aside>
+<a href="Employee%20Data.sav">Download Employee Data.sav</a>
+</aside>
+<h4 id="vertical-bar-chart-1">Vertical Bar Chart</h4>
+<p>Open SPSS and load the “Employee Data.sav” dataset.<br />
+Select “Graphs” &gt; “Chart Builder” from the top menu.<br />
+In the “Gallery” tab, select “Vertical Bar” chart type.<br />
+Drag the “Gender” variable to the “Category Axis” field, and the “Salary” variable to the “Values” field.<br />
+Click on “OK” to create the chart.<br />
+</p>
+<h4 id="horizontal-bar-chart-1">Horizontal Bar Chart</h4>
+<p>Open SPSS and load the “Employee Data.sav” dataset.<br />
+Select “Graphs” &gt; “Chart Builder” from the top menu.<br />
+In the “Gallery” tab, select “Horizontal Bar” chart type.<br />
+Drag the “Gender” variable to the “Category Axis” field, and the “Salary” variable to the “Values” field.<br />
+Click on “OK” to create the chart.<br />
+Double Click the chart to enter edit mode.<br />
+Click on the “Horizontal” toolbar to change the vertical bar to horizontal.<br />
+</p>
+<h4 id="stacked-bar-chart">Stacked Bar Chart</h4>
+<p>Open SPSS and load the “Employee Data.sav” dataset.<br />
+Select “Graphs” &gt; “Chart Builder” from the top menu.<br />
+In the “Gallery” tab, select “Stacked Bar” chart type.<br />
+Drag the “Gender” variable to the “Category Axis” field, and the “Salary” variable to the “Values” field.<br />
+Drag the “Employment Category” variable to the “Stacked Bars” field.<br />
+Click on “OK” to create the chart.<br />
+</p>
+<h4 id="multiple-bar-chart">Multiple Bar Chart</h4>
+<p>Open SPSS and load the “Employee Data.sav” dataset.<br />
+Select “Graphs” &gt; “Chart Builder” from the top menu.<br />
+In the “Gallery” tab, select “Clustered Bar” chart type.<br />
+Drag the “Gender” variable to the “Category Axis” field, and the “Salary” variable to the “Values” field.<br />
+Drag the “Employment Category” variable to the “Clustered Bars” field.<br />
+Click on “OK” to create the chart.<br />
+</p>
+<p><strong><em>Note:</em></strong> The exact steps for creating these charts may vary slightly depending on the version of SPSS you are using, but the general procedure should be similar. Additionally, it is important to note that the specific chart types used in this example may not always be the most appropriate for the data being analyzed. It is important to consider the nature of the data and the research question being addressed when selecting a chart type.<br />
+</p>
+<h2 id="pie-chart">Pie Chart</h2>
+<p>A pie chart is a type of graph in which a circle is divided into sectors, each representing a proportion of the whole. The size of each sector is proportional to the corresponding value of the variable being measured. Pie charts are often used to display the relative frequencies or proportions of categorical data.<br />
+</p>
+<h3 id="single-pie-chart">Single Pie Chart</h3>
+<p>For example, let’s consider a survey in which people were asked about their favorite fruit. The responses were as follows: 40% of people chose apples, 30% chose bananas, and 30% chose oranges. We can create a pie chart to visually represent these proportions as follows:<br />
+</p>
+<p>Here’s the R code to create the above chart:<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Create a vector with the survey results</span></span>
+<span><span class='va'>fruits</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Apples"</span>, <span class='st'>"Bananas"</span>, <span class='st'>"Oranges"</span><span class='op'>)</span></span>
+<span><span class='va'>percentages</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>40</span>, <span class='fl'>30</span>, <span class='fl'>30</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Create the pie chart</span></span>
+<span><span class='va'>chart5</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span><span class='op'>(</span><span class='va'>percentages</span>, labels <span class='op'>=</span> <span class='va'>fruits</span>, </span>
+<span>              col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"red"</span>, <span class='st'>"yellow"</span>, <span class='st'>"orange"</span><span class='op'>)</span>, </span>
+<span>              main <span class='op'>=</span> <span class='st'>"Favorite Fruits"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="02_descriptive1_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+</div>
+<p>This will create a pie chart with three sectors, labeled with the corresponding fruit and colored in red, yellow, and orange, respectively.<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>NULL</code></pre>
+</div>
+<h3 id="multiple-pie-chart-example">Multiple Pie Chart Example</h3>
+<p>Pie charts can also be used to compare multiple sets of data. For example, let’s consider a survey in which people were asked about their preferred mode of transportation to work. The responses were collected for two different cities. The results are as follows:<br />
+</p>
+<p>City A: 50% drove, 20% walked, 15% took public transportation, 10% cycled, and 5% used other modes of transportation.<br />
+City B: 40% drove, 25% walked, 20% took public transportation, 10% cycled, and 5% used other modes of transportation.<br />
+We can create a pie chart to visually compare the responses from both cities as follows:<br />
+</p>
+<p>Here’s the R code to create the above chart:<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Create vectors with the survey results for each city</span></span>
+<span><span class='va'>cityA</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>50</span>, <span class='fl'>20</span>, <span class='fl'>15</span>, <span class='fl'>10</span>, <span class='fl'>5</span><span class='op'>)</span></span>
+<span><span class='va'>cityB</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>40</span>, <span class='fl'>25</span>, <span class='fl'>20</span>, <span class='fl'>10</span>, <span class='fl'>5</span><span class='op'>)</span></span>
+<span><span class='va'>modes</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Drove"</span>, <span class='st'>"Walked"</span>, <span class='st'>"Public Transit"</span>, <span class='st'>"Cycled"</span>, <span class='st'>"Other"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Create the pie charts for each city</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfrow<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>chart6</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span><span class='op'>(</span><span class='va'>cityA</span>, labels <span class='op'>=</span> <span class='va'>modes</span>, col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>cityA</span><span class='op'>)</span><span class='op'>)</span>, </span>
+<span>              main <span class='op'>=</span> <span class='st'>"City A"</span><span class='op'>)</span></span>
+<span><span class='va'>chart7</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span><span class='op'>(</span><span class='va'>cityB</span>, labels <span class='op'>=</span> <span class='va'>modes</span>, col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>cityB</span><span class='op'>)</span><span class='op'>)</span>, </span>
+<span>              main <span class='op'>=</span> <span class='st'>"City B"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="02_descriptive1_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+</div>
+<p>This will create a multiple pie chart with two pie charts side by side, representing the responses from each city. The sectors are labeled with the corresponding mode of transportation and are colored using the <code>rainbow()</code> function to differentiate them.<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>NULL</code></pre>
+<pre><code>NULL</code></pre>
+</div>
+<h3 id="manually-construct-a-pie-chart-example">Manually Construct a Pie Chart Example</h3>
+<p>Let’s consider the following example of a frequency distribution:<br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Category</th>
+<th style="text-align: center;">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">30</td>
+</tr>
+</tbody>
+</table>
+<p>We can create a pie chart to visually represent the relative frequency of each category as follows:<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Create a vector with the category names and frequencies</span></span>
+<span><span class='va'>categories</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span>, <span class='st'>"D"</span>, <span class='st'>"E"</span><span class='op'>)</span></span>
+<span><span class='va'>frequencies</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>15</span>, <span class='fl'>10</span>, <span class='fl'>5</span>, <span class='fl'>20</span>, <span class='fl'>30</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Calculate the relative frequencies and angles</span></span>
+<span><span class='va'>relative_freq</span> <span class='op'>&lt;-</span> <span class='va'>frequencies</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>frequencies</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span></span>
+<span><span class='va'>angles</span> <span class='op'>&lt;-</span> <span class='va'>relative_freq</span> <span class='op'>/</span> <span class='fl'>100</span> <span class='op'>*</span> <span class='fl'>360</span></span>
+<span></span>
+<span><span class='co'># Create the pie chart</span></span>
+<span><span class='co'># This will create a pie chart with five sectors, labeled with </span></span>
+<span><span class='co'># the corresponding category and colored using the rainbow() </span></span>
+<span><span class='co'># function to differentiate them.</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/pie.html'>pie</a></span><span class='op'>(</span><span class='va'>angles</span>, labels <span class='op'>=</span> <span class='va'>categories</span>, </span>
+<span>    col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>categories</span><span class='op'>)</span><span class='op'>)</span>, </span>
+<span>    main <span class='op'>=</span> <span class='st'>"Frequency Distribution"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="02_descriptive1_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+</div>
+<p>To calculate the relative frequency and angle for each category, we can use the following formulas:<br />
+</p>
+<blockquote>
+<p><span class="math inline">\(Relative\ frequency\ =\ \frac{Frequency\ of\ category}{Total\ frequency}\ \times 100%\)</span></p>
+</blockquote>
+<span class="math display">\[\begin{align*}
+\text{Total frequency} &amp;= \sum \text{Frequency} = 80 \\
+\text{category A} &amp;= \frac{15}{80} \times 100\% = 18.75\% \\
+\text{category B} &amp;= \frac{10}{80} \times 100\% = 12.5\% \\
+\text{category C} &amp;= \frac{5}{80} \times 100\% = 6.25\% \\
+\text{category D} &amp;= \frac{20}{80} \times 100\% = 25\% \\
+\text{category E} &amp;= \frac{30}{80} \times 100\% = 37.5\% \\
+\end{align*}\]</span>
+<blockquote>
+<p><span class="math inline">\(Angle = \frac{Relative\ Frequency\%}{100} \times 360^\circ\)</span></p>
+</blockquote>
+<span class="math display">\[\begin{align*}
+\text{category A} &amp;= \frac{18.75\%}{100} \times 360^\circ = 67.5^\circ \\
+\text{category B} &amp;= \frac{12.5\%}{100} \times 360^\circ = 45^\circ \\
+\text{category C} &amp;= \frac{6.25\%}{100} \times 360^\circ = 22.5^\circ \\
+\text{category D} &amp;= \frac{25\%}{100} \times 360^\circ = 90^\circ \\
+\text{category E} &amp;= \frac{37.5\%}{100} \times 360^\circ = 135^\circ \\
+\end{align*}\]</span>
+<p>By combining all the calculation above, we have the following table:<br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Category</th>
+<th style="text-align: center;">Frequency</th>
+<th style="text-align: center;">Relative Percentage</th>
+<th style="text-align: center;">Angle (degrees)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">18.75</td>
+<td style="text-align: center;">67.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">12.5</td>
+<td style="text-align: center;">45</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">6.25</td>
+<td style="text-align: center;">22.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">90</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">37.5</td>
+<td style="text-align: center;">135</td>
+</tr>
+</tbody>
+</table>
+<p>To create the above table in R, use the following code:<br />
+</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Create the frequency table</span></span>
+<span><span class='va'>freq_table</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span></span>
+<span>  Category <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span>, <span class='st'>"D"</span>, <span class='st'>"E"</span><span class='op'>)</span>,</span>
+<span>  Frequency <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>15</span>, <span class='fl'>10</span>, <span class='fl'>5</span>, <span class='fl'>20</span>, <span class='fl'>30</span><span class='op'>)</span></span>
+<span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Calculate the relative percentage column</span></span>
+<span><span class='va'>freq_table</span><span class='op'>$</span><span class='va'>`Relative Percentage`</span> <span class='op'>&lt;-</span> </span>
+<span>  <span class='va'>freq_table</span><span class='op'>$</span><span class='va'>Frequency</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>freq_table</span><span class='op'>$</span><span class='va'>Frequency</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span></span>
+<span></span>
+<span><span class='co'># Calculate the angle column</span></span>
+<span><span class='va'>freq_table</span><span class='op'>$</span><span class='va'>`Angle (degrees)`</span> <span class='op'>&lt;-</span> </span>
+<span>  <span class='va'>freq_table</span><span class='op'>$</span><span class='va'>`Relative Percentage`</span> <span class='op'>/</span> <span class='fl'>100</span> <span class='op'>*</span> <span class='fl'>360</span></span>
+<span></span>
+<span><span class='co'># Print the updated frequency table</span></span>
+<span><span class='va'>freq_table</span></span></code></pre>
+</div>
+<pre><code>  Category Frequency Relative Percentage Angle (degrees)
+1        A        15               18.75            67.5
+2        B        10               12.50            45.0
+3        C         5                6.25            22.5
+4        D        20               25.00            90.0
+5        E        30               37.50           135.0</code></pre>
+</div>
+<h2 id="stem-and-leaf">Stem and Leaf</h2>
+<p>A stem and leaf plot is a type of data visualization that allows you to easily see the distribution of a dataset. It works by splitting each data point into a “stem” and a “leaf”, where the stem is the first digit or digits of the data point, and the leaf is the last digit.<br />
+</p>
+<p>For example, if we have the following dataset:<br />
+</p>
+<p>12, 15, 17, 21, 22, 25, 27, 32, 34, 36<br />
+</p>
+<p>We would first identify the possible “stems” of the data, which in this case are the tens digits (1, 2, and 3). Then, for each stem, we would list the corresponding “leaves” (i.e. the ones digits) in ascending order. The resulting stem and leaf plot would look like this:<br />
+</p>
+<p>1 | 2 5 7<br />
+2 | 1 2 5 7<br />
+3 | 2 4 6<br />
+</p>
+<p>Here, the stems are the numbers on the left-hand side of the vertical bar (1, 2, and 3), and the leaves are the numbers on the right-hand side of the vertical bar. The stem and leaf plot allows us to quickly see the distribution of the data: for example, we can see that there are more data points in the 20s than in the 10s or 30s.<br />
+</p>
+<p>To manually construct a stem and leaf plot, follow these steps:<br />
+</p>
+<ol type="1">
+<li>Identify the possible “stems” of the data, which are the first digit or digits of each data point.<br />
+</li>
+<li>Write the stems in a vertical column on the left-hand side of the plot.<br />
+</li>
+<li>For each stem, write the corresponding “leaves” (i.e. the last digit or digits) in a horizontal row to the right of the stem, in ascending order.<br />
+</li>
+</ol>
+<p>Here’s an example of constructing a stem and leaf plot manually, using the dataset from before:<br />
+</p>
+<p>Consider the following data:</p>
+<p><span class="math display">\[12, 15, 17, 21, 22, 25, 27, 32, 34, 36\]</span></p>
+<p>The possible stems are the tens digits: 1, 2, and 3.<br />
+Write the stems in a vertical column:<br />
+</p>
+<p>1 |<br />
+2 |<br />
+3 |<br />
+</p>
+<p>For each stem, write the corresponding leaves in a horizontal row to the right of the stem:<br />
+</p>
+<p>1 | 2 5 7<br />
+2 | 1 2 5 7<br />
+3 | 2 4 6<br />
+</p>
+<p>This gives us the same stem and leaf plot as before.<br />
+</p>
+<p>In summary, the elements of a stem and leaf plot are the stems (which are typically the tens digits), the vertical bar separating the stems from the leaves, and the leaves (which are typically the ones digits). Stem and leaf plots are useful for quickly visualizing the distribution of a dataset and identifying any patterns or outliers.<br />
+</p>
+<p><strong>Example:</strong><br />
+</p>
+<p>Given the following stem and leaf diagram:<br />
+</p>
+<p>4 | 5 6 7<br />
+5 | 1 2 4 4 6 7 9<br />
+6 | 0 1 4 4 7 8 9<br />
+7 | 1 3 3 4 4 4 6 8 9<br />
+8 | 2 2 3 3 5 6 8<br />
+9 | 0 0 1 3 3 3 3 4 5 5 6 7 9<br />
+10 | 0 1 1 1 2 2 2 2 2 3 4 5 5 6 7 9<br />
+</p>
+<pre><code>                                  Legend: 4 | 5 = 45</code></pre>
+<p>Note that we simply read off the numbers from the stem and leaf diagram, and combined them into a single list. Thus, listing the raw data we obtained the following:<br />
+</p>
+<blockquote>
+<p>45, 46, 47, 51, 52, 54, 54, 55, 56, 57, 59, 60, 61, 64, 64, 67, 68, 69, 71, 73, 73, 74, 74, 74, 76, 78, 79, 82, 82, 83, 83, 85, 86, 88, 90, 90, 91, 93, 93, 93, 93, 94, 95, 95, 96, 97, 100, 101, 101, 101, 102, 102, 102, 102, 102, 103, 104, 105, 105, 106, 107, 109</p>
+</blockquote>
+<h2 id="box-and-whiskers-plot">Box-and-Whiskers Plot</h2>
+<p>A box and whisker plot, also known as a box plot, is a graphical representation of a data set that displays the distribution of the data and highlights any outliers. It consists of a box that spans the interquartile range (IQR) of the data, with a line inside the box marking the median. “Whiskers” extend from the box to the minimum and maximum values of the data that are not considered outliers. Outliers are plotted as individual points beyond the whiskers.<br />
+</p>
+<p>Here’s an example of a box and whisker plot anatomy:<br />
+</p>
+<!-- ![Anatomy of Box Plot](https://lsc.studysixsigma.com/wp-content/uploads/sites/6/2015/12/1435.png){width="650"} -->
+<figure>
+<img src="1435.png" width="600" alt="Anatomy of Box Plot" />
+<figcaption aria-hidden="true">Anatomy of Box Plot</figcaption>
+</figure>
+<p>To construct a box and whiskers plot from a raw data set, follow these steps:<br />
+</p>
+<ol type="1">
+<li>Order the data set from smallest to largest.<br />
+</li>
+<li>Calculate the median (Q2), first quartile (Q1), and third quartile (Q3) of the data set.<br />
+</li>
+<li>Calculate the interquartile range (IQR), which is the difference between Q3 and Q1.<br />
+</li>
+<li>Calculate the lower and upper bounds of the whiskers, which are defined as Q1 - 1.5 * IQR and Q3 + 1.5 * IQR, respectively.<br />
+</li>
+<li>Plot a box from Q1 to Q3, with a vertical line at the median.<br />
+</li>
+<li>Draw a whisker from the box to the minimum and maximum values of the data set that are not outliers. Any values outside of the whiskers are plotted as individual points, which are considered outliers.<br />
+</li>
+</ol>
+<h2 id="references">References:<br />
+</h2>
+<p>Freedman, D., Pisani, R., &amp; Purves, R. (2007). Statistics (4th ed.). W.W. Norton &amp; Company.<br />
+</p>
+<p>Moore, D. S., McCabe, G. P., &amp; Craig, B. A. (2017). Introduction to the practice of statistics (9th ed.). W.H. Freeman and Company.<br />
+</p>
+<!-- # Hello bookdown  -->
+<!-- All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file. -->
+<!-- ## A section -->
+<!-- All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter. -->
+<!-- ### An unnumbered section {-} -->
+<!-- Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section. -->
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<div class="distill-site-nav distill-site-footer">
+<p>© Copyright 2022. This page was built with ❤️ by <a
+href="https://ariff118.github.io/kamansor.github.io">kammyariff</a>.<br>
+Software licensed under the <a
+href="https://www.apache.org/licenses/LICENSE-2.0">Apache License,
+v2.0</a></p>
+</div>
+<!--/radix_placeholder_navigation_after_body-->
+
+
+</body>
+
+</html>

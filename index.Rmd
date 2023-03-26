@@ -9,7 +9,7 @@ links:
   - label: '<i class="fab fa-linkedin"></i> LinkedIn'
     url: ""
   - label: '<i class="fas fa-envelope"></i> Email'
-    url: "mailto:"
+    url: "mailto:ariff.20224@gmail.com"
 twitter:
   creator: ""
   site: ""

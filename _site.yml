@@ -20,6 +20,10 @@ navbar:
           href: 01_introduction.html
         - text: "Chapter 2 - Descriptive Statistics Part I"
           href: 02_descriptive1.html
+        - text: "Chapter 2 - Descriptive Statistics Part II"
+          href: 03_descriptive2.html
+        - text: "Chapter 3 - Estimation"
+          href: 04_estimation.html
     - text: "Project"
       href: project.html
     - text: "Downloads"

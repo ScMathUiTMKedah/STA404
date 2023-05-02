@@ -68,6 +68,8 @@ Under constructions
 
 ### Chapter 3 - Estimations  
 
+![Content Outline](images/Summary Outline Chapter 3 Estimation.png)
+
 #### Confidence Interval Estimation  
 
 <details><summary>Show Slide Contents</summary>

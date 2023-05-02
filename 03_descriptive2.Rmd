@@ -1,0 +1,153 @@
+---
+title: "Descriptive Statistics Part II"
+output: 
+  distill::distill_article:
+    self_contained: true
+    toc: true
+    toc_float: true
+    toc_level: 4
+---
+
+<!-- <style> -->
+<!-- html { -->
+<!--   scroll-behavior: smooth; -->
+<!-- } -->
+<!-- d-article { -->
+<!--     contain: none; -->
+<!--   } -->
+<!-- #TOC { -->
+<!--   position: fixed; -->
+<!--   z-index: 50; -->
+<!--   background: #ebebeb;     /* or   background: white; */ -->
+<!--   padding: 10px;           /* optional */ -->
+<!--   border-radius: 5px;      /* optional */ -->
+<!--   } -->
+
+<!-- /* Hide the ToC when resized to mobile or tablet:  480px, 768px, 900px */ -->
+<!-- @media screen and (max-width: 900px) { -->
+<!-- #TOC { -->
+<!--     position: relative; -->
+<!--   } -->
+<!-- } -->
+<!-- </style> -->
+
+# Numerical Descriptive Measures
+
+```{r include=FALSE}
+library(ggplot2)
+library(tidyverse)
+library(reshape2)
+library(hrbrthemes)
+library(kableExtra)
+options(knitr.table.format = "html")
+```
+
+
+
+Numerical descriptive measures are statistics used to describe and summarize quantitative data. These measures provide information about the central tendency, dispersion, and shape of a dataset. The most commonly used numerical descriptive measures include measures of central tendency (mean, median, and mode), measures of dispersion (range, variance, and standard deviation), and measures of shape (skewness and kurtosis).\
+
+These numerical descriptive measures help in summarizing the characteristics of the dataset and provide insights that can be used for decision making or further analysis.\
+
+# Measures of Central Tendency\
+
+Measures of central tendency describe the "typical" or "central" value of a dataset. There are three commonly used measures of central tendency: mean, median, and mode.\
+
+## Mean\
+
+The mean is the most widely used measure of central tendency. It is the arithmetic average of all the values in a dataset. To calculate the mean, we add up all the values in the dataset and divide by the number of values. For example, the mean of the numbers 2, 3, 5, and 7 would be (2+3+5+7)/4 = 4.25.\
+
+One of the advantages of the mean is that it takes into account all the values in the dataset. However, the mean can be heavily influenced by extreme values, or outliers, in the dataset. For example, if we add the value 100 to our previous dataset (2, 3, 5, 7, 100), the mean would become much larger, even though most of the values are still small. Therefore, the mean may not always be the best measure of central tendency if the dataset has outliers or is skewed.\
+
+## Median\
+
+The median is the middle value of a dataset when the values are arranged in ascending or descending order. If there is an odd number of values, the median is the middle value. If there is an even number of values, the median is the average of the two middle values. For example, the median of the numbers 2, 3, 5, and 7 would be the average of 3 and 5, which is (3+5)/2 = 4.\
+
+The median is a more robust measure of central tendency than the mean because it is not affected by extreme values or outliers. Therefore, the median may be a better choice if the dataset has outliers or is skewed.\
+
+## Mode\
+
+The mode is the value that appears most frequently in a dataset. A dataset can have one mode, more than one mode, or no mode at all. For example, in the dataset 2, 2, 3, 5, and 7, the mode is 2 because it appears twice. If no value appears more than once in the dataset, then there is no mode.\
+
+The mode is useful for describing categorical data or data with distinct categories, such as colors or types of food. However, it may not always be useful for numerical data because different values may have the same frequency.\
+
+Overall, the choice of which measure of central tendency to use depends on the nature of the dataset and the research question being asked. The mean is often used when the dataset is normally distributed and does not have outliers. The median is more appropriate when the dataset is skewed or has outliers, while the mode is used when describing categorical data or when identifying the most frequently occurring value.\
+
+# Measures of Dispersion\
+
+Measures of dispersion describe how spread out or variable the data is. There are several commonly used measures of dispersion, including range, variance, and standard deviation.\
+
+## Range\
+
+The range is the simplest measure of dispersion and is calculated by subtracting the smallest value from the largest value in the dataset. For example, the range of the numbers 2, 3, 5, and 7 would be 7-2 = 5. The range provides a simple measure of the spread of the data, but it can be misleading if the dataset has outliers.\
+
+## Variance\
+
+The variance measures the average squared difference of each value from the mean of the dataset. To calculate the variance, we subtract the mean from each value, square the differences, add up the squared differences, and divide by the total number of values minus one. The formula for variance is:\
+
+$$
+   variance = \frac{\sum{(x - \mu)^2}}{n - 1}\
+$$
+
+where x is each value in the dataset, μ is the mean of the dataset, and n is the total number of values.\
+
+The variance is useful because it takes into account all the values in the dataset and is not affected by outliers. However, the variance is measured in squared units, which may not be intuitive or easy to interpret.\
+
+## Standard deviation\
+
+The standard deviation is the square root of the variance and is measured in the same units as the data. The formula for standard deviation is:\
+
+$$
+   standard deviation = \sqrt{\frac{\sum{(x - \mu)^2}}{n - 1}}\
+$$
+
+The standard deviation provides a measure of the spread of the data relative to the mean. It is useful because it is easier to interpret than the variance and is also not affected by outliers. The standard deviation is often used to describe the variability of normally distributed data.\
+
+In general, the choice of which measure of dispersion to use depends on the nature of the dataset and the research question being asked. The range is a simple measure that can give a quick sense of the spread of the data, but it can be affected by outliers. The variance and standard deviation are more robust measures that take into account all the values in the dataset and are not affected by outliers, but they may be more difficult to interpret.\
+
+# Measures of Shape\
+
+Measures of shape describe the shape of the distribution of the data. There are several commonly used measures of shape, including skewness and kurtosis.\
+
+## Skewness\
+
+Skewness measures the degree of asymmetry of the data. A symmetric distribution has a skewness of 0, while a positively skewed distribution has a skewness greater than 0 and a negatively skewed distribution has a skewness less than 0. In a positively skewed distribution, the tail of the distribution is longer on the right side, while in a negatively skewed distribution, the tail is longer on the left side.\
+
+Skewness can be calculated using the formula:\
+
+$$
+   skewness = \frac{3 \times (mean - median)}{\frac{standard\ deviation}{\sqrt{n}}}
+$$
+
+A positive skewness indicates that the mean is greater than the median, while a negative skewness indicates that the mean is less than the median.\
+
+## Kurtosis\
+
+Kurtosis measures the degree of peakedness or flatness of the distribution. A normal distribution has a kurtosis of 3, while a distribution that is more peaked than a normal distribution has a kurtosis greater than 3, and a distribution that is flatter than a normal distribution has a kurtosis less than 3.\
+
+Kurtosis can be calculated using the formula:\
+
+$$
+   kurtosis = \frac{\sum{(x - mean)^4}}{(n \times (standard\ deviaton)^4) - 3}
+$$
+
+A positive kurtosis indicates that the distribution is more peaked than a normal distribution, while a negative kurtosis indicates that the distribution is flatter than a normal distribution.\
+
+It is important to note that kurtosis measures the shape of the tails of the distribution and is not related to the symmetry of the distribution.\
+
+In general, measures of shape are useful for identifying departures from normality in the distribution of the data. If the distribution is not normal, this may affect the choice of statistical tests or models that can be used to analyze the data.\
+
+## References:\
+
+
+
+<!-- # Hello bookdown  -->
+
+<!-- All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file. -->
+
+<!-- ## A section -->
+
+<!-- All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter. -->
+
+<!-- ### An unnumbered section {-} -->
+
+<!-- Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section. -->

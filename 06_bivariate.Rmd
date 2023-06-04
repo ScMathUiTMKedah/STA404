@@ -1,0 +1,156 @@
+---
+title: "Bivariate Analysis"
+output: 
+  distill::distill_article:
+    self_contained: true
+    toc: true
+    toc_float: true
+    toc_level: 4
+---
+      
+# Introduction to Bivariate Analysis\
+Bivariate analysis is a statistical method used to analyze the relationship between two variables. The purpose of bivariate analysis is to determine the strength and direction of the relationship between two variables and to make predictions based on this relationship.\
+    
+# Correlation\
+Correlation is a measure of the strength and direction of the linear relationship between two variables. There are two ways to measure correlation: scatter diagram and linear correlation coefficient.\
+    
+## Scatter Diagram\
+A scatter diagram is a graphical representation of the relationship between two variables. It is used to visually assess the correlation between two variables. The direction, strength, and shape of the relationship can be observed from the scatter diagram.\
+    
+```{r}
+# Example scatter plot
+library(ggplot2)
+data(mtcars)
+ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point()
+```
+    
+## Linear Correlation Coefficient\
+The linear correlation coefficient (Pearson's r) is a numerical measure of the strength and direction of the linear relationship between two variables. The value of r ranges from -1 to 1, where -1 indicates a strong negative correlation, 1 indicates a strong positive correlation, and 0 indicates no correlation.\
+
+```{r}
+# Example correlation calculation
+cor(mtcars$wt, mtcars$mpg)
+```
+
+# Simple Linear Regression\
+Simple linear regression is a statistical method used to model the relationship between a dependent variable (y) and an independent variable (x). The purpose of simple linear regression is to predict the value of the dependent variable based on the value of the independent variable.\
+
+## Linear Regression Equation\
+The linear regression equation is $y = \beta_0 + \beta_1x + \epsilon$, where $\beta_0$ is the y-intercept, $\beta_1$ is the slope, and $\epsilon$ is the error term.\
+
+```{r}
+# Example linear regression
+model <- lm(mpg ~ wt, data = mtcars)
+summary(model)
+```
+
+# Estimating Linear Regression using Least Square Method\
+The least square method is a technique used to estimate the coefficients of the linear regression equation by minimizing the sum of the squared differences between the observed values and the predicted values.\
+
+## Formulae
+The formulae for estimating the slope and intercept of the linear regression equation using the least square method are:\
+
+$$
+\beta_1 = \frac{\sum{(x_i - \bar{x})(y_i - \bar{y})}}{\sum{(x_i - \bar{x})^2}} \\
+\\
+\beta_0 = \bar{y} - \beta_1 \bar{x}
+$$
+```{r}
+# Example least square method
+x <- mtcars$wt
+y <- mtcars$mpg
+x_bar <- mean(x)
+y_bar <- mean(y)
+beta1 <- sum((x - x_bar) * (y - y_bar)) / sum((x - x_bar)^2)
+beta0 <- y_bar - beta1 * x_bar
+cat("Slope (beta1):", beta1, "\n")
+cat("Intercept (beta0):", beta0, "\n")
+```
+
+# Coefficient of Determination\
+The coefficient of determination (R²) is a measure of the proportion of the variance in the dependent variable that is predictable from the independent variable. $R^2$ ranges from 0 to 1, where 0 indicates that the independent variable does not explain any of the variance in the dependent variable, and 1 indicates that the independent variable explains all of the variance in the dependent variable.\
+
+```{r}
+# Example coefficient of determination
+y_pred <- beta0 + beta1 * x
+SSE <- sum((y - y_pred)^2)
+SST <- sum((y - y_bar)^2)
+R2 <- 1 - SSE / SST
+cat("Coefficient of determination (R2):", R2, "\n")
+```
+
+In conclusion, bivariate analysis is a crucial tool in understanding the relationship between two variables. By using correlation, simple linear regression, and the least square method, we can analyze the strength and direction of the relationship, as well as make predictions based on this relationship. The coefficient of determination helps us understand how well our model explains the variance in the dependent variable.\
+
+# Assumptions of Simple Linear Regression\
+There are four assumptions of simple linear regression:\
+
+1. Linearity: The relationship between the independent and dependent variables is linear.\
+2. Independence: The observations are independent of each other.\
+3. Homoscedasticity: The variance of the error term is constant across all levels of the independent variable.\
+4. Normality: The error term is normally distributed.\
+
+# Evaluating the Regression Model\
+There are several ways to evaluate the regression model:\
+
+## Residual Analysis\
+Residuals are the differences between the observed values and the predicted values. Residual analysis is used to assess the validity of the regression model's assumptions and identify potential outliers.\
+
+```{r}
+# Example residual plot
+plot(model, which = 1)
+```
+
+## Hypothesis Testing for the Slope\
+Hypothesis testing is used to test the null hypothesis that there is no relationship between the independent and dependent variables. The test statistic is $t = \frac{b_1 - 0}{SE(b_1)}$, where $b_1$ is the estimated slope and $SE(b_1)$ is the standard error of the slope.\
+
+```{r eval=FALSE, include=FALSE}
+# Example hypothesis testing
+t.test(model$coefficients[2], alternative = "two.sided")
+```
+
+## Confidence Intervals for the Slope and Intercept\
+Confidence intervals are used to estimate the range of values for the population slope and intercept with a specified level of confidence (e.g., 95%).\
+
+```{r}
+# Example confidence intervals
+confint(model)
+```
+
+# Applications of Bivariate Analysis\
+Bivariate analysis has many applications in various fields, such as:\
+
+- Marketing: Analyzing the relationship between advertising expenditure and sales revenue.\
+- Finance: Examining the relationship between risk and return in investment portfolios.\
+- Healthcare: Investigating the relationship between patient age and recovery time after surgery.\
+- Education: Studying the relationship between class size and student performance.\
+
+# Limitations of Bivariate Analysis\
+There are several limitations of bivariate analysis:\
+
+1. Causality: Bivariate analysis can only show the relationship between two variables but cannot establish causality. Correlation does not imply causation.\
+2. Confounding Variables: Bivariate analysis does not account for confounding variables that may affect the relationship between the independent and dependent variables.\
+3. Non-linear Relationships: Bivariate analysis, specifically simple linear regression, assumes a linear relationship between the variables. It may not accurately capture non-linear relationships.\
+
+# Conclusion\
+In conclusion, bivariate analysis is a powerful tool for understanding the relationship between two variables and making predictions based on that relationship. By evaluating the regression model and its assumptions, we can ensure the validity of our findings and make data-driven decisions in various fields, such as marketing, finance, healthcare, and education. However, it is essential to be aware of the limitations of bivariate analysis and consider using multivariate analysis techniques when necessary to account for confounding variables and complex relationships.\
+
+# Procedures in IBM Statistics SPSS\
+
+To run a correlation analysis in SPSS, follow these steps:\
+
+1. Open SPSS and load your dataset.\
+2. Click on "Analyze" in the top menu and select "Correlate" and then "Bivariate".\
+3. Select the variables you want to analyze by clicking on them in the left-hand column and then clicking the arrow button to move them to the right-hand column.\
+4. Choose the correlation coefficient you want to use (e.g., Pearson, Spearman) and select any additional options you want to include (e.g., significance levels).\
+5. Click "OK" to run the analysis.\
+
+To run a simple linear regression analysis in SPSS, follow these steps:\
+
+1. Open SPSS and load your dataset.\
+2. Click on "Analyze" in the top menu and select "Regression" and then "Linear".\
+3. Select the dependent variable you want to analyze by clicking on it in the left-hand column and then clicking the arrow button to move it to the "Dependent" box.\
+4. Select the independent variable(s) you want to include by clicking on them in the left-hand column and then clicking the arrow button to move them to the "Independent(s)" box.\
+5. Choose any additional options you want to include (e.g., confidence intervals, standardized coefficients).\
+6. Click "OK" to run the analysis.\
+
+I hope this helps! Let me know if you have any other questions.\

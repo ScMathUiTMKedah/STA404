@@ -1,0 +1,262 @@
+---
+title: "Independent Samples Z-Test"
+output: 
+  distill::distill_article:
+    self_contained: true
+    toc: true
+    toc_float: true
+    toc_level: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+The independent samples z-test is used to compare the means of two independent groups to determine if they are significantly different from each other. It is based on the assumption that the population standard deviations of both groups are known.
+
+# Hypotheses
+Let's consider two independent groups, Group A and Group B. We want to test if the mean of Group A $(\mu_A)$ is different from the mean of Group B $(\mu_B)$. The null and alternative hypotheses are defined as follows:
+  
+- Null Hypothesis (H0): $\mu_A = \mu_B$ (The means of Group A and Group B are equal)
+- Alternative Hypothesis (Ha): $\mu_A \neq \mu_B$ (The means of Group A and Group B are not equal)
+
+# Example
+Let's consider the weights of two independent groups of participants. Group A consists of 50 individuals with a mean weight of 70 kg and a known population standard deviation of 5 kg. Group B consists of 60 individuals with a mean weight of 65 kg and a known population standard deviation of 4 kg. We want to test if there is a significant difference in the mean weights of the two groups.
+
+# Problem Statement
+We have two independent groups, Group A and Group B, with the following characteristics:
+
+- Group A: 50 individuals, mean weight = 70 kg, population standard deviation = 5 kg
+- Group B: 60 individuals, mean weight = 65 kg, population standard deviation = 4 kg
+
+We want to test if there is a significant difference in the mean weights of the two groups.
+
+## Critical Value Method
+1. Set the significance level ($\alpha$).
+2. Compute the test statistic:
+  - Test statistic: $z = \frac{{\bar{X}_A - \bar{X}_B}}{{\sqrt{{\frac{{\sigma_A^2}}{{n_A}} + \frac{{\sigma_B^2}}{{n_B}}}}}}$
+- $\bar{X}_A$: Sample mean of Group A
+- $\bar{X}_B$: Sample mean of Group B
+- $\sigma_A$: Population standard deviation of Group A
+- $\sigma_B$: Population standard deviation of Group B
+- $(n_A)$: Sample size of Group A
+- $(n_B)$: Sample size of Group B
+3. Determine the critical value(s) corresponding to the desired confidence level or significance level.
+- For a 95% confidence level ($\alpha = 0.05$), the critical value is $\pm 1.96$ (for a two-tailed test).
+4. Compare the test statistic with the critical value(s).
+- If $|z| > 1.96$, reject the null hypothesis.
+- Otherwise, fail to reject the null hypothesis.
+
+### Step 1: Set the significance level ($\alpha$)
+Let's set $\alpha = 0.05$ (95% confidence level).
+
+### Step 2: Compute the test statistic
+The test statistic for the independent samples z-test is given by:
+
+$z = \frac{{\bar{X}_A - \bar{X}_B}}{{\sqrt{{\frac{{\sigma_A^2}}{{n_A}} + \frac{{\sigma_B^2}}{{n_B}}}}}}$
+
+Where:
+- $\bar{X}_A$ = mean weight of Group A
+- $\bar{X}_B$ = mean weight of Group B
+- $\sigma_A$ = population standard deviation of Group A
+- $\sigma_B$ = population standard deviation of Group B
+- $n_A$ = sample size of Group A
+- $n_B$ = sample size of Group B
+
+Let's calculate the test statistic:
+
+```{r}
+X_A <- 70
+X_B <- 65
+sigma_A <- 5
+sigma_B <- 4
+n_A <- 50
+n_B <- 60
+
+z <- (X_A - X_B) / sqrt((sigma_A^2 / n_A) + (sigma_B^2 / n_B))
+z
+```
+
+The test statistic (z) is calculated as `r z`.
+
+### Step 3: Determine the critical value
+For a two-tailed test with a significance level of $\alpha = 0.05$, the critical value is obtained from the standard normal distribution. We need to find the value of z that corresponds to an area of $\frac{{\alpha}}{2}$ in each tail.
+
+```{r}
+critical_value <- qnorm(1 - 0.05/2)
+critical_value
+```
+
+The critical value is approximately `r critical_value`.
+
+### Step 4: Compare the test statistic with the critical value
+We compare the absolute value of the test statistic (|z|) with the critical value to make our decision.
+
+```{r}
+if (abs(z) > critical_value) {
+  conclusion <- "Reject the null hypothesis."
+} else {
+  conclusion <- "Fail to reject the null hypothesis."
+}
+
+conclusion
+```
+
+Since the test statistic (`r z`) is greater than the critical value (`r critical_value`), we reject the null hypothesis.
+
+### r Code
+```{r}
+X_A <- 70
+X_B <- 65
+sigma_A <- 5
+sigma_B <- 4
+n_A <- 50
+n_B <- 60
+
+z <- (X_A - X_B) / sqrt((sigma_A^2 / n_A) + (sigma_B^2 / n_B))
+critical_value <- qnorm(1 - 0.05/2)
+
+z
+```
+
+The calculated test statistic (z = `r z`) is greater than the critical value (1.96). Hence, we reject the null hypothesis.
+
+## P-Value Method
+1. Set the significance level ($\alpha$).
+2. Compute the test statistic:
+   - Test statistic: $z = \frac{{\bar{X}_A - \bar{X}_B}}{{\sqrt{{\frac{{\sigma_A^2}}{{n_A}} + \frac{{\sigma_B^2}}{{n_B}}}}}}$
+   - $\bar{X}_A$: Sample mean of Group A
+   - $\bar{X}_B$: Sample mean of Group B
+   - $\sigma_A$: Population standard deviation of Group A
+   - $\sigma_B$: Population standard deviation of Group B
+   - $n_A$: Sample size of Group A
+   - $n_B$: Sample size of Group B
+3. Calculate the p-value, which represents the probability of obtaining a test statistic as extreme as the observed value (or more extreme), assuming the null hypothesis is true.
+   - P-value = 2 \times (1 - \text{{pnorm}}(|z|))
+   - Where \text{{pnorm}}() represents the cumulative distribution function of the standard normal distribution.
+4. Compare the p-value with the significance level ($\alpha$).
+   - If p-value ≤ $\alpha$, reject the null hypothesis.
+   - Otherwise, fail to reject the null hypothesis.
+
+### Step 1: Set the significance level
+Let's use the same significance level as before: $\alpha = 0.05$.
+
+### Step 2: Compute the test statistic
+We have already calculated the test statistic (z) in the previous method.
+
+### Step3: Calculate the p-value
+The p-value represents the probability of obtaining a test statistic as extreme as the observed value (or more extreme), assuming the null hypothesis is true.
+
+```{r}
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+```
+
+The calculated p-value is very small (p < 0.001).
+
+### Step 4: Compare the p-value with the significance level
+We compare the p-value with the significance level ($\alpha$) to make our decision.
+
+```{r}
+if (p_value <= 0.05) {
+  conclusion <- "Reject the null hypothesis."
+} else {
+  conclusion <- "Fail to reject the null hypothesis."
+}
+
+conclusion
+```
+
+Since the p-value (p < 0.001) is less than the significance level (0.05), we reject the null hypothesis.
+
+### r Code
+```{r}
+p_value <- 2 * (1 - pnorm(abs(z)))
+
+p_value
+```
+
+The calculated p-value (p = `r p_value`) is less than the significance level ($\alpha = 0.05$). Hence, we reject the null hypothesis.
+
+## Confidence Interval Method
+1. Set the confidence level (1 - $\alpha$).
+2. Compute the test statistic:
+   - Test statistic: $z = \frac{{\bar{X}_A - \bar{X}_B}}{{\sqrt{{\frac{{\sigma_A^2}}{{n_A}} + \frac{{\sigma_B^2}}{{n_B}}}}}}$
+   - $\bar{X}_A$: Sample mean of Group A
+   - $\bar{X}_B$: Sample mean of Group B
+   - $\sigma_A$: Population standard deviation of Group A
+   - $\sigma_B$: Population standard deviation of Group B
+   - $n_A$: Sample size of Group A
+   - $n_B$: Sample size of Group B
+3. Determine the critical value(s) corresponding to the desired confidence level.
+   - For a 95% confidence level ($\alpha = 0.05$), the critical value is $\pm 1.96$ (for a two-tailed test).
+4. Calculate the confidence interval for the difference in means.
+   - Confidence interval: $(\bar{X}_A - \bar{X}_B) \pm z \times \sqrt{{\frac{{\sigma_A^2}}{{n_A}} + \frac{{\sigma_B^2}}{{n_B}}}}$
+5. Check if zero falls within the confidence interval.
+   - If zero is not within the interval, reject the null hypothesis.
+   - Otherwise, fail to reject the null hypothesis.
+
+### Step 1: Set the confidence level
+Let's use a 95% confidence level, which corresponds to $\alpha = 0.05$.
+
+### Step 2: Compute the test statistic
+We have already calculated the test statistic (z) in the previous methods.
+
+### Step 3: Determine the critical value
+For a 95% confidence level, we need to find the critical value from the standard normal distribution.
+
+```{r}
+critical_value <- qnorm(1 - 0.05/2)
+critical_value
+```
+
+The critical value is approximately 1.96.
+
+### Step 4: Calculate the confidence interval
+The confidence interval for the difference in means is given by:
+
+$(\bar{X}_A - \bar{X}_B) \pm z \times \sqrt{{\frac{{\sigma_A^2}}{{n_A}} + \frac{{\sigma_B^2}}{{n_B}}}}$
+
+```{r}
+lower <- (X_A - X_B) - critical_value * sqrt((sigma_A^2 / n_A) + (sigma_B^2 / n_B))
+upper <- (X_A - X_B) + critical_value * sqrt((sigma_A^2 / n_A) + (sigma_B^2 / n_B))
+
+lower
+upper
+```
+
+The confidence interval is (`r lower`, `r upper`).
+
+### Step 5: Check if zero falls within the confidence interval
+If zero is not within the confidence interval, we reject the null hypothesis.
+
+```{r}
+if (lower <= 0 & upper >= 0) {
+  conclusion <- "Fail to reject the null hypothesis."
+} else {
+  conclusion <- "Reject the null hypothesis."
+}
+
+conclusion
+```
+
+Since zero (representing no difference in means) falls within the confidence interval (`r lower`, `r upper`), we fail to reject the null hypothesis.
+
+### r Code
+```{r}
+lower <- (X_A - X_B) - critical_value * sqrt((sigma_A^2 / n_A) + (sigma_B^2 / n_B))
+upper <- (X_A - X_B) + critical_value * sqrt((sigma_A^2 / n_A) + (sigma_B^2 / n_B))
+
+lower
+upper
+```
+
+The confidence interval (`r lower`, `r upper`) do not includes zero, which indicates that there is significant difference between the means of Group A and Group B. Hence, we reject the null hypothesis.
+
+# Conclusion
+In this document, we discussed the independent samples z-test and explained how to perform hypothesis testing using the critical value method, p-value method, and confidence interval method. Each method provides a way to assess whether the means of two independent groups are significantly different. It is essential to understand and apply these methods correctly to make valid conclusions based on the available sample data.
+
+In this analysis, we tested if there is a significant difference in the mean weights of two independent groups using three methods: the critical value method, p-value method, and confidence interval method. The results consistently led to the conclusion that there is a significant difference in the mean weights of the two groups. These methods provide different approaches to hypothesis testing, but in this case, they all yielded the same conclusion.
+
+It is important to consider the assumptions and limitations of the independent samples z-test when applying it to real-world scenarios. Additionally, collecting larger sample sizes and using random sampling techniques can help improve the reliability of the results.

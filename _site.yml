@@ -28,6 +28,10 @@ navbar:
           href: 05_hypothesis1.html
         - text: "Chapter 4 - Hypothesis Testing Part II"
           href: 05_hypothesis2.html
+        - text: "Chapter 4 - Hypothesis Testing Part III"
+          href: 05_hypothesis3.html
+        - text: "Chapter 4 - Hypothesis Testing Part IV"
+          href: 05_hypothesis4.html
         - text: "Chapter 5 - Bivariate Analysis"
           href: 06_bivariate.html
     - text: "Project"

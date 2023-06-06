@@ -32,6 +32,49 @@ The linear correlation coefficient (Pearson's r) is a numerical measure of the s
 cor(mtcars$wt, mtcars$mpg)
 ```
 
+## Positive, Negative, and No Correlation Examples
+
+### Positive Correlation
+
+```{r}
+# Data
+x <- c(2, 4, 6, 8, 10)
+y <- c(3, 6, 9, 12, 15)
+
+# Scatter plot
+plot(x, y, main = "Positive Correlation", xlab = "X", ylab = "Y")
+```
+
+In this example, we have a positive correlation between the variables X and Y. As the value of X increases, the value of Y also increases. The scatter plot demonstrates a positive linear relationship between the variables.
+
+### Negative Correlation
+
+```{r}
+# Data
+x <- c(2, 4, 6, 8, 10)
+y <- c(15, 12, 9, 6, 3)
+
+# Scatter plot
+plot(x, y, main = "Negative Correlation", xlab = "X", ylab = "Y")
+```
+
+In this example, we have a negative correlation between the variables X and Y. As the value of X increases, the value of Y decreases. The scatter plot demonstrates a negative linear relationship between the variables.
+
+### No Correlation
+
+```{r}
+# Data
+x <- c(1, 2, 3, 4, 5)
+y <- c(3, 1, 4, 2, 5)
+
+# Scatter plot
+plot(x, y, main = "No Correlation", xlab = "X", ylab = "Y")
+```
+
+In this example, there is no discernible correlation between the variables X and Y. The scatter plot does not exhibit a clear pattern or trend, indicating no linear relationship between the variables.
+
+In summary, correlation analysis helps us identify the strength and direction of relationships between variables. The examples provided demonstrate the concepts of positive, negative, and no correlation, as illustrated by the corresponding scatter diagrams.
+
 # Simple Linear Regression\
 Simple linear regression is a statistical method used to model the relationship between a dependent variable (y) and an independent variable (x). The purpose of simple linear regression is to predict the value of the dependent variable based on the value of the independent variable.\
 

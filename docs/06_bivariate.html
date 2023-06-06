@@ -2239,6 +2239,12 @@ LECTURE NOTES
 </a></li>
 <li><a href="#linear-correlation-coefficient" id="toc-linear-correlation-coefficient">Linear Correlation Coefficient<br />
 </a></li>
+<li><a href="#positive-negative-and-no-correlation-examples" id="toc-positive-negative-and-no-correlation-examples">Positive, Negative, and No Correlation Examples</a>
+<ul>
+<li><a href="#positive-correlation" id="toc-positive-correlation">Positive Correlation</a></li>
+<li><a href="#negative-correlation" id="toc-negative-correlation">Negative Correlation</a></li>
+<li><a href="#no-correlation" id="toc-no-correlation">No Correlation</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#simple-linear-regression" id="toc-simple-linear-regression">Simple Linear Regression<br />
 </a>
@@ -2308,6 +2314,47 @@ LECTURE NOTES
 </div>
 <pre><code>[1] -0.8676594</code></pre>
 </div>
+<h2 id="positive-negative-and-no-correlation-examples">Positive, Negative, and No Correlation Examples</h2>
+<h3 id="positive-correlation">Positive Correlation</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Data</span></span>
+<span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>4</span>, <span class='fl'>6</span>, <span class='fl'>8</span>, <span class='fl'>10</span><span class='op'>)</span></span>
+<span><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>6</span>, <span class='fl'>9</span>, <span class='fl'>12</span>, <span class='fl'>15</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Scatter plot</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, main <span class='op'>=</span> <span class='st'>"Positive Correlation"</span>, xlab <span class='op'>=</span> <span class='st'>"X"</span>, ylab <span class='op'>=</span> <span class='st'>"Y"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="06_bivariate_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+</div>
+<p>In this example, we have a positive correlation between the variables X and Y. As the value of X increases, the value of Y also increases. The scatter plot demonstrates a positive linear relationship between the variables.</p>
+<h3 id="negative-correlation">Negative Correlation</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Data</span></span>
+<span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>4</span>, <span class='fl'>6</span>, <span class='fl'>8</span>, <span class='fl'>10</span><span class='op'>)</span></span>
+<span><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>15</span>, <span class='fl'>12</span>, <span class='fl'>9</span>, <span class='fl'>6</span>, <span class='fl'>3</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Scatter plot</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, main <span class='op'>=</span> <span class='st'>"Negative Correlation"</span>, xlab <span class='op'>=</span> <span class='st'>"X"</span>, ylab <span class='op'>=</span> <span class='st'>"Y"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="06_bivariate_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+</div>
+<p>In this example, we have a negative correlation between the variables X and Y. As the value of X increases, the value of Y decreases. The scatter plot demonstrates a negative linear relationship between the variables.</p>
+<h3 id="no-correlation">No Correlation</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Data</span></span>
+<span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span><span class='op'>)</span></span>
+<span><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>5</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Scatter plot</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, main <span class='op'>=</span> <span class='st'>"No Correlation"</span>, xlab <span class='op'>=</span> <span class='st'>"X"</span>, ylab <span class='op'>=</span> <span class='st'>"Y"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="06_bivariate_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+</div>
+<p>In this example, there is no discernible correlation between the variables X and Y. The scatter plot does not exhibit a clear pattern or trend, indicating no linear relationship between the variables.</p>
+<p>In summary, correlation analysis helps us identify the strength and direction of relationships between variables. The examples provided demonstrate the concepts of positive, negative, and no correlation, as illustrated by the corresponding scatter diagrams.</p>
 <h1 id="simple-linear-regression">Simple Linear Regression<br />
 </h1>
 <p>Simple linear regression is a statistical method used to model the relationship between a dependent variable (y) and an independent variable (x). The purpose of simple linear regression is to predict the value of the dependent variable based on the value of the independent variable.<br />
@@ -2414,7 +2461,7 @@ F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Example residual plot</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>model</span>, which <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre>
 </div>
-<p><img src="06_bivariate_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="06_bivariate_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
 <h2 id="hypothesis-testing-for-the-slope">Hypothesis Testing for the Slope<br />
 </h2>

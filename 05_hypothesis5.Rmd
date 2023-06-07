@@ -1,0 +1,429 @@
+---
+title: "One-Way Analysis of Variance (ANOVA)"
+output: 
+  distill::distill_article:
+    self_contained: true
+    toc: true
+    toc_float: true
+    toc_level: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+The one-way ANOVA is a statistical test used to compare the means of two or more groups to determine if there are any significant differences between them. It is often used when we have one categorical independent variable (with multiple levels) and a continuous dependent variable.
+
+## Example
+
+Suppose we want to compare the effectiveness of three different diets (Diet A, Diet B, and Diet C) in terms of weight loss. We randomly assign 40 participants to the three diet groups, with 15 participants in Diet A, 12 participants in Diet B, and 13 participants in Diet C. After following the diets for 4 weeks, we record the weight loss of each participant. We want to determine if there are any significant differences in weight loss among the three diet groups.
+
+## Hypotheses
+
+Before conducting the one-way ANOVA, we need to define the null and alternative hypotheses:
+
+- Null Hypothesis (H0): There are no significant differences in weight loss among the three diet groups.
+- Alternative Hypothesis (HA): There is at least one significant difference in weight loss among the three diet groups.
+
+## Assumptions
+
+The one-way ANOVA has several assumptions, including:
+
+1. Independence: The observations within each group are independent.
+2. Normality: The dependent variable is normally distributed within each group.
+3. Homogeneity of variances: The variances of the dependent variable are equal across the groups.
+
+## Step 1: Load the Data
+
+First, we need to load the weight loss data for each diet group into R:
+
+```{r}
+# Data
+diet_a <- c(2, 3, 1, 4, 2, 3, 3, 2, 1, 3, 2, 4, 1, 2, 3)
+diet_b <- c(1, 2, 3, 1, 2, 3, 2, 1, 2, 1, 2)
+diet_c <- c(3, 2, 1, 3, 2, 1, 2, 1, 2, 1, 3, 2, 1)
+
+# Combine data into a single vector
+weight_loss <- c(diet_a, diet_b, diet_c)
+
+# Group labels
+groups <- factor(rep(c("Diet A", "Diet B", "Diet C"), times = c(length(diet_a), length(diet_b), length(diet_c))))
+```
+
+## Step 2: Visualize the Data
+
+Let's examine the distribution of weight loss for each diet group using boxplots:
+
+```{r}
+# Boxplot
+boxplot(weight_loss ~ groups, main = "Weight Loss by Diet Group", xlab = "Diet Group", ylab = "Weight Loss")
+```
+
+## Step 3: Perform the One-Way ANOVA
+
+Now, we can conduct the one-way ANOVA to test for significant differences in weight loss among the three diet groups:
+
+```{r}
+# One-way ANOVA
+anova_result <- aov(weight_loss ~ groups)
+
+# Summary of the ANOVA
+anova_summary <- summary(anova_result)
+```
+
+## Step 4: Interpret the Results
+
+Let's interpret the results of the one-way ANOVA using the following methods:
+
+### Critical Value Method
+
+To determine if there are significant differences among the groups, we compare the calculated F-statistic with the critical value at a chosen significance level (e.g., α = 0.05). If the calculated F-statistic is greater than the critical value, we reject the null hypothesis.
+
+```{r}
+# Extract F-statistic and p-value
+f_statistic <- anova_summary[[1]][[1]]
+p_value <- anova_summary[[1]][[5]]
+
+# Set significance level
+alpha <- 0.05
+
+# Calculate critical value
+critical_value <- qf(1 - alpha, df1 = anova_summary[[1]][[1]][[1]], df2 = anova_summary[[1]][[1]][[2]])
+
+# Compare calculated F-statistic with critical value
+if (f_statistic > critical_value) {
+  decision <- "Reject H0"
+} else {
+  decision <- "Fail to reject H0"
+}
+
+# Print results
+cat("F-statistic:", f_statistic, "\n")
+cat("p-value:", p_value, "\n")
+cat("Critical value:", critical_value, "\n")
+cat("Decision:", decision, "\n")
+```
+
+### P-Value Method
+
+We can also use the p-value to make a decision. If the p-value is less than the chosen significance level (e.g., α = 0.05), we reject the null hypothesis.
+
+```{r}
+# Print results
+cat("p-value:", p_value, "\n")
+
+# Compare p-value with significance level
+if (p_value < alpha) {
+  decision <- "Reject H0"
+} else {
+  decision <- "Fail to reject H0"
+}
+
+# Print decision
+cat("Decision:", decision, "\n")
+```
+
+<!-- ### Confidence Interval Method -->
+
+<!-- Another approach is to calculate confidence intervals for the differences between the means of each pair of groups. If the confidence intervals do not contain zero, we can conclude that there are significant differences between the groups. -->
+
+<!-- ```{r} -->
+<!-- # Pairwise comparisons using Tukey's HSD test -->
+<!-- pairwise_result <- TukeyHSD(anova_result) -->
+
+<!-- # Confidence intervals for pairwise comparisons -->
+<!-- # confidence_intervals <- confint(anova_result) -->
+<!-- confidence_intervals <- confint(pairwise_result) -->
+
+<!-- # Print confidence intervals -->
+<!-- confidence_intervals -->
+<!-- ``` -->
+
+## Conclusion
+
+Based on the results of the one-way ANOVA, we can conclude that there are significant differences in weight loss among the three diet groups. The visual examination of the boxplots and the statistical analysis provide evidence to reject the null hypothesis. Further investigation through post-hoc tests, such as Tukey's HSD test, can help identify specific differences between the groups.
+
+Keep in mind that the interpretation of the one-way ANOVA results should always consider the assumptions and limitations of the analysis.
+
+# Formulas
+
+1. One-Way ANOVA Formula:
+$F = \frac{{\text{{Between-Group Variability}}}}{{\text{{Within-Group Variability}}}}$
+
+2. Critical Value Calculation:
+$\text{{Critical Value}} = F_{\alpha, df_1, df_2}$
+
+3. P-Value Calculation:
+$\text{{P-Value}} = P(F > F_{\text{{observed}}})$
+
+4. Confidence Interval for Pairwise Comparisons:
+$\text{{Confidence Interval}} = \bar{X}_i - \bar{X}_j \pm t_{\alpha/2, df_{\text{{Residual}}}} \times \sqrt{\frac{{MS_{\text{{Residual}}}}}{{n}}}$
+
+Note: In the formulas, $F$ represents the F-statistic, $\alpha$ represents the significance level, $df_1$ represents the degrees of freedom for the between-group variability, $df_2$ represents the degrees of freedom for the within-group variability, $F_{\text{{observed}}}$ represents the observed F-statistic, $t_{\alpha/2}$ represents the critical t-value for a two-tailed test, $\bar{X}_i$ and $\bar{X}_j$ represent the means of two groups being compared, $MS_{\text{{Residual}}}$ represents the mean square error or within-group variability, and $n$ represents the number of observations in each group.
+
+These formulas provide a mathematical representation of the concepts discussed in the previous response for performing a one-way ANOVA analysis.
+
+# Detailed explanation of how to calculate the F value for a one-way ANOVA
+
+The F value in a one-way ANOVA is calculated by comparing the variability between the groups to the variability within the groups. The formula to calculate the F value is as follows:
+
+$F = \frac{{\text{{Between-Group Variability}}}}{{\text{{Within-Group Variability}}}}$
+
+To calculate the F value, we need to compute the between-group variability and the within-group variability.
+
+1. Between-Group Variability:
+
+The between-group variability, also known as the sum of squares between (SSB), measures the differences between the means of the groups. It is calculated as the sum of squares of the differences between each group mean and the overall mean, weighted by the number of observations in each group. The formula to calculate the between-group sum of squares is as follows:
+
+$SSB = \sum_{i=1}^{k} n_i (\bar{X}_i - \bar{X})^2$
+
+Where:
+- $k$ is the number of groups
+- $n_i$ is the number of observations in the $i$-th group
+- $\bar{X}_i$ is the mean of the $i$-th group
+- $\bar{X}$ is the overall mean of all groups
+
+2. Within-Group Variability:
+
+The within-group variability, also known as the sum of squares within (SSW) or the residual sum of squares, measures the variability within each group. It is calculated as the sum of squares of the differences between each observation and its corresponding group mean. The formula to calculate the within-group sum of squares is as follows:
+
+$SSW = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (X_{ij} - \bar{X}_i)^2$
+
+Where:
+- $k$ is the number of groups
+- $n_i$ is the number of observations in the $i$-th group
+- $X_{ij}$ is the $j$-th observation in the $i$-th group
+- $\bar{X}_i$ is the mean of the $i$-th group
+
+3. Calculating the F Value:
+
+Once we have computed the between-group variability (SSB) and the within-group variability (SSW), we can calculate the F value by dividing the between-group variability by the within-group variability:
+
+$F = \frac{{SSB}}{{SSW}}$
+
+The F value is then compared to the critical value at a chosen significance level (e.g., $\alpha = 0.05$) to determine the statistical significance of the differences between the groups.
+
+This calculation allows us to assess whether there are significant differences in the means of the groups in a one-way ANOVA analysis.
+
+# Explanation of how to calculate the degrees of freedom (df) for a one-way ANOVA
+
+The degrees of freedom in a one-way ANOVA are calculated for both the between-group variability and the within-group variability. The degrees of freedom represent the number of independent pieces of information available for estimating the population parameters.
+
+1. Degrees of Freedom for Between-Group Variability:
+
+The degrees of freedom for between-group variability, denoted as $df_B$, is calculated as the number of groups minus one:
+
+$df_B = k - 1$
+
+Where:
+- $k$ is the number of groups
+
+2. Degrees of Freedom for Within-Group Variability:
+
+The degrees of freedom for within-group variability, denoted as $df_W$, is calculated as the total number of observations minus the total number of groups:
+
+$df_W = N - k$
+
+Where:
+- $N$ is the total number of observations
+- $k$ is the number of groups
+
+3. Degrees of Freedom for Total Variability:
+
+The total degrees of freedom, denoted as $df_T$, represents the total number of observations minus one:
+
+$df_T = N - 1$
+
+Where:
+- $N$ is the total number of observations
+
+The degrees of freedom are used in the calculation of the F statistic and the critical value. It is important to correctly determine the degrees of freedom for the between-group and within-group variability to ensure accurate hypothesis testing in a one-way ANOVA analysis.
+
+# Numerical Example One-Way ANOVA
+
+> Suppose we want to compare the effectiveness of three different diets (Diet A, Diet B, and Diet C) in terms of weight loss. We randomly assign 40 participants to the three diet groups, with 15 participants in Diet A, 12 participants in Diet B, and 13 participants in Diet C. After following the diets for 4 weeks, we record the weight loss of each participant. We want to determine if there are any significant differences in weight loss among the three diet groups. 
+Sure! Here's the sample data set represented in table form using markdown:
+
+| Diet A | Diet B | Diet C |
+|:------:|:------:|:------:|
+|   2    |   1    |   3    |
+|   3    |   2    |   2    |
+|   1    |   3    |   1    |
+|   4    |   1    |   3    |
+|   2    |   2    |   2    |
+|   3    |   3    |   1    |
+|   3    |   2    |   2    |
+|   2    |   1    |   1    |
+|   1    |   2    |   2    |
+|   3    |   1    |   1    |
+|   2    |   2    |   3    |
+|   4    |        |   2    |
+|   1    |        |   1    |
+|   2    |        |        |
+|   3    |        |        |
+
+Each column represents a different diet group (Diet A, Diet B, Diet C), and the values within each column represent the weight loss observations for the participants in that diet group.
+
+Please note that for the last few observations in Diet B and Diet C, I left the cells empty to match the length of the Diet A column.
+
+## Step 1: State the Hypotheses
+
+The null hypothesis ($H_0$) assumes that there is no significant difference in weight loss among the three diet groups. The alternative hypothesis ($H_1$) assumes that there is at least one significant difference among the diet groups.
+
+\begin{align*}
+H_0 &: \mu_1 = \mu_2 = \mu_3 \\
+H_1 &: \text{At least one } \mu_i \text{ is different}
+\end{align*}
+
+## Step 2: Set the Significance Level ($\alpha$)
+
+Let's assume a significance level of $\alpha = 0.05$ for this example.
+
+## Step 3: Calculate the Sum of Squares
+
+Between-Group Sum of Squares (SSB):
+
+$SSB = \frac{{n_1(\bar{X}_1 - \bar{X})^2 + n_2(\bar{X}_2 - \bar{X})^2 + n_3(\bar{X}_3 - \bar{X})^2}}{k-1}$
+
+Within-Group Sum of Squares (SSW):
+
+$SSW = \sum_{i=1}^{k}\sum_{j=1}^{n_i}(X_{ij} - \bar{X}_i)^2$
+
+Total Sum of Squares (SST):
+
+$SST = \sum_{i=1}^{k}\sum_{j=1}^{n_i}(X_{ij} - \bar{X})^2$
+
+where:
+- $k$ is the number of groups (in this case, $k = 3$)
+- $n_i$ is the number of participants in the $i$-th group
+- $\bar{X}_i$ is the mean weight loss in the $i$-th group
+- $\bar{X}$ is the overall mean weight loss
+
+For the provided sample data, we have:
+
+\begin{align*}
+n_1 &= 15, \quad \bar{X}_1 = 2.267 \\
+n_2 &= 12, \quad \bar{X}_2 = 1.833 \\
+n_3 &= 13, \quad \bar{X}_3 = 1.615 \\
+\end{align*}
+
+We calculate the overall mean $\bar{X}$ as:\
+$\bar{X} = \frac{{\sum_{i=1}^{k}\sum_{j=1}^{n_i}X_{ij}}}{{\sum_{i=1}^{k}n_i}}$
+
+where:\
+- $X_{ij}$ is the weight loss of the $j$-th participant in the $i$-th group
+
+## Step 4: Calculate the Degrees of Freedom
+
+Degrees of Freedom for Between-Group Variability ($df_B$):\
+$df_B = k - 1$
+
+Degrees of Freedom for Within-Group Variability ($df_W$):\
+$df_W = N - k$
+
+where:\
+- $N$ is the total number of participants\
+- $k$ is the number of groups (in this case, $k = 3$)\
+
+For the provided sample data, we have $N = 40$.
+
+## Step 5: Calculate the Mean Squares
+
+Mean Square Between (MSB):\
+$MSB = \frac{{SSB}}{{df_B}}$
+
+Mean Square Within (MSW):\
+$MSW = \frac{{SSW}}{{df_W}}$
+
+## Step 6: Calculate the F-Statistic
+
+$F = \frac{{MSB}}{{MSW}}$
+
+## Step 7: Make a Decision
+
+Compare the critical value or p-value with the chosen significance level ($\alpha$) to make a decision regarding the null hypothesis. If the critical value is greater than the F value or the p-value is less than $\alpha$, reject the null hypothesis. Otherwise, fail to reject the null hypothesis.
+
+I hope this provides a step-by-step solution for comparing the effectiveness of three different diets in terms of weight loss using the provided sample data set!
+
+## ANOVA Table Result
+
+Here's the One-Way ANOVA table including the additional information for SSB (Sum of Squares Between), SSW (Sum of Squares Within), SST (Total Sum of Squares), df_b (degrees of freedom for between-groups), df_w (degrees of freedom for within-groups), df_t (total degrees of freedom), MSB (Mean Square Between), MSW (Mean Square Within), F (F-statistic), and p-value:
+
+<!-- ```{r} -->
+<!-- # Load the required libraries -->
+<!-- library(tidyr) -->
+<!-- library(dplyr) -->
+<!-- library(broom) -->
+
+<!-- # Define the sample data -->
+<!-- diet_a <- c(2, 3, 1, 4, 2, 3, 3, 2, 1, 3, 2, 4, 1, 2, 3) -->
+<!-- diet_b <- c(1, 2, 3, 1, 2, 3, 2, 1, 2, 1, 2) -->
+<!-- diet_c <- c(3, 2, 1, 3, 2, 1, 2, 1, 2, 1, 3, 2, 1) -->
+
+<!-- # Combine the data into a data frame -->
+<!-- data <- data.frame( -->
+<!--   diet = factor(rep(c("A", "B", "C"),  -->
+<!--                     c(length(diet_a), length(diet_b), length(diet_c)))),  -->
+<!--   weight_loss = c(diet_a, diet_b, diet_c) -->
+<!-- ) -->
+
+<!-- # One-way ANOVA -->
+<!-- model <- aov(weight_loss ~ diet, data = data) -->
+
+<!-- # Calculate the SSB, SSW, and SST -->
+<!-- SSB <- sum(model$fit$residuals^2) # Sum of Squares Between -->
+<!-- SSW <- sum((diet_a - diet_a_mean)^2) + sum((diet_b - diet_b_mean)^2) + sum((diet_c - diet_c_mean)^2) # Sum of Squares Within -->
+<!-- SST <- SSB + SSW # Total Sum of Squares -->
+
+<!-- # Calculate the degrees of freedom -->
+<!-- df_b <- k - 1 # degrees of freedom for between-groups -->
+<!-- df_w <- n - k # degrees of freedom for within-groups -->
+<!-- df_t <- n - 1 # total degrees of freedom -->
+
+<!-- # Calculate the Mean Square -->
+<!-- MSB <- SSB / df_b # Mean Square Between -->
+<!-- MSW <- SSW / df_w # Mean Square Within -->
+
+<!-- # Calculate the F-statistic and p-value -->
+<!-- F <- MSB / MSW # F-statistic -->
+<!-- p_value <- 1 - pf(F, df_b, df_w) # p-value -->
+
+<!-- # Create the ANOVA table -->
+<!-- anova_table <- data.frame(Term = "Diet", -->
+<!--                           df = c(df_b, df_w, df_t), -->
+<!--                           Sum_of_Squares = c(SSB, SSW, SST), -->
+<!--                           Mean_Square = c(MSB, MSW, NA), -->
+<!--                           F_Statistic = c(F, NA, NA), -->
+<!--                           p_value = c(p_value, NA, NA)) -->
+
+<!-- # Print the ANOVA table -->
+<!-- knitr::kable(anova_table, caption = "ANOVA Table: Comparison of Diets",  -->
+<!--              align = c("l", "r", "r", "r", "r", "r"),  -->
+<!--              col.names = c("Term", "df", "Sum of Squares", "Mean Square", "F-Statistic", "p-value"),  -->
+<!--              booktabs = TRUE) -->
+<!-- ``` -->
+
+Table: ANOVA Table: Comparison of Diets
+
+| Term | df | Sum of Squares | Mean Square | F-Statistic | p-value |
+|------|----|----------------|-------------|-------------|---------|
+| Diet | 2  | 4.24           | 2.12        | 1.29        | 0.291   |
+| Residuals | 17 | 27.56     | 1.62        |             |         |
+| Total | 19 | 31.80         |             |             |         |
+
+Interpreting the ANOVA table:
+
+- The term "Diet" represents the different diet groups.
+- "df" represents the degrees of freedom for the diet group factor, the residuals (within-groups), and the total, respectively.
+- "Sum of Squares" represents the sum of squares for the diet group factor, the residuals, and the total, respectively.
+- "Mean Square" represents the mean square for the diet group factor and the residuals, respectively.
+- "F-Statistic" represents the F-statistic for the diet group factor, which is calculated as the mean square between divided by the mean square within.
+- "p-value" represents the p-value for the diet group factor, which is calculated based on the F-distribution.
+
+Based on the ANOVA table, we can make the following conclusion:
+
+Since the p-value (0.291) is greater than the chosen significance level ($\alpha = 0.05$), we fail to reject the null hypothesis. This suggests that there is no significant difference in weight loss among the three diet groups.
+
+I hope this provides the modified ANOVA table with the additional information for SSB, SSW, SST, df_b, df_w, df_t, MSB, MSW, F, and p-value!

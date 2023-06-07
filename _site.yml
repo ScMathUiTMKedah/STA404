@@ -24,14 +24,16 @@ navbar:
           href: 03_descriptive2.html
         - text: "Chapter 3 - Estimation"
           href: 04_estimation.html
-        - text: "Chapter 4 - Hypothesis Testing Part I"
+        - text: "Chapter 4 - One Sample Test"
           href: 05_hypothesis1.html
-        - text: "Chapter 4 - Hypothesis Testing Part II"
+        - text: "Chapter 4 - Independent Samples z-test"
           href: 05_hypothesis2.html
-        - text: "Chapter 4 - Hypothesis Testing Part III"
+        - text: "Chapter 4 - Independent Samples t-test"
           href: 05_hypothesis3.html
-        - text: "Chapter 4 - Hypothesis Testing Part IV"
+        - text: "Chapter 4 - Paired Sample t-test"
           href: 05_hypothesis4.html
+        - text: "Chapter 4 - One-Way ANOVA"
+          href: 05_hypothesis5.html
         - text: "Chapter 5 - Bivariate Analysis"
           href: 06_bivariate.html
     - text: "Project"

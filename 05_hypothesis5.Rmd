@@ -427,3 +427,9 @@ Based on the ANOVA table, we can make the following conclusion:
 Since the p-value (0.291) is greater than the chosen significance level ($\alpha = 0.05$), we fail to reject the null hypothesis. This suggests that there is no significant difference in weight loss among the three diet groups.
 
 I hope this provides the modified ANOVA table with the additional information for SSB, SSW, SST, df_b, df_w, df_t, MSB, MSW, F, and p-value!
+
+# IBM Statistcs SPSS Procedures
+
+![](.\files\slides\Chapter 4 ANOVA\Chapter 5 ANOVA_Page_18.jpg)
+
+![](.\files\slides\Chapter 4 ANOVA\Chapter 5 ANOVA_Page_19.jpg)

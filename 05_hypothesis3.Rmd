@@ -370,3 +370,13 @@ if (abs(t_unequal) > critical_value_unequal) {
 Based on the results, we can conclude that...
 
 This R Markdown document provided an explanation of the independent samples t-test and demonstrated how to perform hypothesis testing using the critical value method, p-value method, and confidence interval method. The examples considered the conditions of equal variances assumed and unequal variances assumed, providing step-by-step solutions for each condition.
+
+# IBM SPSS Statistics Procedures
+
+![](./files/slides/Chapter 4 Hypothesis Testing 2/Chapter 4 HYPOTHESIS TESTING 2_Page_10.jpg)
+
+![](./files/slides/Chapter 4 Hypothesis Testing 2/Chapter 4 HYPOTHESIS TESTING 2_Page_11.jpg)
+
+![](./files/slides/Chapter 4 Hypothesis Testing 2/Chapter 4 HYPOTHESIS TESTING 2_Page_12.jpg)
+
+![](./files/slides/Chapter 4 Hypothesis Testing 2/Chapter 4 HYPOTHESIS TESTING 2_Page_13.jpg)

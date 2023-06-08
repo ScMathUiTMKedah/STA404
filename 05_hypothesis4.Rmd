@@ -275,3 +275,17 @@ where $t_{\text{{observed}}}$ is the calculated t-statistic.
 $\text{{confidence interval}} = \text{{mean difference}} \pm \left(\text{{critical value}} \times \text{{standard error of the mean difference}}\right)$
 
 Note: The critical value for a given significance level (alpha) and degrees of freedom (df) is denoted as $t_{\text{{critical}}}$.
+
+# IBM SPSS Statistics Procedures
+
+![](./files/slides/Chapter 4 Hypothesis Testing 3/Chapter 4 HYPOTHESIS TESTING 3_Page_09.jpg)
+
+![](./files/slides/Chapter 4 Hypothesis Testing 3/Chapter 4 HYPOTHESIS TESTING 3_Page_10.jpg)
+
+![](./files/slides/Chapter 4 Hypothesis Testing 3/Chapter 4 HYPOTHESIS TESTING 3_Page_11.jpg)
+
+![](./files/slides/Chapter 4 Hypothesis Testing 3/Chapter 4 HYPOTHESIS TESTING 3_Page_12.jpg)
+
+![](./files/slides/Chapter 4 Hypothesis Testing 3/Chapter 4 HYPOTHESIS TESTING 3_Page_13.jpg)
+
+![](./files/slides/Chapter 4 Hypothesis Testing 3/Chapter 4 HYPOTHESIS TESTING 3_Page_14.jpg)

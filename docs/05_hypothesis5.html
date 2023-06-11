@@ -2405,10 +2405,6 @@ LECTURE NOTES
 </ol>
 <p>Note: In the formulas, <span class="math inline">\(F\)</span> represents the F-statistic, <span class="math inline">\(\alpha\)</span> represents the significance level, <span class="math inline">\(df_1\)</span> represents the degrees of freedom for the between-group variability, <span class="math inline">\(df_2\)</span> represents the degrees of freedom for the within-group variability, <span class="math inline">\(F_{\text{{observed}}}\)</span> represents the observed F-statistic, <span class="math inline">\(t_{\alpha/2}\)</span> represents the critical t-value for a two-tailed test, <span class="math inline">\(\bar{X}_i\)</span> and <span class="math inline">\(\bar{X}_j\)</span> represent the means of two groups being compared, <span class="math inline">\(MS_{\text{{Residual}}}\)</span> represents the mean square error or within-group variability, and <span class="math inline">\(n\)</span> represents the number of observations in each group.</p>
 <p>These formulas provide a mathematical representation of the concepts discussed in the previous response for performing a one-way ANOVA analysis.</p>
-<p>Alternatively the following formula can also be used to calculate the <strong>Sum of Squares</strong> for Completely Randomized Design Analysis of Variance.
-<span class="math inline">\(SST = \sum{x^2} - \frac{(\sum{x})^2}{n}\)</span><br />
-<span class="math inline">\(SSB = \large(\frac{T_{1}^2}{n_1} + \frac{T_{2}^2}{n_2} + \frac{T_{3}^2}{n_3} + ...) - \frac{(\sum{x}^2)}{n}\)</span>
-<span class="math inline">\(SSW = SST - SSB\)</span></p>
 <h1 id="detailed-explanation-of-how-to-calculate-the-f-value-for-a-one-way-anova">Detailed explanation of how to calculate the F value for a one-way ANOVA</h1>
 <p>The F value in a one-way ANOVA is calculated by comparing the variability between the groups to the variability within the groups. The formula to calculate the F value is as follows:</p>
 <p><span class="math inline">\(F = \frac{{\text{{Between-Group Variability}}}}{{\text{{Within-Group Variability}}}}\)</span></p>
@@ -2439,7 +2435,13 @@ LECTURE NOTES
 <p>Once we have computed the between-group variability (SSB) and the within-group variability (SSW), we can calculate the F value by dividing the between-group variability by the within-group variability:</p>
 <p><span class="math inline">\(F = \frac{{SSB}}{{SSW}}\)</span></p>
 <p>The F value is then compared to the critical value at a chosen significance level (e.g., <span class="math inline">\(\alpha = 0.05\)</span>) to determine the statistical significance of the differences between the groups.</p>
-<p>This calculation allows us to assess whether there are significant differences in the means of the groups in a one-way ANOVA analysis.</p>
+<p>This calculation allows us to assess whether there are significant differences in the means of the groups in a one-way ANOVA analysis.<br />
+</p>
+<p>Alternatively the following formula can also be used to calculate the <strong>Sum of Squares</strong> for Completely Randomized Design Analysis of Variance.<br />
+<span class="math inline">\(SST = \sum{x^2} - \frac{(\sum{x})^2}{n}\)</span><br />
+<span class="math inline">\(SSB = \large(\frac{T_{1}^2}{n_1} + \frac{T_{2}^2}{n_2} + \frac{T_{3}^2}{n_3} + ...) - \frac{(\sum{x}^2)}{n}\)</span><br />
+<span class="math inline">\(SSW = SST - SSB\)</span><br />
+</p>
 <h1 id="explanation-of-how-to-calculate-the-degrees-of-freedom-df-for-a-one-way-anova">Explanation of how to calculate the degrees of freedom (df) for a one-way ANOVA</h1>
 <p>The degrees of freedom in a one-way ANOVA are calculated for both the between-group variability and the within-group variability. The degrees of freedom represent the number of independent pieces of information available for estimating the population parameters.</p>
 <ol type="1">

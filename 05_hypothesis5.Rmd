@@ -165,6 +165,11 @@ Note: In the formulas, $F$ represents the F-statistic, $\alpha$ represents the s
 
 These formulas provide a mathematical representation of the concepts discussed in the previous response for performing a one-way ANOVA analysis.
 
+Alternatively the following formula can also be used to calculate the **Sum of Squares** for Completely Randomized Design Analysis of Variance.
+$SST = \sum{x^2} - \frac{(\sum{x})^2}{n}$  
+$SSB = \large(\frac{T_{1}^2}{n_1} + \frac{T_{2}^2}{n_2} + \frac{T_{3}^2}{n_3} + ...) - \frac{(\sum{x}^2)}{n}$
+$SSW = SST - SSB$
+
 # Detailed explanation of how to calculate the F value for a one-way ANOVA
 
 The F value in a one-way ANOVA is calculated by comparing the variability between the groups to the variability within the groups. The formula to calculate the F value is as follows:

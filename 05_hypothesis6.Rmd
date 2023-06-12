@@ -1,0 +1,186 @@
+---
+title: "Chi-Square Test of Independence"
+output: 
+  distill::distill_article:
+    self_contained: true
+    toc: true
+    toc_float: true
+    toc_level: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+The Chi-Square Test of Independence is a statistical test used to determine whether there is a relationship between two categorical variables. It allows us to examine if the distribution of one variable differs across different categories of another variable. In this chapter, we will explore the Chi-Square Test of Independence, its assumptions, and its application in real-world scenarios.
+
+# Assumptions
+
+Before conducting a Chi-Square Test of Independence, we need to ensure that certain assumptions are met:
+
+1. **Independence**: The observations should be independent of each other. Each individual or case should contribute only one observation to the data.
+
+2. **Sample size**: The sample size should be sufficiently large. A general rule of thumb is that each cell in the contingency table should have an expected frequency of at least 5.
+
+# Hypotheses
+
+The Chi-Square Test of Independence involves setting up null and alternative hypotheses to evaluate the relationship between the two variables:
+
+- **Null Hypothesis (H0)**: There is no association between the two categorical variables.
+- **Alternative Hypothesis (HA)**: There is an association between the two categorical variables.
+
+# Test Statistic
+
+The test statistic for the Chi-Square Test of Independence follows a chi-square distribution. It is calculated using the formula:
+
+$$
+\chi^2 = \sum \frac{(O_{ij} - E_{ij})^2}{E_{ij}}
+$$
+
+where:
+- $O_{ij}$ is the observed frequency in cell (i, j)
+- $E_{ij}$ is the expected frequency in cell (i, j)
+
+# Steps for Conducting the Test
+
+The Chi-Square Test of Independence can be performed using the following steps:
+
+1. **Formulate hypotheses**: Define the null and alternative hypotheses based on the research question.
+
+2. **Collect and organize data**: Gather data on the two categorical variables of interest and create a contingency table.
+
+3. **Calculate expected frequencies**: Compute the expected frequencies for each cell in the contingency table under the assumption of independence.
+
+4. **Compute the test statistic**: Calculate the chi-square test statistic using the formula mentioned earlier.
+
+5. **Determine the p-value**: Find the p-value associated with the calculated test statistic using the chi-square distribution table or statistical software.
+
+6. **Make a decision**: Compare the p-value to the significance level (e.g., \(\alpha = 0.05\)) and make a decision to either reject or fail to reject the null hypothesis.
+
+7. **Interpret the results**: Provide a conclusion based on the analysis and discuss the implications of the findings.
+
+# Example: Relationship between Gender and Voting Preference
+
+To illustrate the Chi-Square Test of Independence, let's consider a scenario where we want to investigate if there is an association between gender and voting preference. We collect data from a random sample of 200 individuals and obtain the following contingency table:
+
+|       | Male | Female | Total |
+|-------|------|--------|-------|
+| Vote A | 45   | 55     | 100   |
+| Vote B | 65   | 35     | 100   |
+| Total | 110  | 90     | 200   |
+
+## Step 1: Formulate hypotheses
+
+- **Null Hypothesis (H0)**: Gender and voting preference are independent.
+- **Alternative Hypothesis (HA)**: Gender and voting preference are associated.
+
+## Step 2: Collect and organize data
+
+We collect data on the gender and voting preference of 200 individuals and organize it into a contingency table.
+
+## Step 3: Calculate expected frequencies
+
+We calculate the expected frequencies for each cell assuming independence. The expected frequency for each cell can be calculated as:
+
+$$
+E_{ij} = \frac{{\text{{row total}}_i \times \text{{column total}}_j}}{{\text{{grand total}}}}
+$$
+
+Using this formula, we obtain the following expected frequencies:
+
+|       | Male | Female | Total |
+|-------|------|--------|-------|
+| Vote A | 55   | 45     | 100   |
+| Vote B | 55   | 45     | 100   |
+| Total | 110  | 90     | 200   |
+
+## Step 4: Compute the test statistic
+
+Now, we can calculate the chi-square test statistic using the formula:
+
+$$
+\chi^2 = \sum \frac{{(O_{ij} - E_{ij})^2}}{{E_{ij}}}
+$$
+
+Substituting the observed and expected frequencies into the formula, we get:
+
+$$
+\chi^2 = \frac{{(45 - 55)^2}}{{55}} + \frac{{(55 - 45)^2}}{{45}} + \frac{{(65 - 55)^2}}{{55}} + \frac{{(35 - 45)^2}}{{45}} = 4.36
+$$
+
+## Step 5: Determine the p-value
+
+To determine the p-value associated with the calculated test statistic, we refer to the chi-square distribution table or use statistical software. Let's assume the p-value is found to be 0.113.
+
+## Step 6: Make a decision
+
+Comparing the p-value (0.113) to the significance level (e.g., \(\alpha = 0.05\)), we find that the p-value is greater than the significance level. Therefore, we fail to reject the null hypothesis.
+
+## Step 7: Interpret the results
+
+Based on our analysis, we do not have sufficient evidence to conclude that there is an association between gender and voting preference in the population. The data does not provide strong support for the claim that gender and voting preference are related.
+
+# Exercise
+
+1. A researcher wants to examine if there is an association between smoking status (smoker or non-smoker) and lung cancer development (yes or no). The researcher collects data from 500 individuals and obtains the following contingency table:
+
+   |       | Smoker | Non-smoker | Total |
+   |-------|--------|------------|-------|
+   | Cancer  | 120    | 80         | 200   |
+   | No Cancer | 70     | 230        | 300   |
+   | Total | 190    | 310        | 500   |
+
+Conduct a Chi-Square Test of Independence to determine if there is an association between smoking status and lung cancer development.
+
+2. An educational researcher wants to investigate if there is an association between teaching method (Method A, Method B, Method C) and student performance (Pass or Fail). The researcher randomly assigns 120 students to the three teaching methods and records their performance. The data is summarized in the following contingency table:
+
+   |       | Method A | Method B | Method C | Total |
+   |-------|----------|----------|----------|-------|
+   | Pass    | 40       | 30       | 35       | 105   |
+   | Fail     | 15       | 25       | 20       | 60    |
+   | Total   | 55       | 55       | 55       | 165   |
+
+Perform a Chi-Square Test of Independence to determine if there is a relationship between teaching method and student performance.
+
+3. A survey was conducted to examine the association between marital status (Married, Single, Divorced) and job satisfaction (Satisfied or Dissatisfied) among employees. A sample of 250 employees was selected, and the data is summarized in the following contingency table:
+
+   |           | Married | Single | Divorced | Total |
+   |-----------|---------|--------|----------|-------|
+   | Satisfied | 80      | 45     | 30       | 155   |
+   | Dissatisfied | 45      | 30     | 20       | 95    |
+   | Total     | 125     | 75     | 50       | 250   |
+
+   Conduct a Chi-Square Test of Independence to determine if there is an association between marital status and job satisfaction.
+
+4. A market researcher wants to examine if there is an association between product preference (Product A, Product B, Product C) and age group (Under 30, 30-50, Over 50). The researcher collects data from a random sample of 400 consumers and obtains the following contingency table:
+
+   |            | Product A | Product B | Product C | Total |
+   |------------|-----------|-----------|-----------|-------|
+   | Under 30   | 60        | 50        | 40        | 150   |
+   | 30-50      | 80        | 70        | 60        | 210   |
+   | Over 50    | 40        | 30        | 30        | 100   |
+   | Total      | 180       | 150       | 130       | 460   |
+
+Perform a Chi-Square Test of Independence to determine if there is a relationship between product preference and age group.
+
+5. An experiment was conducted to study the relationship between exercise duration (Short, Medium, Long) and cardiovascular health (Healthy, Unhealthy). The researchers randomly assigned 80 participants to the exercise groups and obtained the following contingency table:
+
+   |           | Short | Medium | Long | Total |
+   |-----------|-------|--------|------|-------|
+   | Healthy   | 15    | 10     | 5    | 30    |
+   | Unhealthy | 20    | 15     | 15   | 50    |
+   | Total     | 35    | 25     | 20   | 80    |
+
+Conduct a Chi-Square Test of Independence to determine if there is an association between exercise duration and cardiovascular health.
+
+# Conclusion
+
+The Chi-Square Test of Independence is a valuable statistical tool for investigating relationships between categorical variables. By applying this test, we can determine if there is evidence of association or dependence between variables of interest. By following the step-by-step process and conducting appropriate analysis, researchers can gain insights into the underlying relationships in their data.
+
+# References
+
+- Agresti, A. (2002). Categorical data analysis. John Wiley & Sons.
+- Field, A. (2018). Discovering statistics using IBM SPSS statistics. Sage.
+- Montgomery, D. C., Peck, E. A., & Vining, G. G. (2012). Introduction to linear regression analysis. John Wiley & Sons.

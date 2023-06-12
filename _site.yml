@@ -34,6 +34,8 @@ navbar:
           href: 05_hypothesis4.html
         - text: "Chapter 4 - One-Way ANOVA"
           href: 05_hypothesis5.html
+        - text: "Chapter 4 - Chi-Square Test of Independence"
+          href: 05_hypothesis6.html
         - text: "Chapter 5 - Bivariate Analysis"
           href: 06_bivariate.html
     - text: "Project"

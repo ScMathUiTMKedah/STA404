@@ -197,3 +197,62 @@ To run a simple linear regression analysis in SPSS, follow these steps:\
 6. Click "OK" to run the analysis.\
 
 I hope this helps! Let me know if you have any other questions.\
+
+# Examples\
+
+## Correlation Analysis\
+
+Here's an example of correlation analysis using SPSS output:
+
+```
+Correlations
+             Height   Weight   Age
+Height       1.000    0.780    0.432
+Weight       0.780    1.000    0.658
+Age          0.432    0.658    1.000
+
+N = 100
+```
+
+In this example, the correlation matrix shows the correlations between three variables: Height, Weight, and Age. The correlation coefficient ranges from -1 to 1, where a value of 1 indicates a perfect positive correlation, 0 indicates no correlation, and -1 indicates a perfect negative correlation.\
+
+Based on the SPSS output, we can observe the following correlations:\
+- Height and Weight have a strong positive correlation of 0.780.\
+- Height and Age have a moderate positive correlation of 0.432.\
+- Weight and Age have a moderate positive correlation of 0.658.\
+
+The sample size (N) for this analysis is 100.\
+
+This SPSS output provides valuable information about the relationships between variables and helps in understanding the strength and direction of the correlations.\
+
+## Simple Linear Regression Analysis\
+
+Here's an example of simple linear regression analysis using SPSS output:
+
+```
+Model Summary
+Model   R     R Square   Adjusted R Square   Std. Error of the Estimate
+1       0.783 0.613      0.603              3.521
+
+ANOVA
+                Sum of Squares   df   Mean Square   F       Sig.
+Regression      840.596          1    840.596      60.109  <0.001
+Residual        531.404          28   18.979        
+Total           1372.000         29              
+
+Coefficients
+                    Unstandardized Coefficients   Standardized Coefficients
+Model               B          Std. Error         Beta          t       Sig.
+(Constant)          6.210      3.054                               2.033   0.052
+Height              0.780      0.100                0.783        7.755   <0.001
+```
+
+In this example, the simple linear regression analysis is performed to examine the relationship between two variables: Height and Weight.\
+
+The Model Summary section provides information about the overall fit of the regression model. The R value represents the correlation between the predicted and observed values, indicating the strength of the relationship. The R Square value (0.613) indicates that 61.3% of the variance in the dependent variable (Weight) is explained by the independent variable (Height). The Adjusted R Square value (0.603) takes into account the degrees of freedom and adjusts the R Square value accordingly. The Std. Error of the Estimate (3.521) represents the average error or residual between the predicted and observed values.\
+
+The ANOVA table shows the results of the analysis of variance. The Regression row provides information about the regression model's overall performance. The Sum of Squares (840.596) represents the explained variance, while the Residual row represents the unexplained variance. The F value (60.109) indicates the significance of the regression model, and the Sig. value (<0.001) indicates that the regression model is statistically significant.\
+
+The Coefficients table provides information about the regression coefficients. The Unstandardized Coefficients represent the intercept (Constant) and the slope (Height). The Standardized Coefficients (Beta) show the standardized effect of the independent variable (Height) on the dependent variable (Weight). The t value and Sig. value indicate the significance of each coefficient.\
+
+This SPSS output provides important information about the regression model's fit, significance, and the relationship between the independent and dependent variables.\

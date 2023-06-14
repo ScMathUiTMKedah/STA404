@@ -2281,6 +2281,14 @@ LECTURE NOTES
 </a></li>
 <li><a href="#procedures-in-ibm-statistics-spss" id="toc-procedures-in-ibm-statistics-spss">Procedures in IBM Statistics SPSS<br />
 </a></li>
+<li><a href="#examples" id="toc-examples">Examples<br />
+</a>
+<ul>
+<li><a href="#correlation-analysis" id="toc-correlation-analysis">Correlation Analysis<br />
+</a></li>
+<li><a href="#simple-linear-regression-analysis" id="toc-simple-linear-regression-analysis">Simple Linear Regression Analysis<br />
+</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -2546,7 +2554,58 @@ wt          -6.486308 -4.202635</code></pre>
 </ol>
 <p>I hope this helps! Let me know if you have any other questions.<br />
 </p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h1 id="examples">Examples<br />
+</h1>
+<h2 id="correlation-analysis">Correlation Analysis<br />
+</h2>
+<p>Here’s an example of correlation analysis using SPSS output:</p>
+<pre><code>Correlations
+             Height   Weight   Age
+Height       1.000    0.780    0.432
+Weight       0.780    1.000    0.658
+Age          0.432    0.658    1.000
+
+N = 100</code></pre>
+<p>In this example, the correlation matrix shows the correlations between three variables: Height, Weight, and Age. The correlation coefficient ranges from -1 to 1, where a value of 1 indicates a perfect positive correlation, 0 indicates no correlation, and -1 indicates a perfect negative correlation.<br />
+</p>
+<p>Based on the SPSS output, we can observe the following correlations:<br />
+- Height and Weight have a strong positive correlation of 0.780.<br />
+- Height and Age have a moderate positive correlation of 0.432.<br />
+- Weight and Age have a moderate positive correlation of 0.658.<br />
+</p>
+<p>The sample size (N) for this analysis is 100.<br />
+</p>
+<p>This SPSS output provides valuable information about the relationships between variables and helps in understanding the strength and direction of the correlations.<br />
+</p>
+<h2 id="simple-linear-regression-analysis">Simple Linear Regression Analysis<br />
+</h2>
+<p>Here’s an example of simple linear regression analysis using SPSS output:</p>
+<pre><code>Model Summary
+Model   R     R Square   Adjusted R Square   Std. Error of the Estimate
+1       0.783 0.613      0.603              3.521
+
+ANOVA
+                Sum of Squares   df   Mean Square   F       Sig.
+Regression      840.596          1    840.596      60.109  &lt;0.001
+Residual        531.404          28   18.979        
+Total           1372.000         29              
+
+Coefficients
+                    Unstandardized Coefficients   Standardized Coefficients
+Model               B          Std. Error         Beta          t       Sig.
+(Constant)          6.210      3.054                               2.033   0.052
+Height              0.780      0.100                0.783        7.755   &lt;0.001</code></pre>
+<p>In this example, the simple linear regression analysis is performed to examine the relationship between two variables: Height and Weight.<br />
+</p>
+<p>The Model Summary section provides information about the overall fit of the regression model. The R value represents the correlation between the predicted and observed values, indicating the strength of the relationship. The R Square value (0.613) indicates that 61.3% of the variance in the dependent variable (Weight) is explained by the independent variable (Height). The Adjusted R Square value (0.603) takes into account the degrees of freedom and adjusts the R Square value accordingly. The Std. Error of the Estimate (3.521) represents the average error or residual between the predicted and observed values.<br />
+</p>
+<p>The ANOVA table shows the results of the analysis of variance. The Regression row provides information about the regression model’s overall performance. The Sum of Squares (840.596) represents the explained variance, while the Residual row represents the unexplained variance. The F value (60.109) indicates the significance of the regression model, and the Sig. value (&lt;0.001) indicates that the regression model is statistically significant.<br />
+</p>
+<p>The Coefficients table provides information about the regression coefficients. The Unstandardized Coefficients represent the intercept (Constant) and the slope (Height). The Standardized Coefficients (Beta) show the standardized effect of the independent variable (Height) on the dependent variable (Weight). The t value and Sig. value indicate the significance of each coefficient.<br />
+</p>
+<p>This SPSS output provides important information about the regression model’s fit, significance, and the relationship between the independent and dependent variables.<br />
+</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

@@ -107,7 +107,7 @@ $$
 Substituting the observed and expected frequencies into the formula, we get:
 
 $$
-\chi^2 = \frac{{(45 - 55)^2}}{{55}} + \frac{{(55 - 45)^2}}{{45}} + \frac{{(65 - 55)^2}}{{55}} + \frac{{(35 - 45)^2}}{{45}} = 4.36
+\chi^2 = \frac{{(45 - 55)^2}}{{55}} + \frac{{(55 - 45)^2}}{{45}} + \frac{{(65 - 55)^2}}{{55}} + \frac{{(35 - 45)^2}}{{45}} = 8.081
 $$
 
 ## Step 5: Determine the p-value

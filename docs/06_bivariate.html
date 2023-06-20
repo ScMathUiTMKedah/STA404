@@ -2233,6 +2233,10 @@ LECTURE NOTES
 <h3>Contents</h3>
 <ul>
 <li><a href="#introduction-to-bivariate-analysis" id="toc-introduction-to-bivariate-analysis">Introduction to Bivariate Analysis<br />
+</a></li>
+<li><a href="#applications-of-bivariate-analysis" id="toc-applications-of-bivariate-analysis">Applications of Bivariate Analysis<br />
+</a></li>
+<li><a href="#limitations-of-bivariate-analysis" id="toc-limitations-of-bivariate-analysis">Limitations of Bivariate Analysis<br />
 </a>
 <ul>
 <li><a href="#scatter-diagram" id="toc-scatter-diagram">Scatter Diagram<br />
@@ -2243,11 +2247,15 @@ LECTURE NOTES
 <ul>
 <li><a href="#linear-correlation-coefficient" id="toc-linear-correlation-coefficient">Linear Correlation Coefficient<br />
 </a></li>
-<li><a href="#positive-negative-and-no-correlation-examples" id="toc-positive-negative-and-no-correlation-examples">Positive, Negative, and No Correlation Examples</a>
+<li><a href="#positive-negative-and-no-correlation-examples" id="toc-positive-negative-and-no-correlation-examples">Positive, Negative, and No Correlation Examples<br />
+</a>
 <ul>
-<li><a href="#positive-correlation" id="toc-positive-correlation">Positive Correlation</a></li>
-<li><a href="#negative-correlation" id="toc-negative-correlation">Negative Correlation</a></li>
-<li><a href="#no-correlation" id="toc-no-correlation">No Correlation</a></li>
+<li><a href="#positive-correlation" id="toc-positive-correlation">Positive Correlation<br />
+</a></li>
+<li><a href="#negative-correlation" id="toc-negative-correlation">Negative Correlation<br />
+</a></li>
+<li><a href="#no-correlation" id="toc-no-correlation">No Correlation<br />
+</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#simple-linear-regression" id="toc-simple-linear-regression">Simple Linear Regression<br />
@@ -2275,10 +2283,6 @@ LECTURE NOTES
 <li><a href="#confidence-intervals-for-the-slope-and-intercept" id="toc-confidence-intervals-for-the-slope-and-intercept">Confidence Intervals for the Slope and Intercept<br />
 </a></li>
 </ul></li>
-<li><a href="#applications-of-bivariate-analysis" id="toc-applications-of-bivariate-analysis">Applications of Bivariate Analysis<br />
-</a></li>
-<li><a href="#limitations-of-bivariate-analysis" id="toc-limitations-of-bivariate-analysis">Limitations of Bivariate Analysis<br />
-</a></li>
 <li><a href="#conclusion" id="toc-conclusion">Conclusion<br />
 </a></li>
 <li><a href="#procedures-in-ibm-statistics-spss" id="toc-procedures-in-ibm-statistics-spss">Procedures in IBM Statistics SPSS<br />
@@ -2298,6 +2302,32 @@ LECTURE NOTES
 </h1>
 <p>Bivariate analysis is a statistical method used to analyze the relationship between two variables. The purpose of bivariate analysis is to determine the strength and direction of the relationship between two variables and to make predictions based on this relationship.<br />
 </p>
+<h1 id="applications-of-bivariate-analysis">Applications of Bivariate Analysis<br />
+</h1>
+<p>Bivariate analysis has many applications in various fields, such as:<br />
+</p>
+<ul>
+<li>Marketing: Analyzing the relationship between advertising expenditure and sales revenue.<br />
+</li>
+<li>Finance: Examining the relationship between risk and return in investment portfolios.<br />
+</li>
+<li>Healthcare: Investigating the relationship between patient age and recovery time after surgery.<br />
+</li>
+<li>Education: Studying the relationship between class size and student performance.<br />
+</li>
+</ul>
+<h1 id="limitations-of-bivariate-analysis">Limitations of Bivariate Analysis<br />
+</h1>
+<p>There are several limitations of bivariate analysis:<br />
+</p>
+<ol type="1">
+<li>Causality: Bivariate analysis can only show the relationship between two variables but cannot establish causality. Correlation does not imply causation.<br />
+</li>
+<li>Confounding Variables: Bivariate analysis does not account for confounding variables that may affect the relationship between the independent and dependent variables.<br />
+</li>
+<li>Non-linear Relationships: Bivariate analysis, specifically simple linear regression, assumes a linear relationship between the variables. It may not accurately capture non-linear relationships.<br />
+</li>
+</ol>
 <h2 id="scatter-diagram">Scatter Diagram<br />
 </h2>
 <p>A scatter diagram is a graphical representation of the relationship between two variables. It is used to visually assess the correlation between two variables. The direction, strength, and shape of the relationship can be observed from the scatter diagram.<br />
@@ -2365,6 +2395,11 @@ Figure 3: Strong Positive Linear Relationship
 </h2>
 <p>The linear correlation coefficient (Pearson’s r) is a numerical measure of the strength and direction of the linear relationship between two variables. The value of r ranges from -1 to 1, where -1 indicates a strong negative correlation, 1 indicates a strong positive correlation, and 0 indicates no correlation.<br />
 </p>
+<p>The following formula can be used to calculate the correlation coefficient:</p>
+<p><span class="math display">\[
+r = \frac{\sum{(x_i - \bar{x})(y_i - \bar{y})}}{\sqrt{\sum{(x_i - \bar{x})^2}\sum{(y_i - \bar{y})^2}}}\ \ or\ r = \frac{S_{xy}}{\sqrt{S_{xx}\ \times\ S_{yy}}} \\
+\\
+\]</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Example correlation calculation</span></span>
@@ -2377,7 +2412,7 @@ Figure 3: Strong Positive Linear Relationship
 </div>
 <pre><code>[1] -0.8676594</code></pre>
 </div>
-<p>The correlation coefficient (r) of -0.8676594 indicates a strong negative linear relationship between the variables being analyzed. This means that as one variable increases, the other variable tends to decrease.<br />
+<p>The correlation coefficient (r) of -0.8676594 indicates a <strong>strong negative linear relationship</strong> between the variables being analyzed. This means that as one variable increases, the other variable tends to decrease.<br />
 </p>
 <p>Specifically, a correlation coefficient of -0.8676594 suggests that there is a strong inverse relationship between the variables, where higher values of one variable are associated with lower values of the other variable.<br />
 </p>
@@ -2385,8 +2420,10 @@ Figure 3: Strong Positive Linear Relationship
 </p>
 <p>Overall, the strong negative correlation coefficient indicates a robust and consistent pattern in the data, suggesting that changes in one variable are reliably associated with changes in the opposite direction in the other variable.<br />
 </p>
-<h2 id="positive-negative-and-no-correlation-examples">Positive, Negative, and No Correlation Examples</h2>
-<h3 id="positive-correlation">Positive Correlation</h3>
+<h2 id="positive-negative-and-no-correlation-examples">Positive, Negative, and No Correlation Examples<br />
+</h2>
+<h3 id="positive-correlation">Positive Correlation<br />
+</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Data</span></span>
@@ -2402,8 +2439,10 @@ Figure 3: Strong Positive Linear Relationship
 </div>
 <pre><code>[1] 1</code></pre>
 </div>
-<p>In this example, we have a positive correlation between the variables X and Y. As the value of X increases, the value of Y also increases. The scatter plot demonstrates a positive linear relationship between the variables.</p>
-<h3 id="negative-correlation">Negative Correlation</h3>
+<p>In this example, we have a positive correlation between the variables X and Y. As the value of X increases, the value of Y also increases. The scatter plot demonstrates a positive linear relationship between the variables.<br />
+</p>
+<h3 id="negative-correlation">Negative Correlation<br />
+</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Data</span></span>
@@ -2419,8 +2458,10 @@ Figure 3: Strong Positive Linear Relationship
 </div>
 <pre><code>[1] -1</code></pre>
 </div>
-<p>In this example, we have a negative correlation between the variables X and Y. As the value of X increases, the value of Y decreases. The scatter plot demonstrates a negative linear relationship between the variables.</p>
-<h3 id="no-correlation">No Correlation</h3>
+<p>In this example, we have a negative correlation between the variables X and Y. As the value of X increases, the value of Y decreases. The scatter plot demonstrates a negative linear relationship between the variables.<br />
+</p>
+<h3 id="no-correlation">No Correlation<br />
+</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Data</span></span>
@@ -2436,8 +2477,16 @@ Figure 3: Strong Positive Linear Relationship
 </div>
 <pre><code>[1] -0.04521122</code></pre>
 </div>
-<p>In this example, there is no discernible correlation between the variables X and Y. The scatter plot does not exhibit a clear pattern or trend, indicating no linear relationship between the variables.</p>
-<p>In summary, correlation analysis helps us identify the strength and direction of relationships between variables. The examples provided demonstrate the concepts of positive, negative, and no correlation, as illustrated by the corresponding scatter diagrams.</p>
+<p>In this example, there is no discernible correlation between the variables X and Y. The scatter plot does not exhibit a clear pattern or trend, indicating no linear relationship between the variables.<br />
+</p>
+<p>In summary, correlation analysis helps us identify the strength and direction of relationships between variables. The examples provided demonstrate the concepts of positive, negative, and no correlation, as illustrated by the corresponding scatter diagrams.<br />
+</p>
+<p>To learn how to calculate the correlation coefficient using scietific calculator, you can watch the following videos in my YouTube Channel.<br />
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nep9jh-ilBY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><br />
+</p>
 <h1 id="simple-linear-regression">Simple Linear Regression<br />
 </h1>
 <p>Simple linear regression is a statistical method used to model the relationship between a dependent variable (y) and an independent variable (x). The purpose of simple linear regression is to predict the value of the dependent variable based on the value of the independent variable.<br />
@@ -2563,32 +2612,6 @@ F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10</code></pre>
 (Intercept) 33.450500 41.119753
 wt          -6.486308 -4.202635</code></pre>
 </div>
-<h1 id="applications-of-bivariate-analysis">Applications of Bivariate Analysis<br />
-</h1>
-<p>Bivariate analysis has many applications in various fields, such as:<br />
-</p>
-<ul>
-<li>Marketing: Analyzing the relationship between advertising expenditure and sales revenue.<br />
-</li>
-<li>Finance: Examining the relationship between risk and return in investment portfolios.<br />
-</li>
-<li>Healthcare: Investigating the relationship between patient age and recovery time after surgery.<br />
-</li>
-<li>Education: Studying the relationship between class size and student performance.<br />
-</li>
-</ul>
-<h1 id="limitations-of-bivariate-analysis">Limitations of Bivariate Analysis<br />
-</h1>
-<p>There are several limitations of bivariate analysis:<br />
-</p>
-<ol type="1">
-<li>Causality: Bivariate analysis can only show the relationship between two variables but cannot establish causality. Correlation does not imply causation.<br />
-</li>
-<li>Confounding Variables: Bivariate analysis does not account for confounding variables that may affect the relationship between the independent and dependent variables.<br />
-</li>
-<li>Non-linear Relationships: Bivariate analysis, specifically simple linear regression, assumes a linear relationship between the variables. It may not accurately capture non-linear relationships.<br />
-</li>
-</ol>
 <h1 id="conclusion">Conclusion<br />
 </h1>
 <p>In conclusion, bivariate analysis is a powerful tool for understanding the relationship between two variables and making predictions based on that relationship. By evaluating the regression model and its assumptions, we can ensure the validity of our findings and make data-driven decisions in various fields, such as marketing, finance, healthcare, and education. However, it is essential to be aware of the limitations of bivariate analysis and consider using multivariate analysis techniques when necessary to account for confounding variables and complex relationships.<br />
@@ -2677,6 +2700,16 @@ Height              0.780      0.100              0.783         7.755   &lt;0.00
 <p>The Coefficients table provides information about the regression coefficients. The Unstandardized Coefficients represent the intercept (Constant) and the slope (Height). The Standardized Coefficients (Beta) show the standardized effect of the independent variable (Height) on the dependent variable (Weight). The t value and Sig. value indicate the significance of each coefficient.<br />
 </p>
 <p>This SPSS output provides important information about the regression model’s fit, significance, and the relationship between the independent and dependent variables.<br />
+</p>
+<p>More learning videos on this topic is available here:<br />
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hxdnB07zzh4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><br />
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qdiEPHrZ-6A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><br />
 </p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

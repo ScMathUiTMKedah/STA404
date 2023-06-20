@@ -11,6 +11,20 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(slickR)
+# 
+# #devtools::install_github("rafzamb/sknifedatar")
+# library(sknifedatar)
+# 
+# #devtools::install_github("gadenbuie/xaringanExtra")
+# library(xaringanExtra)
+# 
+# library(lubridate)
+# library(timetk)
+# library(dplyr)
+# library(tidyr)
+# library(purrr)
+# library(reactable)
+# library(htmltools)
 ```
 
 ## Weekly Scheme of Work  
@@ -233,3 +247,87 @@ If you can't view the pdf file, click on the file's link - <a href="files/slides
 Under constructions  
 
 ***
+
+# Assessment\
+
+```{r include=FALSE}
+library(readxl)
+library(knitr)
+library(kableExtra)
+library(grid)
+library(DT)
+
+# Read data from specific sheet in excel
+data1 <- read_excel("CM_20232.xlsx", sheet = "STA404 KAM2283A")
+data2 <- read_excel("CM_20232.xlsx", sheet = "STA404 KAM2283B")
+data3 <- read_excel("CM_20232.xlsx", sheet = "STA404 KAC2205G")
+
+# Omit columns 3
+data1_new <- data1[, -c(3)]
+data2_new <- data2[, -c(3)]
+data3_new <- data3[, -c(3)]
+
+
+# Format the last column to display only 2 decimal places
+data1_new[,ncol(data1_new)] <- round(data1_new[,ncol(data1_new)], 2)
+data2_new[,ncol(data1_new)] <- round(data2_new[,ncol(data2_new)], 2)
+data3_new[,ncol(data1_new)] <- round(data3_new[,ncol(data3_new)], 2)
+```
+
+## 20232\
+
+<!-- ::: {.l-page} -->
+<!-- ::: {.panelset} -->
+<!-- ::: {.panel} -->
+
+<details><summary>**KAM2283A**</summary>
+<!-- ### KAM2283A {.panel-name} -->
+```{r echo=FALSE}
+# Display 10 rows per page with page option button
+# STA404 KAM2283A
+# kable(data4_new, "html", 
+#       caption = "Data from Sheet 4",
+#       escape = F) %>% 
+#   kable_styling(bootstrap_options = "striped", full_width = F)
+datatable(data1_new, 
+          options = list(scrollY = "500px", scrollCollapse = TRUE),
+          rownames = F)
+```
+<!-- ::: -->
+</details>
+
+<!-- ::: {.panel} -->
+<!-- ### KAM2283B {.panel-name} -->
+<details><summary>**KAM2283B**</summary>
+```{r echo=FALSE}
+# Display 10 rows per page with page option button
+# MAT402 KAM2281B
+# kable(data5_new, "html", 
+# #      caption = "Data from Sheet 5",
+#       escape = T) %>% 
+#   kable_styling(bootstrap_options = "striped", full_width = F)
+datatable(data2_new, 
+          options = list(scrollY = "500px", scrollCollapse = TRUE),
+          rownames = F)
+```
+<!-- ::: -->
+</details>
+
+<!-- ::: {.panel} -->
+<!-- ### KAC2205G {.panel-name} -->
+<details><summary>**KAC2205G**</summary>
+```{r echo=FALSE}
+# Display 10 rows per page with page option button
+# MAT402 KAM2281B
+# kable(data5_new, "html", 
+# #      caption = "Data from Sheet 5",
+#       escape = T) %>% 
+#   kable_styling(bootstrap_options = "striped", full_width = F)
+datatable(data3_new, 
+          options = list(scrollY = "500px", scrollCollapse = TRUE),
+          rownames = F)
+```
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: -->
+</details>

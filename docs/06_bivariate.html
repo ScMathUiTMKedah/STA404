@@ -2233,12 +2233,14 @@ LECTURE NOTES
 <h3>Contents</h3>
 <ul>
 <li><a href="#introduction-to-bivariate-analysis" id="toc-introduction-to-bivariate-analysis">Introduction to Bivariate Analysis<br />
-</a></li>
-<li><a href="#correlation" id="toc-correlation">Correlation<br />
 </a>
 <ul>
 <li><a href="#scatter-diagram" id="toc-scatter-diagram">Scatter Diagram<br />
 </a></li>
+</ul></li>
+<li><a href="#correlation" id="toc-correlation">Correlation<br />
+</a>
+<ul>
 <li><a href="#linear-correlation-coefficient" id="toc-linear-correlation-coefficient">Linear Correlation Coefficient<br />
 </a></li>
 <li><a href="#positive-negative-and-no-correlation-examples" id="toc-positive-negative-and-no-correlation-examples">Positive, Negative, and No Correlation Examples</a>
@@ -2296,10 +2298,6 @@ LECTURE NOTES
 </h1>
 <p>Bivariate analysis is a statistical method used to analyze the relationship between two variables. The purpose of bivariate analysis is to determine the strength and direction of the relationship between two variables and to make predictions based on this relationship.<br />
 </p>
-<h1 id="correlation">Correlation<br />
-</h1>
-<p>Correlation is a measure of the strength and direction of the linear relationship between two variables. There are two ways to measure correlation: scatter diagram and linear correlation coefficient.<br />
-</p>
 <h2 id="scatter-diagram">Scatter Diagram<br />
 </h2>
 <p>A scatter diagram is a graphical representation of the relationship between two variables. It is used to visually assess the correlation between two variables. The direction, strength, and shape of the relationship can be observed from the scatter diagram.<br />
@@ -2313,6 +2311,56 @@ LECTURE NOTES
 </div>
 <p><img src="06_bivariate_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
 </div>
+<p>Three types of scatterplots representing different types of linear relationships:<br />
+</p>
+<ol type="1">
+<li>Strong Negative Linear Relationship:<br />
+</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterplot1"></span>
+<img src="06_bivariate_files/figure-html5/scatterplot1-1.png" alt="Strong Negative Linear Relationship" width="624" />
+<p class="caption">
+Figure 1: Strong Negative Linear Relationship
+</p>
+</div>
+</div>
+<p>In this scatterplot, there is a strong negative linear relationship between the variables X and Y. As X increases, Y decreases in a linear fashion. The red line represents the linear regression line that best fits the data.<br />
+</p>
+<ol start="2" type="1">
+<li>No Linear Relationship:<br />
+</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterplot2"></span>
+<img src="06_bivariate_files/figure-html5/scatterplot2-1.png" alt="No Linear Relationship" width="624" />
+<p class="caption">
+Figure 2: No Linear Relationship
+</p>
+</div>
+</div>
+<p>In this scatterplot, there is no apparent linear relationship between the variables X and Y. The data points are scattered randomly with no clear pattern or trend.<br />
+</p>
+<ol start="3" type="1">
+<li>Strong Positive Linear Relationship:<br />
+</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterplot3"></span>
+<img src="06_bivariate_files/figure-html5/scatterplot3-1.png" alt="Strong Positive Linear Relationship" width="624" />
+<p class="caption">
+Figure 3: Strong Positive Linear Relationship
+</p>
+</div>
+</div>
+<p>In this scatterplot, there is a strong positive linear relationship between the variables X and Y. As X increases, Y also increases in a linear fashion. The red line represents the linear regression line that best fits the data.<br />
+</p>
+<p>These scatterplots visually demonstrate different types of linear relationships: strong negative, no, and strong positive. They help us understand the direction and strength of the relationship between variables.<br />
+</p>
+<h1 id="correlation">Correlation<br />
+</h1>
+<p>Correlation is a measure of the strength and direction of the linear relationship between two variables. There are two ways to measure correlation: scatter diagram and linear correlation coefficient.<br />
+</p>
 <h2 id="linear-correlation-coefficient">Linear Correlation Coefficient<br />
 </h2>
 <p>The linear correlation coefficient (Pearson’s r) is a numerical measure of the strength and direction of the linear relationship between two variables. The value of r ranges from -1 to 1, where -1 indicates a strong negative correlation, 1 indicates a strong positive correlation, and 0 indicates no correlation.<br />
@@ -2320,10 +2368,23 @@ LECTURE NOTES
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Example correlation calculation</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>$</span><span class='va'>wt</span>, <span class='va'>mtcars</span><span class='op'>$</span><span class='va'>mpg</span><span class='op'>)</span></span></code></pre>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>$</span><span class='va'>wt</span>, <span class='va'>mtcars</span><span class='op'>$</span><span class='va'>mpg</span>, main <span class='op'>=</span> <span class='st'>"Strong Negative Linear Relationship"</span>, xlab <span class='op'>=</span> <span class='st'>"Weight"</span>, ylab <span class='op'>=</span> <span class='st'>"MPG"</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>$</span><span class='va'>mpg</span> <span class='op'>~</span> <span class='va'>mtcars</span><span class='op'>$</span><span class='va'>wt</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span></span></code></pre>
+</div>
+<img src="06_bivariate_files/figure-html5/unnamed-chunk-2-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>$</span><span class='va'>wt</span>, <span class='va'>mtcars</span><span class='op'>$</span><span class='va'>mpg</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>[1] -0.8676594</code></pre>
 </div>
+<p>The correlation coefficient (r) of -0.8676594 indicates a strong negative linear relationship between the variables being analyzed. This means that as one variable increases, the other variable tends to decrease.<br />
+</p>
+<p>Specifically, a correlation coefficient of -0.8676594 suggests that there is a strong inverse relationship between the variables, where higher values of one variable are associated with lower values of the other variable.<br />
+</p>
+<p>It is important to note that correlation does not imply causation, and further analysis is needed to determine the underlying factors driving this relationship.<br />
+</p>
+<p>Overall, the strong negative correlation coefficient indicates a robust and consistent pattern in the data, suggesting that changes in one variable are reliably associated with changes in the opposite direction in the other variable.<br />
+</p>
 <h2 id="positive-negative-and-no-correlation-examples">Positive, Negative, and No Correlation Examples</h2>
 <h3 id="positive-correlation">Positive Correlation</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2335,7 +2396,11 @@ LECTURE NOTES
 <span><span class='co'># Scatter plot</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, main <span class='op'>=</span> <span class='st'>"Positive Correlation"</span>, xlab <span class='op'>=</span> <span class='st'>"X"</span>, ylab <span class='op'>=</span> <span class='st'>"Y"</span><span class='op'>)</span></span></code></pre>
 </div>
-<p><img src="06_bivariate_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+<img src="06_bivariate_files/figure-html5/unnamed-chunk-3-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] 1</code></pre>
 </div>
 <p>In this example, we have a positive correlation between the variables X and Y. As the value of X increases, the value of Y also increases. The scatter plot demonstrates a positive linear relationship between the variables.</p>
 <h3 id="negative-correlation">Negative Correlation</h3>
@@ -2348,7 +2413,11 @@ LECTURE NOTES
 <span><span class='co'># Scatter plot</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, main <span class='op'>=</span> <span class='st'>"Negative Correlation"</span>, xlab <span class='op'>=</span> <span class='st'>"X"</span>, ylab <span class='op'>=</span> <span class='st'>"Y"</span><span class='op'>)</span></span></code></pre>
 </div>
-<p><img src="06_bivariate_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+<img src="06_bivariate_files/figure-html5/unnamed-chunk-4-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] -1</code></pre>
 </div>
 <p>In this example, we have a negative correlation between the variables X and Y. As the value of X increases, the value of Y decreases. The scatter plot demonstrates a negative linear relationship between the variables.</p>
 <h3 id="no-correlation">No Correlation</h3>
@@ -2359,9 +2428,13 @@ LECTURE NOTES
 <span><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>5</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='co'># Scatter plot</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, main <span class='op'>=</span> <span class='st'>"No Correlation"</span>, xlab <span class='op'>=</span> <span class='st'>"X"</span>, ylab <span class='op'>=</span> <span class='st'>"Y"</span><span class='op'>)</span></span></code></pre>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x2</span>, <span class='va'>y2</span>, main <span class='op'>=</span> <span class='st'>"No Correlation"</span>, xlab <span class='op'>=</span> <span class='st'>"X"</span>, ylab <span class='op'>=</span> <span class='st'>"Y"</span><span class='op'>)</span></span></code></pre>
 </div>
-<p><img src="06_bivariate_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<img src="06_bivariate_files/figure-html5/unnamed-chunk-5-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>x2</span>, <span class='va'>y2</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] -0.04521122</code></pre>
 </div>
 <p>In this example, there is no discernible correlation between the variables X and Y. The scatter plot does not exhibit a clear pattern or trend, indicating no linear relationship between the variables.</p>
 <p>In summary, correlation analysis helps us identify the strength and direction of relationships between variables. The examples provided demonstrate the concepts of positive, negative, and no correlation, as illustrated by the corresponding scatter diagrams.</p>
@@ -2582,19 +2655,19 @@ N = 100</code></pre>
 <p>Here’s an example of simple linear regression analysis using SPSS output:</p>
 <pre><code>Model Summary
 Model   R     R Square   Adjusted R Square   Std. Error of the Estimate
-1       0.783 0.613      0.603              3.521
+1       0.783 0.613      0.603               3.521
 
 ANOVA
                 Sum of Squares   df   Mean Square   F       Sig.
-Regression      840.596          1    840.596      60.109  &lt;0.001
+Regression      840.596          1    840.596       60.109  &lt;0.001
 Residual        531.404          28   18.979        
 Total           1372.000         29              
 
 Coefficients
                     Unstandardized Coefficients   Standardized Coefficients
 Model               B          Std. Error         Beta          t       Sig.
-(Constant)          6.210      3.054                               2.033   0.052
-Height              0.780      0.100                0.783        7.755   &lt;0.001</code></pre>
+(Constant)          6.210      3.054                            2.033   0.052
+Height              0.780      0.100              0.783         7.755   &lt;0.001</code></pre>
 <p>In this example, the simple linear regression analysis is performed to examine the relationship between two variables: Height and Weight.<br />
 </p>
 <p>The Model Summary section provides information about the overall fit of the regression model. The R value represents the correlation between the predicted and observed values, indicating the strength of the relationship. The R Square value (0.613) indicates that 61.3% of the variance in the dependent variable (Weight) is explained by the independent variable (Height). The Adjusted R Square value (0.603) takes into account the degrees of freedom and adjusts the R Square value accordingly. The Std. Error of the Estimate (3.521) represents the average error or residual between the predicted and observed values.<br />
@@ -2605,7 +2678,7 @@ Height              0.780      0.100                0.783        7.755   &lt;0.0
 </p>
 <p>This SPSS output provides important information about the regression model’s fit, significance, and the relationship between the independent and dependent variables.<br />
 </p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

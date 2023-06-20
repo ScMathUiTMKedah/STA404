@@ -11,9 +11,6 @@ output:
 # Introduction to Bivariate Analysis\
 Bivariate analysis is a statistical method used to analyze the relationship between two variables. The purpose of bivariate analysis is to determine the strength and direction of the relationship between two variables and to make predictions based on this relationship.\
     
-# Correlation\
-Correlation is a measure of the strength and direction of the linear relationship between two variables. There are two ways to measure correlation: scatter diagram and linear correlation coefficient.\
-    
 ## Scatter Diagram\
 A scatter diagram is a graphical representation of the relationship between two variables. It is used to visually assess the correlation between two variables. The direction, strength, and shape of the relationship can be observed from the scatter diagram.\
     
@@ -23,14 +20,66 @@ library(ggplot2)
 data(mtcars)
 ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point()
 ```
-    
+
+Three types of scatterplots representing different types of linear relationships:\
+
+1. Strong Negative Linear Relationship:\
+
+```{r scatterplot1, echo=FALSE, fig.cap="Strong Negative Linear Relationship", fig.align='center'}
+set.seed(123)
+x1 <- seq(1, 10, by = 0.5)
+y1 <- -2 * x1 + rnorm(length(x1), mean = 0, sd = 1)
+plot(x1, y1, main = "Strong Negative Linear Relationship", xlab = "X", ylab = "Y")
+abline(lm(y1 ~ x1), col = "red")
+```
+
+In this scatterplot, there is a strong negative linear relationship between the variables X and Y. As X increases, Y decreases in a linear fashion. The red line represents the linear regression line that best fits the data.\
+
+2. No Linear Relationship:\
+
+```{r scatterplot2, echo=FALSE, fig.cap="No Linear Relationship", fig.align='center'}
+set.seed(123)
+x2 <- seq(1, 10, by = 0.5)
+y2 <- rnorm(length(x2), mean = 0, sd = 1)
+plot(x2, y2, main = "No Linear Relationship", xlab = "X", ylab = "Y")
+```
+
+In this scatterplot, there is no apparent linear relationship between the variables X and Y. The data points are scattered randomly with no clear pattern or trend.\
+
+3. Strong Positive Linear Relationship:\
+
+```{r scatterplot3, echo=FALSE, fig.cap="Strong Positive Linear Relationship", fig.align='center'}
+set.seed(123)
+x3 <- seq(1, 10, by = 0.5)
+y3 <- 2 * x3 + rnorm(length(x3), mean = 0, sd = 1)
+plot(x3, y3, main = "Strong Positive Linear Relationship", xlab = "X", ylab = "Y")
+abline(lm(y3 ~ x3), col = "red")
+```
+
+In this scatterplot, there is a strong positive linear relationship between the variables X and Y. As X increases, Y also increases in a linear fashion. The red line represents the linear regression line that best fits the data.\
+
+These scatterplots visually demonstrate different types of linear relationships: strong negative, no, and strong positive. They help us understand the direction and strength of the relationship between variables.\
+
+# Correlation\
+Correlation is a measure of the strength and direction of the linear relationship between two variables. There are two ways to measure correlation: scatter diagram and linear correlation coefficient.\
+
 ## Linear Correlation Coefficient\
 The linear correlation coefficient (Pearson's r) is a numerical measure of the strength and direction of the linear relationship between two variables. The value of r ranges from -1 to 1, where -1 indicates a strong negative correlation, 1 indicates a strong positive correlation, and 0 indicates no correlation.\
 
 ```{r}
 # Example correlation calculation
+plot(mtcars$wt, mtcars$mpg, main = "Strong Negative Linear Relationship", xlab = "Weight", ylab = "MPG")
+abline(lm(mtcars$mpg ~ mtcars$wt), col = "red")
 cor(mtcars$wt, mtcars$mpg)
 ```
+
+The correlation coefficient (r) of `r cor(mtcars$wt, mtcars$mpg)` indicates a strong negative linear relationship between the variables being analyzed. This means that as one variable increases, the other variable tends to decrease.\
+
+Specifically, a correlation coefficient of `r cor(mtcars$wt, mtcars$mpg)` suggests that there is a strong inverse relationship between the variables, where higher values of one variable are associated with lower values of the other variable.\
+
+It is important to note that correlation does not imply causation, and further analysis is needed to determine the underlying factors driving this relationship.\
+
+Overall, the strong negative correlation coefficient indicates a robust and consistent pattern in the data, suggesting that changes in one variable are reliably associated with changes in the opposite direction in the other variable.\
 
 ## Positive, Negative, and No Correlation Examples
 
@@ -43,6 +92,7 @@ y <- c(3, 6, 9, 12, 15)
 
 # Scatter plot
 plot(x, y, main = "Positive Correlation", xlab = "X", ylab = "Y")
+cor(x, y)
 ```
 
 In this example, we have a positive correlation between the variables X and Y. As the value of X increases, the value of Y also increases. The scatter plot demonstrates a positive linear relationship between the variables.
@@ -56,6 +106,7 @@ y <- c(15, 12, 9, 6, 3)
 
 # Scatter plot
 plot(x, y, main = "Negative Correlation", xlab = "X", ylab = "Y")
+cor(x, y)
 ```
 
 In this example, we have a negative correlation between the variables X and Y. As the value of X increases, the value of Y decreases. The scatter plot demonstrates a negative linear relationship between the variables.
@@ -68,7 +119,8 @@ x <- c(1, 2, 3, 4, 5)
 y <- c(3, 1, 4, 2, 5)
 
 # Scatter plot
-plot(x, y, main = "No Correlation", xlab = "X", ylab = "Y")
+plot(x2, y2, main = "No Correlation", xlab = "X", ylab = "Y")
+cor(x2, y2)
 ```
 
 In this example, there is no discernible correlation between the variables X and Y. The scatter plot does not exhibit a clear pattern or trend, indicating no linear relationship between the variables.
@@ -232,19 +284,19 @@ Here's an example of simple linear regression analysis using SPSS output:
 ```
 Model Summary
 Model   R     R Square   Adjusted R Square   Std. Error of the Estimate
-1       0.783 0.613      0.603              3.521
+1       0.783 0.613      0.603               3.521
 
 ANOVA
                 Sum of Squares   df   Mean Square   F       Sig.
-Regression      840.596          1    840.596      60.109  <0.001
+Regression      840.596          1    840.596       60.109  <0.001
 Residual        531.404          28   18.979        
 Total           1372.000         29              
 
 Coefficients
                     Unstandardized Coefficients   Standardized Coefficients
 Model               B          Std. Error         Beta          t       Sig.
-(Constant)          6.210      3.054                               2.033   0.052
-Height              0.780      0.100                0.783        7.755   <0.001
+(Constant)          6.210      3.054                            2.033   0.052
+Height              0.780      0.100              0.783         7.755   <0.001
 ```
 
 In this example, the simple linear regression analysis is performed to examine the relationship between two variables: Height and Weight.\

@@ -258,9 +258,9 @@ library(grid)
 library(DT)
 
 # Read data from specific sheet in excel
-data1 <- read_excel("CM_20232.xlsx", sheet = "STA404 KAM2283A")
-data2 <- read_excel("CM_20232.xlsx", sheet = "STA404 KAM2283B")
-data3 <- read_excel("CM_20232.xlsx", sheet = "STA404 KAC2205G")
+data1 <- read_excel("20232 OGA.xlsx", sheet = "STA404 KAM2283A")
+data2 <- read_excel("20232 OGA.xlsx", sheet = "STA404 KAM2283B")
+data3 <- read_excel("20232 OGA.xlsx", sheet = "STA404 KAC2205G")
 
 # Omit columns 3
 data1_new <- data1[, -c(3)]
